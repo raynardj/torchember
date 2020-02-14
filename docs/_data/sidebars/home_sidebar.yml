@@ -12,6 +12,9 @@ entries:
     - output: web,pdf
       title: Torch Ember Core
       url: /torch_ember_core
+    - output: web,pdf
+      title: Utilities
+      url: /utils
     output: web
     title: torchember
   output: web
