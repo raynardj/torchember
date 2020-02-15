@@ -7,6 +7,8 @@
 
 ## Fast Tutorial
 
+Full [documentations](https://raynardj.github.io/torchember/)
+
 ### Step1, Track your model
 
 Place you torch ember tracker on your model
