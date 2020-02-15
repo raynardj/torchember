@@ -52,3 +52,7 @@ class emberReader(object):
         self.t = emberTracker(name)
         self.structure = self.t[f"structure_{self.name}"]
         self.base = self.t[f"base_{self.name}"]
+
+    @property
+    def latest(self):
+        return self.t.latest_df.to_dict(orient = "record")

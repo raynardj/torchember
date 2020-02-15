@@ -1,0 +1,16 @@
+<div style="overflow-x:auto">
+<table class="table">
+<tr>
+{%for k in cols%}
+    <th>{{k}}</th>
+{%endfor%}
+</tr>
+{%for tensor in data%}
+<tr>
+    {%for k in cols%}
+        <td>{{tensor[k]}}</td>
+    {%endfor%}
+</tr>
+{%endfor%}
+</table>
+</div>

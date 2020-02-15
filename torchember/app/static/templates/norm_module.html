@@ -1,0 +1,9 @@
+
+{%for tensor in data%}
+<div class="row"></div>
+    <h5 class="col-sm-4">{{tensor.tname}}<span class="badge">{{tensor.ttype}}</span></h3>
+    <pre class="col-sm-3">{{tensor.shape}}</pre>
+</div>
+{%endfor%}
+
+<div class="dist_chart"><canvas id="canvas_norm_dist_{{idx}}" height="55"></canvas></div>

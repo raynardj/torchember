@@ -138,6 +138,7 @@ class torchEmber(object):
         self.model_name = self.model.__class__.__name__
 
         fname = f"{self.model_name}_{self.ts_str}"
+        self.fname = fname
 
         self.t = emberTracker(fname)
         self.current_mt = None
@@ -150,6 +151,7 @@ class torchEmber(object):
         self.how_record_weight(get_stats)
         self.t[f"base_{fname}"]={"start":self.t.ts,
                                  "user":os.environ["USER"]}
+        self.t[f"vis_{fname}"] = {"vis_type":"standard"}
         self.t[f"structure_{fname}"] = self.mod_tree()
 
     def parse_module(self,model, name, root_module = False):

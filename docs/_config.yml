@@ -1,7 +1,7 @@
-repository: raynardj/nbdev_test
+repository: raynardj/torchember
 output: web
-topnav_title: nbdev_test
-site_title: nbdev_test
+topnav_title: torchember
+site_title: torchember
 company_name: xiaochenzhang
 description: A description of your project
 # Set to false to disable KaTeX math

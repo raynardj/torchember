@@ -5,52 +5,65 @@
 
 {%if ember_list%}
 <div>
-<div class="col-sm-4">
-    <div class="dropdown">
-        <button class="btn btn-default dropdown-toggle" type="button" id="historyMenu" data-toggle="dropdown"
-            aria-haspopup="true" aria-expanded="true">
-            Models
-            <span class="caret"></span>
-        </button>
-        <ul class="dropdown-menu" aria-labelledby="historyMenu">
-            <li class="btn" onClick="window.location.reload();">Refresh for more</li>
-            {% for emb in ember_list%}
-            <li class="history_select" data-name="{{emb.name}}"><a>{{emb.name[:-16]}} <span
-                        class="badge">{{emb.start}}</span></a></li>
-            {% endfor %}
-        </ul>
+    <div class="col-sm-4">
+        <div class="dropdown">
+            <button class="btn btn-default dropdown-toggle" type="button" id="historyMenu" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="true">
+                Models
+                <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="historyMenu">
+                <li class="btn" onClick="window.location.reload();">Refresh for more</li>
+                {% for emb in ember_list%}
+                <li class="history_select" data-name="{{emb.name}}"><a>{{emb.name[:-16]}} <span
+                            class="badge">{{emb.start}}</span></a></li>
+                {% endfor %}
+            </ul>
+        </div>
+
+        {%else%}
+        Please run torch ember in you pytorch experiment first
+        {%endif%}
+
     </div>
-
-    {%else%}
-    Please run torch ember in you pytorch experiment first
-    {%endif%}
-
-</div>
-<div class="col-sm-8">
-    <h4>Selected Model: <strong><span id='selected'>Nothing Yet</span></strong></h4>
-</div>
+    <div class="col-sm-8">
+        <h4>Selected Model: <strong><span id='selected'>Nothing Yet</span></strong></h4>
+    </div>
 </div>
 
 
 <hr>
 
 <div>
-     <!-- Nav tabs -->
+    <!-- Nav tabs -->
     <ul class="nav nav-tabs">
-        <li role="presentation" class="tab-btn active"><a role="tab" data-toggle="tab" href="#structure">Structure</a></li>
-        <li role="presentation" class="tab-btn"><a role="tab" data-toggle="tab" href="#flow_history">Flow History</a></li>
+        <li role="presentation" class="tab-btn active"><a role="tab" data-toggle="tab" href="#structure">Structure</a>
+        </li>
+        <li role="presentation" class="tab-btn"><a role="tab" data-toggle="tab" href="#raw_data">Raw Data</a>
+        </li>
     </ul>
     <!-- Tab panes -->
     <div class="tab-content">
         <div role="tabpanel" class="tab-pane active" id="structure">
-            <h3>Model Structure</h3>
+            <div class="row">
+                <div><h3>Model Structure</h3></div>
+                <div>
+                    <!-- <div class="btn btn-default" id="real-time-btn">Real Time</div> -->
+                    <div class="btn btn-default" id="table-stats-btn">Table Stats</div>
+                    <div class="btn btn-default" id="reconstruct-gaussian-btn">Reconstruct Gaussian</div>
+                </div>
+            </div>
             <hr>
-            <div id="model_structure">Please select model first</div>
+            <div id="model_structure">
+                Please select model first
+            </div>
         </div>
-        <div role="tabpanel" class="tab-pane" id="flow_history">
-            <h3>Data Flow History</h3>
+        <div role="tabpanel" class="tab-pane" id="raw_data">
+            <h3>Raw Data</h3>
+            <div class="btn btn-default" id="table-stats-raw-btn">Table Stats</div>
             <hr>
-            <div>Please select model first</div>
+            
+            <div id="raw_data_block">Please select model first</div>
         </div>
     </div>
 </div>
@@ -58,6 +71,7 @@
 
 {%block tail_js%}
 {{super()}}
+<script src="/static/js/Chart.min.js"></script>
 <script src="/static/js/nunjucks.js"></script>
 <script src="/static/js/utils.js"></script>
 <script src="/static/js/index.js"></script>

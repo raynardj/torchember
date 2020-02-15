@@ -2,7 +2,7 @@ topnav:
 - title: Topnav
   items:
     - title: GitHub
-      external_url: https://github.com/raynardj/nbdev_test
+      external_url: https://github.com/raynardj/torchember
 
 #Topnav dropdowns
 topnav_dropdowns:
