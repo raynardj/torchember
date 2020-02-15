@@ -38,9 +38,49 @@ summary: "Tracking and visualize after the burning pytorch"
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Step1,-Track-your-model">Step1, Track your model<a class="anchor-link" href="#Step1,-Track-your-model">&#182;</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Place you torch ember tracker on your model</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">torchember.core</span> <span class="kn">import</span> <span class="n">torchEmber</span>
 <span class="n">te</span> <span class="o">=</span> <span class="n">torchEmber</span><span class="p">(</span><span class="n">model</span><span class="p">)</span>
 </pre></div>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Train your model as usual</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Step2,-Check-the-analysis-on-the-WebUI">Step2, Check the analysis on the WebUI<a class="anchor-link" href="#Step2,-Check-the-analysis-on-the-WebUI">&#182;</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Run the service from terminal</p>
+<div class="highlight"><pre><span></span>$ torchember
+</pre></div>
+<p>The default port will be 8080</p>
+<p>Or assign a port</p>
+<div class="highlight"><pre><span></span>$ torchember --port<span class="o">=</span><span class="m">4200</span>
+</pre></div>
+<p>Visit your analysis at <code>http://[host]:[port]</code></p>
 
 </div>
 </div>
