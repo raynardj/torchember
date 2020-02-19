@@ -10,6 +10,9 @@ entries:
       title: Overview
       url: /
     - output: web,pdf
+      title: Title
+      url: /helper
+    - output: web,pdf
       title: Torch Ember Core
       url: /torch_ember_core
     - output: web,pdf

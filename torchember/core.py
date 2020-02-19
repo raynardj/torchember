@@ -9,6 +9,7 @@ import json
 import pandas as pd
 from datetime import datetime
 import torch
+from .helper import color
 
 class tracker(object):
     def __init__(self, libname, fname):
@@ -100,6 +101,7 @@ class moduleTrack(object):
     def __init__(self,module, name=None, root_module = False):
         self.module = module
         module.module_tracker = self
+
         self.base_module = True if len(list(module.modules()))==1 else False
         self.root_module = root_module
 
@@ -129,8 +131,10 @@ def get_stats(tensor):
             "min":tensor.min().item()}
 
 class torchEmber(object):
-    def __init__(self, model):
+    def __init__(self, model, verbose = True):
+        color.green|"start analyzing model"
         self.modules = dict()
+        self.verbose = verbose
         self.model = model
         if hasattr(model,"disarm"):
             model.disarm()
@@ -149,6 +153,8 @@ class torchEmber(object):
         self.how_record_in(get_stats)
         self.how_record_out(get_stats)
         self.how_record_weight(get_stats)
+        if self.verbose:
+            color.green|f"[INFO][{self.ts_str}]Creating meta data"
         self.t[f"base_{fname}"]={"start":self.t.ts,
                                  "user":os.environ["USER"]}
         self.t[f"vis_{fname}"] = {"vis_type":"standard"}
@@ -183,16 +189,27 @@ class torchEmber(object):
     def ts_str(self):
         return datetime.now().strftime("%Y%m%d_%H%M%S")
 
+    @property
+    def ts(self):
+        return datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+
     def arm(self):
         """
         arming the tracing function to self.model
         """
+        if self.verbose:
+            color.yellow|f"[ARMING][START]{self.ts}"
         self.parse_module(self.model,"model", root_module = True)
+        if self.verbose:
+            color.yellow|f"[ARMING][SUCCESS]{self.ts}"
 
     def disarm(self):
         """remove the tracing function"""
         for m in self.modules.values():
+            if self.verbose:
+                color.blue|f"[DISARM][{m.name}]{self.ts}"
             self.recover(m)
+        color.blue|f"[DISARM][DONE]{self.ts}"
 
     def recover(self, m):
         if hasattr(m.module.forward,"former"):
@@ -286,7 +303,8 @@ class torchEmber(object):
         mt = self.modules[name]
         vs = f.__code__.co_varnames
         mt.vars = vs[1:]
-
+        if self.verbose:
+            color.cyan | f"[BUILD FORWARD][{name}]{self.ts}"
         def new_forward(*args,**kwargs):
             mt.input_dt = dict(zip(mt.vars[:len(args)],args))
             mt.input_dt.update(kwargs)

@@ -1,6 +1,7 @@
 {
   "torchember": {
     "Overview": "/",
+    "Title": "/helper",
     "Torch Ember Core": "/torch_ember_core",
     "Utilities": "/utils"
   }
