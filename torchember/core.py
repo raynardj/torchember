@@ -32,18 +32,14 @@ class tracker(object):
         Path(path).mkdir(exist_ok=True)
 
     def __setitem__(self, fname,dict_):
-        # with f as open(self.data/f"{fname}.json","w"): f.write(json.dumps(dict_, indent = 2))
-        f = open(self.data/f"{fname}.json","w")
-        f.write(json.dumps(dict_, indent = 2))
-        f.close()
+        with open(self.data/f"{fname}.json","w") as f: f.write(json.dumps(dict_, indent = 2))
+
 
     def __getitem__(self,fname):
         return json.loads(open(self.data/f"{fname}.json","r").read())
 
     def logging(self,line):
-        f = open(self.log_path,"a")
-        f.write(line+"\n")
-        f.close()
+        with open(self.log_path,"a") as f :f.write(line+"\n")
         return self.log_path
 
     def __add__(self,dict_):
@@ -71,9 +67,7 @@ class emberTracker(tracker):
         self.latest_lines = ""
 
     def logging(self,line):
-        f = open(self.log_path,"a")
-        f.write(line+"\n")
-        f.close()
+        with open(self.log_path,"a") as f : f.write(line+"\n")
         self.latest_lines+=(line+"\n")
         return self.log_path
 
@@ -81,9 +75,7 @@ class emberTracker(tracker):
         """
         lastest always contain the record of the latest batch
         """
-        f = open(self.latest,"w")
-        f.write(self.latest_lines)
-        f.close()
+        with open(self.latest,"w") as f :  f.write(self.latest_lines)
         self.latest_lines = ""
         return self.latest
 
