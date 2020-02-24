@@ -134,6 +134,7 @@ class torchEmber(object):
         self.modules = dict()
         self.verbose = verbose
         self.model = model
+
         if hasattr(model,"disarm"):
             model.disarm()
 
@@ -148,14 +149,9 @@ class torchEmber(object):
 
         self.arm()
 
-        self.how_record_in    =self.record_core(get_stats)
-        self.how_record_out   =self.record_core(get_stats)
-        self.how_record_weight=self.record_core(get_stats)
-        """
-        self.how_record_in(get_stats)
-        self.how_record_out(get_stats)
-        self.how_record_weight(get_stats)
-        """
+        self.legit_ttypes = ["in","out","weight"]
+        for ttype in self.legit_ttypes: self.set_metric(ttype)(get_stats)
+
         if self.verbose:
             color.green|f"[INFO][{self.ts_str}]Creating meta data"
         self.t[f"base_{fname}"]={"start":self.t.ts,
@@ -231,6 +227,13 @@ class torchEmber(object):
                 return False
         return True
 
+    def set_metric(self, ttype):
+        assert ttype in self.legit_ttypes, f"ttype has to be one of {str(self.ttypes)}"
+        def deco(f):
+            setattr(self,f"record_{ttype}_core",self.record_core(f))
+            return f
+        return deco
+
     def add_record(f):
         def _inner(self, f_name): return partial(f, self, f_name)
         return _inner
@@ -250,7 +253,7 @@ class torchEmber(object):
         Record the input tensors of the moduleTrack
         """
         for k,tensor in mt.input_dt.items():
-            self.how_record_in(tensor,
+            self.record_in_core(tensor,
                           extra_data = {"module":mt.name,"ts":self.t.ts,"ttype":"input","tname":k})
 
     def record_output(self,mt):
@@ -259,7 +262,7 @@ class torchEmber(object):
         """
         for i in range(len(mt.output_dt)):
             tensor = mt.output_dt[i]
-            self.how_record_out(tensor,
+            self.record_out_core(tensor,
                           extra_data = {"module":mt.name,"ts":self.t.ts,"ttype":"output","tname":f"output_{i}"})
 
     def record_weight(self,mt):
@@ -269,11 +272,11 @@ class torchEmber(object):
         if mt.base_module:
             i = 0
             for p in mt.module.parameters():
-                self.how_record_weight(p.data,
+                self.record_weight_core(p.data,
                               extra_data = {"module":mt.name,"ts":self.t.ts,
                                             "ttype":"weight","tname":f"weight_{i}"})
                 if p.requires_grad and (p.grad!= None) :
-                    self.how_record_weight(p.grad,
+                    self.record_weight_core(p.grad,
                               extra_data = {"module":mt.name,"ts":self.t.ts,
                                             "ttype":"weight_grad","tname":f"grad_{i}"})
                 i+=1
