@@ -46,10 +46,13 @@ default_doc = """
 def api_wrap(f):
     def wraper(this,*args,**kwargs):
         request_info = {}
+
         try:request_info["data"]  = json.loads(request.data)
         except Exception as e:request_info["data"]  = {"load_json_error":str(e)}
+        
         try:request_info["form"]  = request.form
         except:pass
+
         try:
             data=f(this,*args,**kwargs)
             rt={"data":data,"request":request_info,"success":True, "status":200}
@@ -77,6 +80,7 @@ class emberReadView(BaseView):
     @api_wrap
     def latest(self):
         er = self.request_to_er(request.data)
+        print(er.latest)
         return {"cols":list(er.t.latest_df.columns),
                 "latest":er.latest,
                 "vis":er.t[f"vis_{er.name}"],}
