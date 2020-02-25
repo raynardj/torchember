@@ -10,6 +10,7 @@ import pandas as pd
 from datetime import datetime
 import torch
 from .helper import color
+from functools import partial
 
 class tracker(object):
     def __init__(self, libname, fname):
@@ -31,17 +32,14 @@ class tracker(object):
         Path(path).mkdir(exist_ok=True)
 
     def __setitem__(self, fname,dict_):
-        f = open(self.data/f"{fname}.json","w")
-        f.write(json.dumps(dict_, indent = 2))
-        f.close()
+        with open(self.data/f"{fname}.json","w") as f: f.write(json.dumps(dict_, indent = 2))
+
 
     def __getitem__(self,fname):
         return json.loads(open(self.data/f"{fname}.json","r").read())
 
     def logging(self,line):
-        f = open(self.log_path,"a")
-        f.write(line+"\n")
-        f.close()
+        with open(self.log_path,"a") as f :f.write(line+"\n")
         return self.log_path
 
     def __add__(self,dict_):
@@ -69,9 +67,7 @@ class emberTracker(tracker):
         self.latest_lines = ""
 
     def logging(self,line):
-        f = open(self.log_path,"a")
-        f.write(line+"\n")
-        f.close()
+        with open(self.log_path,"a") as f : f.write(line+"\n")
         self.latest_lines+=(line+"\n")
         return self.log_path
 
@@ -79,9 +75,7 @@ class emberTracker(tracker):
         """
         lastest always contain the record of the latest batch
         """
-        f = open(self.latest,"w")
-        f.write(self.latest_lines)
-        f.close()
+        with open(self.latest,"w") as f :  f.write(self.latest_lines)
         self.latest_lines = ""
         return self.latest
 
@@ -106,6 +100,7 @@ class moduleTrack(object):
         self.root_module = root_module
 
         self.name = name if name else module.__class__.__name__
+        #self.name = f'{name}_tracker' if name else f'{module.__class__.__name__}_tracker'
         self.id = id(module)
         self.children = []
 
@@ -128,7 +123,10 @@ def get_stats(tensor):
             "mean":tensor.mean().item(),
             "std":tensor.std().item(),
             "max":tensor.max().item(),
-            "min":tensor.min().item()}
+            "min":tensor.min().item(),
+            "cnt_zero": ((tensor>-1e-10) & (tensor < 1e-10)).sum().item()}
+
+
 
 class torchEmber(object):
     def __init__(self, model, verbose = True):
@@ -136,6 +134,7 @@ class torchEmber(object):
         self.modules = dict()
         self.verbose = verbose
         self.model = model
+
         if hasattr(model,"disarm"):
             model.disarm()
 
@@ -150,9 +149,9 @@ class torchEmber(object):
 
         self.arm()
 
-        self.how_record_in(get_stats)
-        self.how_record_out(get_stats)
-        self.how_record_weight(get_stats)
+        self.legit_ttypes = ["in","out","weight"]
+        for ttype in self.legit_ttypes: self.set_metric(ttype)(get_stats)
+
         if self.verbose:
             color.green|f"[INFO][{self.ts_str}]Creating meta data"
         self.t[f"base_{fname}"]={"start":self.t.ts,
@@ -228,48 +227,33 @@ class torchEmber(object):
                 return False
         return True
 
-    def how_record_in(self,f):
-        def record_input_core(this, tensor,extra_data):
-            """
-            extra_data: dict
-            """
-            dict_ = f(tensor)
-            dict_.update(extra_data)
-            this.t+dict_
-            return dict_
-        setattr(self,"record_input_core",MethodType(record_input_core,self))
-        return self.record_input_core
+    def set_metric(self, ttype):
+        assert ttype in self.legit_ttypes, f"ttype has to be one of {str(self.ttypes)}"
+        def deco(f):
+            setattr(self,f"record_{ttype}_core",self.record_core(f))
+            return f
+        return deco
 
-    def how_record_out(self,f):
-        def record_output_core(this, tensor,extra_data):
-            """
-            extra_data: dict
-            """
-            dict_ = f(tensor)
-            dict_.update(extra_data)
-            this.t+dict_
-            return dict_
-        setattr(self,"record_output_core",MethodType(record_output_core,self))
-        return self.record_output_core
+    def add_record(f):
+        def _inner(self, f_name): return partial(f, self, f_name)
+        return _inner
 
-    def how_record_weight(self,f):
-        def record_weight_core(this, tensor,extra_data):
-            """
-            extra_data: dict
-            """
-            dict_ = f(tensor)
-            dict_.update(extra_data)
-            this.t+dict_
-            return dict_
-        setattr(self,"record_weight_core",MethodType(record_weight_core,self))
-        return self.record_weight_core
+    @add_record
+    def record_core(self, f_name, tensor, extra_data):
+        """
+        extra_data: dict
+        """
+        dict_= f_name(tensor)
+        dict_.update(extra_data)
+        self.t+ dict_
+        return dict_
 
     def record_input(self,mt):
         """
         Record the input tensors of the moduleTrack
         """
         for k,tensor in mt.input_dt.items():
-            self.record_input_core(tensor,
+            self.record_in_core(tensor,
                           extra_data = {"module":mt.name,"ts":self.t.ts,"ttype":"input","tname":k})
 
     def record_output(self,mt):
@@ -278,7 +262,7 @@ class torchEmber(object):
         """
         for i in range(len(mt.output_dt)):
             tensor = mt.output_dt[i]
-            self.record_output_core(tensor,
+            self.record_out_core(tensor,
                           extra_data = {"module":mt.name,"ts":self.t.ts,"ttype":"output","tname":f"output_{i}"})
 
     def record_weight(self,mt):

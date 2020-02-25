@@ -126,7 +126,7 @@ vis_map = {
 
 function paint_standard(latest, cols, vis) {
     // over write cols in this function
-    cols = ["ttype", "tname", "shape", "mean", "std", "min", "max"]
+    cols = ["ttype", "tname", "shape","cnt_zero", "mean", "std", "min", "max"]
     var by_module = build_by_module(latest);
     for (mname in by_module) {
         paint_standard_module(by_module[mname], cols)
