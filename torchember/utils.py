@@ -8,6 +8,7 @@ import os
 from pathlib import Path
 import json
 import pandas as pd
+import numpy as np
 
 # Cell
 HOME = Path(os.environ["HOME"])
