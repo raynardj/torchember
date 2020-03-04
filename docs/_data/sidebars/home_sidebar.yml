@@ -18,6 +18,9 @@ entries:
     - output: web,pdf
       title: Utilities
       url: /utils
+    - output: web,pdf
+      title: Why Hat
+      url: /why_hat
     output: web
     title: torchember
   output: web

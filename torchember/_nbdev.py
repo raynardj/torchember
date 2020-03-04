@@ -17,11 +17,14 @@ index = {"color": "helper.ipynb",
          "get_ember_list": "utils.ipynb",
          "unpack_meta": "utils.ipynb",
          "get_ember_df": "utils.ipynb",
-         "emberReader": "utils.ipynb"}
+         "emberReader": "utils.ipynb",
+         "RichColumn": "why_hat.ipynb",
+         "RichDF": "why_hat.ipynb"}
 
 modules = ["helper.py",
            "core.py",
-           "utils.py"]
+           "utils.py",
+           "whyhat.py"]
 
 doc_url = "https://raynardj.github.io/torchember/"
 
