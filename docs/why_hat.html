@@ -66,7 +66,7 @@ summary: "Analytical approach using Neural Network on tabulate data"
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">CSV_PATH</span><span class="p">)</span>
-<span class="n">df</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -118,217 +118,197 @@ summary: "Analytical approach using Neural Network on tabulate data"
   </thead>
   <tbody>
     <tr>
-      <td>18722</td>
-      <td>14823077</td>
-      <td>Amazing Private Bedroom on UES of New York City</td>
-      <td>20707006</td>
-      <td>Tianna</td>
-      <td>Manhattan</td>
-      <td>East Harlem</td>
-      <td>40.78962</td>
-      <td>-73.94837</td>
-      <td>Private room</td>
-      <td>100</td>
-      <td>4</td>
+      <td>30776</td>
+      <td>23820538</td>
+      <td>Large 3 Bedroom Loft in Heart of Williamsburg</td>
+      <td>28373054</td>
+      <td>Nadira</td>
+      <td>Brooklyn</td>
+      <td>Williamsburg</td>
+      <td>40.71201</td>
+      <td>-73.95882</td>
+      <td>Entire home/apt</td>
+      <td>600</td>
+      <td>3</td>
+      <td>14</td>
+      <td>2019-06-17</td>
+      <td>0.98</td>
       <td>1</td>
-      <td>2017-01-03</td>
+      <td>167</td>
+    </tr>
+    <tr>
+      <td>19830</td>
+      <td>15876032</td>
+      <td>Great Bedroom in a great location. Fun hosts.</td>
+      <td>59358</td>
+      <td>V.Stephan</td>
+      <td>Manhattan</td>
+      <td>Upper East Side</td>
+      <td>40.78440</td>
+      <td>-73.94856</td>
+      <td>Private room</td>
+      <td>65</td>
+      <td>2</td>
+      <td>42</td>
+      <td>2019-06-13</td>
+      <td>1.31</td>
+      <td>2</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>43112</td>
+      <td>33451336</td>
+      <td>Artist Heaven Garden Loft</td>
+      <td>132099860</td>
+      <td>Mark</td>
+      <td>Manhattan</td>
+      <td>East Village</td>
+      <td>40.72283</td>
+      <td>-73.98382</td>
+      <td>Entire home/apt</td>
+      <td>450</td>
+      <td>5</td>
+      <td>0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>1</td>
+      <td>310</td>
+    </tr>
+    <tr>
+      <td>15656</td>
+      <td>12644989</td>
+      <td>Modern high-end studio!</td>
+      <td>9997184</td>
+      <td>Kelly</td>
+      <td>Manhattan</td>
+      <td>Upper West Side</td>
+      <td>40.79376</td>
+      <td>-73.96734</td>
+      <td>Entire home/apt</td>
+      <td>185</td>
+      <td>2</td>
+      <td>10</td>
+      <td>2016-09-01</td>
+      <td>0.26</td>
+      <td>1</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>42497</td>
+      <td>32986796</td>
+      <td>Furnished private room 5 minutes from Subway</td>
+      <td>141547523</td>
+      <td>Mathew</td>
+      <td>Manhattan</td>
+      <td>Harlem</td>
+      <td>40.82943</td>
+      <td>-73.94690</td>
+      <td>Private room</td>
+      <td>50</td>
+      <td>2</td>
+      <td>13</td>
+      <td>2019-06-15</td>
+      <td>3.42</td>
+      <td>1</td>
+      <td>65</td>
+    </tr>
+    <tr>
+      <td>28719</td>
+      <td>22205765</td>
+      <td>Beautiful spacious Greenwich Village apt w/ ga...</td>
+      <td>16798487</td>
+      <td>Vadim</td>
+      <td>Manhattan</td>
+      <td>Greenwich Village</td>
+      <td>40.73506</td>
+      <td>-73.99743</td>
+      <td>Entire home/apt</td>
+      <td>400</td>
+      <td>7</td>
+      <td>0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>1</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>33452</td>
+      <td>26447297</td>
+      <td>Northern Manhattan Getaway</td>
+      <td>319488</td>
+      <td>Melinda</td>
+      <td>Manhattan</td>
+      <td>Inwood</td>
+      <td>40.86755</td>
+      <td>-73.92870</td>
+      <td>Private room</td>
+      <td>125</td>
+      <td>2</td>
+      <td>21</td>
+      <td>2019-06-23</td>
+      <td>1.82</td>
+      <td>1</td>
+      <td>141</td>
+    </tr>
+    <tr>
+      <td>2873</td>
+      <td>1640995</td>
+      <td>One bedroom apartment - UES</td>
+      <td>8313953</td>
+      <td>Natalie</td>
+      <td>Manhattan</td>
+      <td>Upper East Side</td>
+      <td>40.76866</td>
+      <td>-73.95360</td>
+      <td>Entire home/apt</td>
+      <td>140</td>
+      <td>6</td>
+      <td>36</td>
+      <td>2019-06-06</td>
+      <td>0.69</td>
+      <td>1</td>
+      <td>71</td>
+    </tr>
+    <tr>
+      <td>20541</td>
+      <td>16338454</td>
+      <td>Cozy &amp; Sunlit Three Bedroom Apartment</td>
+      <td>5828836</td>
+      <td>Dana</td>
+      <td>Manhattan</td>
+      <td>Harlem</td>
+      <td>40.82548</td>
+      <td>-73.94983</td>
+      <td>Entire home/apt</td>
+      <td>255</td>
+      <td>2</td>
+      <td>1</td>
+      <td>2017-01-01</td>
       <td>0.03</td>
       <td>1</td>
       <td>0</td>
     </tr>
     <tr>
-      <td>20052</td>
-      <td>16056111</td>
-      <td>A Touch of Modern</td>
-      <td>36420662</td>
-      <td>Marc</td>
-      <td>Brooklyn</td>
-      <td>Williamsburg</td>
-      <td>40.70775</td>
-      <td>-73.94611</td>
-      <td>Private room</td>
-      <td>75</td>
-      <td>3</td>
-      <td>3</td>
-      <td>2017-04-29</td>
-      <td>0.11</td>
-      <td>1</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <td>14905</td>
-      <td>11837962</td>
-      <td>1 BR heart of Midtown East</td>
-      <td>61391963</td>
-      <td>Corporate Housing</td>
-      <td>Manhattan</td>
-      <td>Midtown</td>
-      <td>40.75660</td>
-      <td>-73.96956</td>
-      <td>Entire home/apt</td>
-      <td>133</td>
-      <td>30</td>
-      <td>7</td>
-      <td>2018-09-29</td>
-      <td>0.22</td>
-      <td>91</td>
-      <td>127</td>
-    </tr>
-    <tr>
-      <td>26622</td>
-      <td>21175822</td>
-      <td>Studio in Upper East Side Manhattan</td>
-      <td>152885643</td>
-      <td>Seamus</td>
-      <td>Manhattan</td>
-      <td>Upper East Side</td>
-      <td>40.77585</td>
-      <td>-73.95101</td>
-      <td>Entire home/apt</td>
-      <td>128</td>
-      <td>4</td>
-      <td>12</td>
-      <td>2018-12-26</td>
-      <td>0.60</td>
-      <td>1</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <td>5096</td>
-      <td>3662887</td>
-      <td>1 Bedroom Apartment in Gramcery!</td>
-      <td>14041891</td>
-      <td>Tom</td>
-      <td>Manhattan</td>
-      <td>Flatiron District</td>
-      <td>40.74110</td>
-      <td>-73.98455</td>
-      <td>Entire home/apt</td>
-      <td>200</td>
-      <td>4</td>
-      <td>0</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>1</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-    </tr>
-    <tr>
-      <td>35471</td>
-      <td>28137157</td>
-      <td>Laurelton, Queens, NYC (3min-JFK; Seconds-LIRR)</td>
-      <td>157393936</td>
-      <td>Apostle John</td>
-      <td>Queens</td>
-      <td>Springfield Gardens</td>
-      <td>40.66959</td>
-      <td>-73.75246</td>
-      <td>Private room</td>
-      <td>100</td>
-      <td>5</td>
-      <td>1</td>
-      <td>2018-09-13</td>
-      <td>0.10</td>
-      <td>2</td>
-      <td>365</td>
-    </tr>
-    <tr>
-      <td>6489</td>
-      <td>4717440</td>
-      <td>Bright, art-filled elevator apt, LES/Chinatown</td>
-      <td>3237577</td>
-      <td>Eddie</td>
-      <td>Manhattan</td>
-      <td>Chinatown</td>
-      <td>40.71585</td>
-      <td>-73.98982</td>
-      <td>Entire home/apt</td>
-      <td>170</td>
-      <td>3</td>
-      <td>94</td>
-      <td>2019-06-23</td>
-      <td>1.71</td>
-      <td>1</td>
-      <td>7</td>
-    </tr>
-    <tr>
-      <td>48347</td>
-      <td>36207836</td>
-      <td>Big Room close to LGA Airport. Cuarto Grande.</td>
-      <td>157053317</td>
-      <td>Jey</td>
-      <td>Queens</td>
-      <td>East Elmhurst</td>
-      <td>40.76263</td>
-      <td>-73.88999</td>
-      <td>Private room</td>
-      <td>40</td>
-      <td>1</td>
-      <td>0</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>1</td>
-      <td>318</td>
-    </tr>
-    <tr>
-      <td>29595</td>
-      <td>22715051</td>
-      <td>Duplex Apt in Brooklyn Beautiful Brownstone</td>
-      <td>24967136</td>
-      <td>Paul</td>
+      <td>42490</td>
+      <td>32980398</td>
+      <td>Your own sanctuary! Private Floor, 3min to subway</td>
+      <td>5338560</td>
+      <td>Daniella</td>
       <td>Brooklyn</td>
       <td>Bedford-Stuyvesant</td>
-      <td>40.68226</td>
-      <td>-73.93153</td>
+      <td>40.67812</td>
+      <td>-73.91465</td>
       <td>Entire home/apt</td>
-      <td>119</td>
-      <td>5</td>
-      <td>25</td>
-      <td>2019-05-25</td>
-      <td>1.49</td>
+      <td>95</td>
       <td>2</td>
-      <td>77</td>
-    </tr>
-    <tr>
-      <td>13492</td>
-      <td>10100799</td>
-      <td>Spacious Garden Apartment in Heart of Park Slope</td>
-      <td>9250639</td>
-      <td>Amy</td>
-      <td>Brooklyn</td>
-      <td>Park Slope</td>
-      <td>40.67622</td>
-      <td>-73.97953</td>
-      <td>Entire home/apt</td>
-      <td>125</td>
-      <td>2</td>
-      <td>7</td>
-      <td>2019-06-30</td>
-      <td>0.20</td>
+      <td>14</td>
+      <td>2019-07-07</td>
+      <td>4.20</td>
       <td>1</td>
-      <td>0</td>
+      <td>275</td>
     </tr>
   </tbody>
 </table>
-<p>100 rows × 16 columns</p>
 </div>
 </div>
 
@@ -356,7 +336,7 @@ summary: "Analytical approach using Neural Network on tabulate data"
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h2 id="RichColumn" class="doc_header"><code>class</code> <code>RichColumn</code><a href="https://github.com/raynardj/torchember/tree/master/torchember/whyhat.py#L14" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>RichColumn</code>(<strong><code>column</code></strong>, <strong><code>min_occur</code></strong>=<em><code>5</code></em>)</p>
+<h2 id="RichColumn" class="doc_header"><code>class</code> <code>RichColumn</code><a href="https://github.com/raynardj/torchember/tree/master/torchember/whyhat.py#L14" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>RichColumn</code>(<strong><code>column</code></strong>, <strong><code>is_y</code></strong>=<em><code>False</code></em>, <strong><code>min_occur</code></strong>=<em><code>5</code></em>, <strong><code>is_emb</code></strong>=<em><code>True</code></em>, <strong><code>hidden_size</code></strong>=<em><code>50</code></em>)</p>
 </blockquote>
 <p>A pandas series manager</p>
 
@@ -377,7 +357,7 @@ summary: "Analytical approach using Neural Network on tabulate data"
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h2 id="RichDF" class="doc_header"><code>class</code> <code>RichDF</code><a href="https://github.com/raynardj/torchember/tree/master/torchember/whyhat.py#L66" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>RichDF</code>(<strong><code>df</code></strong>)</p>
+<h2 id="RichDF" class="doc_header"><code>class</code> <code>RichDF</code><a href="https://github.com/raynardj/torchember/tree/master/torchember/whyhat.py#L90" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>RichDF</code>(<strong><code>df</code></strong>)</p>
 </blockquote>
 <p>A pandas dataframe manager</p>
 
@@ -411,6 +391,206 @@ summary: "Analytical approach using Neural Network on tabulate data"
 </pre></div>
 
     </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre><span class="ansi-bold">==============================</span>
+<span class="ansi-cyan-intense-fg">id</span>
+<span class="ansi-red-intense-fg">number? True</span>
+Empty DataFrame
+Columns: [index, id]
+Index: []
+<span class="ansi-red-intense-fg">Is this a [C]ontineous, [D]iscrete or a column we do[N]&#39;t need? default N</span>
+
+<span class="ansi-blue-intense-fg">id will not be involved in learning</span>
+<span class="ansi-bold">==============================</span>
+<span class="ansi-cyan-intense-fg">name</span>
+<span class="ansi-red-intense-fg">number? False</span>
+                          index  name
+0                Hillside Hotel    18
+1           Home away from home    17
+2  New york Multi-unit building    16
+3            Brooklyn Apartment    12
+4                  Private Room    11
+<span class="ansi-red-intense-fg">Is this a [C]ontineous, [D]iscrete or a column we do[N]&#39;t need? default N</span>
+d
+<span class="ansi-blue-intense-fg">name set to discrite data</span>
+<span class="ansi-bold">==============================</span>
+<span class="ansi-cyan-intense-fg">host_id</span>
+<span class="ansi-red-intense-fg">number? True</span>
+       index  host_id
+0  219517861      327
+1  107434423      232
+2   30283594      121
+3  137358866      103
+4   12243051       96
+<span class="ansi-red-intense-fg">Is this a [C]ontineous, [D]iscrete or a column we do[N]&#39;t need? default N</span>
+d
+<span class="ansi-blue-intense-fg">host_id set to discrite data</span>
+<span class="ansi-bold">==============================</span>
+<span class="ansi-cyan-intense-fg">host_name</span>
+<span class="ansi-red-intense-fg">number? False</span>
+          index  host_name
+0       Michael        417
+1         David        403
+2  Sonder (NYC)        327
+3          John        294
+4          Alex        279
+<span class="ansi-red-intense-fg">Is this a [C]ontineous, [D]iscrete or a column we do[N]&#39;t need? default N</span>
+d
+<span class="ansi-blue-intense-fg">host_name set to discrite data</span>
+<span class="ansi-bold">==============================</span>
+<span class="ansi-cyan-intense-fg">neighbourhood_group</span>
+<span class="ansi-red-intense-fg">number? False</span>
+           index  neighbourhood_group
+0      Manhattan                21661
+1       Brooklyn                20104
+2         Queens                 5666
+3          Bronx                 1091
+4  Staten Island                  373
+<span class="ansi-red-intense-fg">Is this a [C]ontineous, [D]iscrete or a column we do[N]&#39;t need? default N</span>
+d
+<span class="ansi-blue-intense-fg">neighbourhood_group set to discrite data</span>
+<span class="ansi-bold">==============================</span>
+<span class="ansi-cyan-intense-fg">neighbourhood</span>
+<span class="ansi-red-intense-fg">number? False</span>
+                index  neighbourhood
+0        Williamsburg           3920
+1  Bedford-Stuyvesant           3714
+2              Harlem           2658
+3            Bushwick           2465
+4     Upper West Side           1971
+<span class="ansi-red-intense-fg">Is this a [C]ontineous, [D]iscrete or a column we do[N]&#39;t need? default N</span>
+d
+<span class="ansi-blue-intense-fg">neighbourhood set to discrite data</span>
+<span class="ansi-bold">==============================</span>
+<span class="ansi-cyan-intense-fg">latitude</span>
+<span class="ansi-red-intense-fg">number? True</span>
+      index  latitude
+0  40.71813        18
+1  40.68634        13
+2  40.69414        13
+3  40.68444        13
+4  40.71171        12
+<span class="ansi-red-intense-fg">Is this a [C]ontineous, [D]iscrete or a column we do[N]&#39;t need? default N</span>
+c
+<span class="ansi-blue-intense-fg">latitude set to contineous data</span>
+<span class="ansi-bold">==============================</span>
+<span class="ansi-cyan-intense-fg">longitude</span>
+<span class="ansi-red-intense-fg">number? True</span>
+      index  longitude
+0 -73.95677         18
+1 -73.95427         18
+2 -73.95405         17
+3 -73.95136         16
+4 -73.94791         16
+<span class="ansi-red-intense-fg">Is this a [C]ontineous, [D]iscrete or a column we do[N]&#39;t need? default N</span>
+c
+<span class="ansi-blue-intense-fg">longitude set to contineous data</span>
+<span class="ansi-bold">==============================</span>
+<span class="ansi-cyan-intense-fg">room_type</span>
+<span class="ansi-red-intense-fg">number? False</span>
+             index  room_type
+0  Entire home/apt      25409
+1     Private room      22326
+2      Shared room       1160
+<span class="ansi-red-intense-fg">Is this a [C]ontineous, [D]iscrete or a column we do[N]&#39;t need? default N</span>
+d
+<span class="ansi-blue-intense-fg">room_type set to discrite data</span>
+<span class="ansi-bold">==============================</span>
+<span class="ansi-cyan-intense-fg">price</span>
+<span class="ansi-red-intense-fg">number? True</span>
+   index  price
+0    100   2051
+1    150   2047
+2     50   1534
+3     60   1458
+4    200   1401
+<span class="ansi-red-intense-fg">Is this a [C]ontineous, [D]iscrete or a column we do[N]&#39;t need? default N</span>
+c
+<span class="ansi-blue-intense-fg">price set to contineous data</span>
+<span class="ansi-bold">==============================</span>
+<span class="ansi-cyan-intense-fg">minimum_nights</span>
+<span class="ansi-red-intense-fg">number? True</span>
+   index  minimum_nights
+0      1           12720
+1      2           11696
+2      3            7999
+3     30            3760
+4      4            3303
+<span class="ansi-red-intense-fg">Is this a [C]ontineous, [D]iscrete or a column we do[N]&#39;t need? default N</span>
+c
+<span class="ansi-blue-intense-fg">minimum_nights set to contineous data</span>
+<span class="ansi-bold">==============================</span>
+<span class="ansi-cyan-intense-fg">number_of_reviews</span>
+<span class="ansi-red-intense-fg">number? True</span>
+   index  number_of_reviews
+0      0              10052
+1      1               5244
+2      2               3465
+3      3               2520
+4      4               1994
+<span class="ansi-red-intense-fg">Is this a [C]ontineous, [D]iscrete or a column we do[N]&#39;t need? default N</span>
+c
+<span class="ansi-blue-intense-fg">number_of_reviews set to contineous data</span>
+<span class="ansi-bold">==============================</span>
+<span class="ansi-cyan-intense-fg">last_review</span>
+<span class="ansi-red-intense-fg">number? False</span>
+        index  last_review
+0  2019-06-23         1413
+1  2019-07-01         1359
+2  2019-06-30         1341
+3  2019-06-24          875
+4  2019-07-07          718
+<span class="ansi-red-intense-fg">Is this a [C]ontineous, [D]iscrete or a column we do[N]&#39;t need? default N</span>
+
+<span class="ansi-blue-intense-fg">last_review will not be involved in learning</span>
+<span class="ansi-bold">==============================</span>
+<span class="ansi-cyan-intense-fg">reviews_per_month</span>
+<span class="ansi-red-intense-fg">number? True</span>
+   index  reviews_per_month
+0   0.02                919
+1   0.05                893
+2   1.00                893
+3   0.03                804
+4   0.16                667
+<span class="ansi-red-intense-fg">Is this a [C]ontineous, [D]iscrete or a column we do[N]&#39;t need? default N</span>
+c
+<span class="ansi-blue-intense-fg">reviews_per_month set to contineous data</span>
+<span class="ansi-bold">==============================</span>
+<span class="ansi-cyan-intense-fg">calculated_host_listings_count</span>
+<span class="ansi-red-intense-fg">number? True</span>
+   index  calculated_host_listings_count
+0      1                           32303
+1      2                            6658
+2      3                            2853
+3      4                            1440
+4      5                             845
+<span class="ansi-red-intense-fg">Is this a [C]ontineous, [D]iscrete or a column we do[N]&#39;t need? default N</span>
+c
+<span class="ansi-blue-intense-fg">calculated_host_listings_count set to contineous data</span>
+<span class="ansi-bold">==============================</span>
+<span class="ansi-cyan-intense-fg">availability_365</span>
+<span class="ansi-red-intense-fg">number? True</span>
+   index  availability_365
+0      0             17533
+1    365              1295
+2    364               491
+3      1               408
+4     89               361
+<span class="ansi-red-intense-fg">Is this a [C]ontineous, [D]iscrete or a column we do[N]&#39;t need? default N</span>
+c
+<span class="ansi-blue-intense-fg">availability_365 set to contineous data</span>
+</pre>
+</div>
+</div>
+
 </div>
 </div>
 
