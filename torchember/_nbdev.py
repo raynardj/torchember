@@ -4,8 +4,8 @@ __all__ = ["index", "modules", "custom_doc_links", "git_url"]
 
 index = {"color": "helper.ipynb",
          "tint": "helper.ipynb",
-         "tracker": "torch_ember_core.ipynb",
-         "emberTracker": "torch_ember_core.ipynb",
+         "tracker": "helper.ipynb",
+         "emberTracker": "helper.ipynb",
          "moduleTrack": "torch_ember_core.ipynb",
          "get_stats": "torch_ember_core.ipynb",
          "torchEmber": "torch_ember_core.ipynb",

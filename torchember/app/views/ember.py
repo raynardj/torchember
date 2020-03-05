@@ -1,12 +1,14 @@
 from flask_appbuilder import BaseView,expose
-from flask import request,jsonify
+from flask import request,jsonify,Response
 from torchember.utils import emberReader
 import json
 import sys
+from pathlib import Path
 from io import StringIO
 import traceback
 import markdown
 from types import MethodType
+import os
 
 class color:
    PURPLE = '\033[95m'
@@ -90,4 +92,13 @@ class emberReadView(BaseView):
         name = data["name"]
         er = emberReader(name)
         return er
-        
+
+    @expose("/log_file/<middle_path>/<filename>/")
+    def log_file(self,middle_path, filename):
+        home = Path(os.environ["HOME"])
+        emberhome = home/".torchember"
+        loghome = emberhome/"log"
+        if middle_path != "log":
+            modelhome = loghome/middle_path
+        file_path = str(modelhome/filename)
+        return Response(open(file_path,"r").read())

@@ -1,7 +1,7 @@
 {%extends "appbuilder/base.html"%}
 
 {%block content%}
-<h2>Torch Ember</h2>
+<h2><i class="fa fa-fire"></i> Torch Ember</h2>
 
 {%if ember_list%}
 <div>
@@ -9,13 +9,13 @@
         <div class="dropdown">
             <button class="btn btn-default dropdown-toggle" type="button" id="historyMenu" data-toggle="dropdown"
                 aria-haspopup="true" aria-expanded="true">
-                Models
+                <i class="fa fa-university"></i> Models
                 <span class="caret"></span>
             </button>
             <ul class="dropdown-menu" aria-labelledby="historyMenu">
                 <li class="btn" onClick="window.location.reload();">Refresh for more</li>
                 {% for emb in ember_list%}
-                <li class="history_select" data-name="{{emb.name}}"><a>{{emb.name[:-16]}} <span
+                <li class="history_select" data-name="{{emb.name}}"><a><i class="fa fa-android"></i> {{emb.name[:-16]}} <span
                             class="badge">{{emb.start}}</span></a></li>
                 {% endfor %}
             </ul>
@@ -37,16 +37,20 @@
 <div>
     <!-- Nav tabs -->
     <ul class="nav nav-tabs">
-        <li role="presentation" class="tab-btn active"><a role="tab" data-toggle="tab" href="#structure">Structure</a>
+        <li role="presentation" class="tab-btn"><a role="tab" data-toggle="tab" href="#structure"><i class="fa fa-cubes"></i> Structure</a>
         </li>
-        <li role="presentation" class="tab-btn"><a role="tab" data-toggle="tab" href="#raw_data">Raw Data</a>
+        <li role="presentation" class="tab-btn"><a role="tab" data-toggle="tab" href="#raw_data"><i class="fa fa-database"></i> Raw Data</a>
+        </li>
+        <li role="presentation" class="tab-btn active"><a role="tab" data-toggle="tab" href="#charts_search"><i class="fa fa-bar-chart"></i> Charts</a>
         </li>
     </ul>
     <!-- Tab panes -->
     <div class="tab-content">
-        <div role="tabpanel" class="tab-pane active" id="structure">
+        <div role="tabpanel" class="tab-pane" id="structure">
             <div class="row">
-                <div><h3>Model Structure</h3></div>
+                <div>
+                    <h3>Model Structure</h3>
+                </div>
                 <div>
                     <!-- <div class="btn btn-default" id="real-time-btn">Real Time</div> -->
                     <div class="btn btn-default" id="table-stats-btn">Table Stats</div>
@@ -62,8 +66,13 @@
             <h3>Raw Data</h3>
             <div class="btn btn-default" id="table-stats-raw-btn">Table Stats</div>
             <hr>
-            
+
             <div id="raw_data_block">Please select model first</div>
+        </div>
+        <div role="tabpanel" class="tab-pane active" id="charts_search">
+            <h3><i class="fa bar-chart"></i>Charts</h3>
+            {%import "charts_search.html" as charts%}
+            {{charts.charts()}}
         </div>
     </div>
 </div>
