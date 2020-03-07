@@ -139,7 +139,7 @@ We can load AlexNet from <code>torchvision</code></p>
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="get_stats" class="doc_header"><code>get_stats</code><a href="__main__.py#L27" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>get_stats</code>(<strong><code>tensor</code></strong>)</p>
+<h4 id="get_stats" class="doc_header"><code>get_stats</code><a href="__main__.py#L29" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>get_stats</code>(<strong><code>tensor</code></strong>)</p>
 </blockquote>
 <p>The default statistic method, it will capture
 shape of the tensor
@@ -206,33 +206,33 @@ this will return a dictionary</p>
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre><span class="ansi-green-intense-fg">start analyzing model</span>
-<span class="ansi-yellow-intense-fg">[ARMING][START]2020-03-03 23:50:54</span>
-<span class="ansi-cyan-intense-fg">[BUILD FORWARD][model(AlexNet)]2020-03-03 23:50:54</span>
-<span class="ansi-cyan-intense-fg">[BUILD FORWARD][model(AlexNet).features(Sequential)]2020-03-03 23:50:54</span>
-<span class="ansi-cyan-intense-fg">[BUILD FORWARD][model(AlexNet).features(Sequential).0(Conv2d)]2020-03-03 23:50:54</span>
-<span class="ansi-cyan-intense-fg">[BUILD FORWARD][model(AlexNet).features(Sequential).1(ReLU)]2020-03-03 23:50:54</span>
-<span class="ansi-cyan-intense-fg">[BUILD FORWARD][model(AlexNet).features(Sequential).2(MaxPool2d)]2020-03-03 23:50:54</span>
-<span class="ansi-cyan-intense-fg">[BUILD FORWARD][model(AlexNet).features(Sequential).3(Conv2d)]2020-03-03 23:50:54</span>
-<span class="ansi-cyan-intense-fg">[BUILD FORWARD][model(AlexNet).features(Sequential).4(ReLU)]2020-03-03 23:50:54</span>
-<span class="ansi-cyan-intense-fg">[BUILD FORWARD][model(AlexNet).features(Sequential).5(MaxPool2d)]2020-03-03 23:50:54</span>
-<span class="ansi-cyan-intense-fg">[BUILD FORWARD][model(AlexNet).features(Sequential).6(Conv2d)]2020-03-03 23:50:54</span>
-<span class="ansi-cyan-intense-fg">[BUILD FORWARD][model(AlexNet).features(Sequential).7(ReLU)]2020-03-03 23:50:54</span>
-<span class="ansi-cyan-intense-fg">[BUILD FORWARD][model(AlexNet).features(Sequential).8(Conv2d)]2020-03-03 23:50:54</span>
-<span class="ansi-cyan-intense-fg">[BUILD FORWARD][model(AlexNet).features(Sequential).9(ReLU)]2020-03-03 23:50:54</span>
-<span class="ansi-cyan-intense-fg">[BUILD FORWARD][model(AlexNet).features(Sequential).10(Conv2d)]2020-03-03 23:50:54</span>
-<span class="ansi-cyan-intense-fg">[BUILD FORWARD][model(AlexNet).features(Sequential).11(ReLU)]2020-03-03 23:50:54</span>
-<span class="ansi-cyan-intense-fg">[BUILD FORWARD][model(AlexNet).features(Sequential).12(MaxPool2d)]2020-03-03 23:50:54</span>
-<span class="ansi-cyan-intense-fg">[BUILD FORWARD][model(AlexNet).avgpool(AdaptiveAvgPool2d)]2020-03-03 23:50:54</span>
-<span class="ansi-cyan-intense-fg">[BUILD FORWARD][model(AlexNet).classifier(Sequential)]2020-03-03 23:50:54</span>
-<span class="ansi-cyan-intense-fg">[BUILD FORWARD][model(AlexNet).classifier(Sequential).0(Dropout)]2020-03-03 23:50:54</span>
-<span class="ansi-cyan-intense-fg">[BUILD FORWARD][model(AlexNet).classifier(Sequential).1(Linear)]2020-03-03 23:50:54</span>
-<span class="ansi-cyan-intense-fg">[BUILD FORWARD][model(AlexNet).classifier(Sequential).2(ReLU)]2020-03-03 23:50:54</span>
-<span class="ansi-cyan-intense-fg">[BUILD FORWARD][model(AlexNet).classifier(Sequential).3(Dropout)]2020-03-03 23:50:54</span>
-<span class="ansi-cyan-intense-fg">[BUILD FORWARD][model(AlexNet).classifier(Sequential).4(Linear)]2020-03-03 23:50:54</span>
-<span class="ansi-cyan-intense-fg">[BUILD FORWARD][model(AlexNet).classifier(Sequential).5(ReLU)]2020-03-03 23:50:54</span>
-<span class="ansi-cyan-intense-fg">[BUILD FORWARD][model(AlexNet).classifier(Sequential).6(Linear)]2020-03-03 23:50:54</span>
-<span class="ansi-yellow-intense-fg">[ARMING][SUCCESS]2020-03-03 23:50:54</span>
-<span class="ansi-green-intense-fg">[INFO][20200303_235054]Creating meta data</span>
+<span class="ansi-yellow-intense-fg">[ARMING][START]2020-03-07 10:37:37</span>
+<span class="ansi-cyan-intense-fg">[BUILD FORWARD][model(AlexNet)]2020-03-07 10:37:37</span>
+<span class="ansi-cyan-intense-fg">[BUILD FORWARD][model(AlexNet).features(Sequential)]2020-03-07 10:37:37</span>
+<span class="ansi-cyan-intense-fg">[BUILD FORWARD][model(AlexNet).features(Sequential).0(Conv2d)]2020-03-07 10:37:37</span>
+<span class="ansi-cyan-intense-fg">[BUILD FORWARD][model(AlexNet).features(Sequential).1(ReLU)]2020-03-07 10:37:37</span>
+<span class="ansi-cyan-intense-fg">[BUILD FORWARD][model(AlexNet).features(Sequential).2(MaxPool2d)]2020-03-07 10:37:37</span>
+<span class="ansi-cyan-intense-fg">[BUILD FORWARD][model(AlexNet).features(Sequential).3(Conv2d)]2020-03-07 10:37:37</span>
+<span class="ansi-cyan-intense-fg">[BUILD FORWARD][model(AlexNet).features(Sequential).4(ReLU)]2020-03-07 10:37:37</span>
+<span class="ansi-cyan-intense-fg">[BUILD FORWARD][model(AlexNet).features(Sequential).5(MaxPool2d)]2020-03-07 10:37:37</span>
+<span class="ansi-cyan-intense-fg">[BUILD FORWARD][model(AlexNet).features(Sequential).6(Conv2d)]2020-03-07 10:37:37</span>
+<span class="ansi-cyan-intense-fg">[BUILD FORWARD][model(AlexNet).features(Sequential).7(ReLU)]2020-03-07 10:37:37</span>
+<span class="ansi-cyan-intense-fg">[BUILD FORWARD][model(AlexNet).features(Sequential).8(Conv2d)]2020-03-07 10:37:37</span>
+<span class="ansi-cyan-intense-fg">[BUILD FORWARD][model(AlexNet).features(Sequential).9(ReLU)]2020-03-07 10:37:37</span>
+<span class="ansi-cyan-intense-fg">[BUILD FORWARD][model(AlexNet).features(Sequential).10(Conv2d)]2020-03-07 10:37:37</span>
+<span class="ansi-cyan-intense-fg">[BUILD FORWARD][model(AlexNet).features(Sequential).11(ReLU)]2020-03-07 10:37:37</span>
+<span class="ansi-cyan-intense-fg">[BUILD FORWARD][model(AlexNet).features(Sequential).12(MaxPool2d)]2020-03-07 10:37:37</span>
+<span class="ansi-cyan-intense-fg">[BUILD FORWARD][model(AlexNet).avgpool(AdaptiveAvgPool2d)]2020-03-07 10:37:37</span>
+<span class="ansi-cyan-intense-fg">[BUILD FORWARD][model(AlexNet).classifier(Sequential)]2020-03-07 10:37:37</span>
+<span class="ansi-cyan-intense-fg">[BUILD FORWARD][model(AlexNet).classifier(Sequential).0(Dropout)]2020-03-07 10:37:37</span>
+<span class="ansi-cyan-intense-fg">[BUILD FORWARD][model(AlexNet).classifier(Sequential).1(Linear)]2020-03-07 10:37:37</span>
+<span class="ansi-cyan-intense-fg">[BUILD FORWARD][model(AlexNet).classifier(Sequential).2(ReLU)]2020-03-07 10:37:37</span>
+<span class="ansi-cyan-intense-fg">[BUILD FORWARD][model(AlexNet).classifier(Sequential).3(Dropout)]2020-03-07 10:37:37</span>
+<span class="ansi-cyan-intense-fg">[BUILD FORWARD][model(AlexNet).classifier(Sequential).4(Linear)]2020-03-07 10:37:37</span>
+<span class="ansi-cyan-intense-fg">[BUILD FORWARD][model(AlexNet).classifier(Sequential).5(ReLU)]2020-03-07 10:37:37</span>
+<span class="ansi-cyan-intense-fg">[BUILD FORWARD][model(AlexNet).classifier(Sequential).6(Linear)]2020-03-07 10:37:37</span>
+<span class="ansi-yellow-intense-fg">[ARMING][SUCCESS]2020-03-07 10:37:37</span>
+<span class="ansi-green-intense-fg">[INFO][20200307_103737]Creating meta data</span>
 </pre>
 </div>
 </div>
@@ -266,31 +266,31 @@ this will return a dictionary</p>
 <div class="output_area">
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre><span class="ansi-blue-intense-fg">[DISARM][model(AlexNet)]2020-03-03 23:50:54</span>
-<span class="ansi-blue-intense-fg">[DISARM][model(AlexNet).features(Sequential)]2020-03-03 23:50:54</span>
-<span class="ansi-blue-intense-fg">[DISARM][model(AlexNet).features(Sequential).0(Conv2d)]2020-03-03 23:50:54</span>
-<span class="ansi-blue-intense-fg">[DISARM][model(AlexNet).features(Sequential).1(ReLU)]2020-03-03 23:50:54</span>
-<span class="ansi-blue-intense-fg">[DISARM][model(AlexNet).features(Sequential).2(MaxPool2d)]2020-03-03 23:50:54</span>
-<span class="ansi-blue-intense-fg">[DISARM][model(AlexNet).features(Sequential).3(Conv2d)]2020-03-03 23:50:54</span>
-<span class="ansi-blue-intense-fg">[DISARM][model(AlexNet).features(Sequential).4(ReLU)]2020-03-03 23:50:54</span>
-<span class="ansi-blue-intense-fg">[DISARM][model(AlexNet).features(Sequential).5(MaxPool2d)]2020-03-03 23:50:54</span>
-<span class="ansi-blue-intense-fg">[DISARM][model(AlexNet).features(Sequential).6(Conv2d)]2020-03-03 23:50:54</span>
-<span class="ansi-blue-intense-fg">[DISARM][model(AlexNet).features(Sequential).7(ReLU)]2020-03-03 23:50:54</span>
-<span class="ansi-blue-intense-fg">[DISARM][model(AlexNet).features(Sequential).8(Conv2d)]2020-03-03 23:50:54</span>
-<span class="ansi-blue-intense-fg">[DISARM][model(AlexNet).features(Sequential).9(ReLU)]2020-03-03 23:50:54</span>
-<span class="ansi-blue-intense-fg">[DISARM][model(AlexNet).features(Sequential).10(Conv2d)]2020-03-03 23:50:54</span>
-<span class="ansi-blue-intense-fg">[DISARM][model(AlexNet).features(Sequential).11(ReLU)]2020-03-03 23:50:54</span>
-<span class="ansi-blue-intense-fg">[DISARM][model(AlexNet).features(Sequential).12(MaxPool2d)]2020-03-03 23:50:54</span>
-<span class="ansi-blue-intense-fg">[DISARM][model(AlexNet).avgpool(AdaptiveAvgPool2d)]2020-03-03 23:50:54</span>
-<span class="ansi-blue-intense-fg">[DISARM][model(AlexNet).classifier(Sequential)]2020-03-03 23:50:54</span>
-<span class="ansi-blue-intense-fg">[DISARM][model(AlexNet).classifier(Sequential).0(Dropout)]2020-03-03 23:50:54</span>
-<span class="ansi-blue-intense-fg">[DISARM][model(AlexNet).classifier(Sequential).1(Linear)]2020-03-03 23:50:54</span>
-<span class="ansi-blue-intense-fg">[DISARM][model(AlexNet).classifier(Sequential).2(ReLU)]2020-03-03 23:50:54</span>
-<span class="ansi-blue-intense-fg">[DISARM][model(AlexNet).classifier(Sequential).3(Dropout)]2020-03-03 23:50:54</span>
-<span class="ansi-blue-intense-fg">[DISARM][model(AlexNet).classifier(Sequential).4(Linear)]2020-03-03 23:50:54</span>
-<span class="ansi-blue-intense-fg">[DISARM][model(AlexNet).classifier(Sequential).5(ReLU)]2020-03-03 23:50:54</span>
-<span class="ansi-blue-intense-fg">[DISARM][model(AlexNet).classifier(Sequential).6(Linear)]2020-03-03 23:50:54</span>
-<span class="ansi-blue-intense-fg">[DISARM][DONE]2020-03-03 23:50:54</span>
+<pre><span class="ansi-blue-intense-fg">[DISARM][model(AlexNet)]2020-03-07 10:37:39</span>
+<span class="ansi-blue-intense-fg">[DISARM][model(AlexNet).features(Sequential)]2020-03-07 10:37:39</span>
+<span class="ansi-blue-intense-fg">[DISARM][model(AlexNet).features(Sequential).0(Conv2d)]2020-03-07 10:37:39</span>
+<span class="ansi-blue-intense-fg">[DISARM][model(AlexNet).features(Sequential).1(ReLU)]2020-03-07 10:37:39</span>
+<span class="ansi-blue-intense-fg">[DISARM][model(AlexNet).features(Sequential).2(MaxPool2d)]2020-03-07 10:37:39</span>
+<span class="ansi-blue-intense-fg">[DISARM][model(AlexNet).features(Sequential).3(Conv2d)]2020-03-07 10:37:39</span>
+<span class="ansi-blue-intense-fg">[DISARM][model(AlexNet).features(Sequential).4(ReLU)]2020-03-07 10:37:39</span>
+<span class="ansi-blue-intense-fg">[DISARM][model(AlexNet).features(Sequential).5(MaxPool2d)]2020-03-07 10:37:39</span>
+<span class="ansi-blue-intense-fg">[DISARM][model(AlexNet).features(Sequential).6(Conv2d)]2020-03-07 10:37:39</span>
+<span class="ansi-blue-intense-fg">[DISARM][model(AlexNet).features(Sequential).7(ReLU)]2020-03-07 10:37:39</span>
+<span class="ansi-blue-intense-fg">[DISARM][model(AlexNet).features(Sequential).8(Conv2d)]2020-03-07 10:37:39</span>
+<span class="ansi-blue-intense-fg">[DISARM][model(AlexNet).features(Sequential).9(ReLU)]2020-03-07 10:37:39</span>
+<span class="ansi-blue-intense-fg">[DISARM][model(AlexNet).features(Sequential).10(Conv2d)]2020-03-07 10:37:39</span>
+<span class="ansi-blue-intense-fg">[DISARM][model(AlexNet).features(Sequential).11(ReLU)]2020-03-07 10:37:39</span>
+<span class="ansi-blue-intense-fg">[DISARM][model(AlexNet).features(Sequential).12(MaxPool2d)]2020-03-07 10:37:39</span>
+<span class="ansi-blue-intense-fg">[DISARM][model(AlexNet).avgpool(AdaptiveAvgPool2d)]2020-03-07 10:37:39</span>
+<span class="ansi-blue-intense-fg">[DISARM][model(AlexNet).classifier(Sequential)]2020-03-07 10:37:39</span>
+<span class="ansi-blue-intense-fg">[DISARM][model(AlexNet).classifier(Sequential).0(Dropout)]2020-03-07 10:37:39</span>
+<span class="ansi-blue-intense-fg">[DISARM][model(AlexNet).classifier(Sequential).1(Linear)]2020-03-07 10:37:39</span>
+<span class="ansi-blue-intense-fg">[DISARM][model(AlexNet).classifier(Sequential).2(ReLU)]2020-03-07 10:37:39</span>
+<span class="ansi-blue-intense-fg">[DISARM][model(AlexNet).classifier(Sequential).3(Dropout)]2020-03-07 10:37:39</span>
+<span class="ansi-blue-intense-fg">[DISARM][model(AlexNet).classifier(Sequential).4(Linear)]2020-03-07 10:37:39</span>
+<span class="ansi-blue-intense-fg">[DISARM][model(AlexNet).classifier(Sequential).5(ReLU)]2020-03-07 10:37:39</span>
+<span class="ansi-blue-intense-fg">[DISARM][model(AlexNet).classifier(Sequential).6(Linear)]2020-03-07 10:37:39</span>
+<span class="ansi-blue-intense-fg">[DISARM][DONE]2020-03-07 10:37:39</span>
 </pre>
 </div>
 </div>
@@ -324,31 +324,31 @@ this will return a dictionary</p>
 <div class="output_area">
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre><span class="ansi-blue-intense-fg">[DISARM][model(AlexNet)]2020-03-03 23:50:55</span>
-<span class="ansi-blue-intense-fg">[DISARM][model(AlexNet).features(Sequential)]2020-03-03 23:50:55</span>
-<span class="ansi-blue-intense-fg">[DISARM][model(AlexNet).features(Sequential).0(Conv2d)]2020-03-03 23:50:55</span>
-<span class="ansi-blue-intense-fg">[DISARM][model(AlexNet).features(Sequential).1(ReLU)]2020-03-03 23:50:55</span>
-<span class="ansi-blue-intense-fg">[DISARM][model(AlexNet).features(Sequential).2(MaxPool2d)]2020-03-03 23:50:55</span>
-<span class="ansi-blue-intense-fg">[DISARM][model(AlexNet).features(Sequential).3(Conv2d)]2020-03-03 23:50:55</span>
-<span class="ansi-blue-intense-fg">[DISARM][model(AlexNet).features(Sequential).4(ReLU)]2020-03-03 23:50:55</span>
-<span class="ansi-blue-intense-fg">[DISARM][model(AlexNet).features(Sequential).5(MaxPool2d)]2020-03-03 23:50:55</span>
-<span class="ansi-blue-intense-fg">[DISARM][model(AlexNet).features(Sequential).6(Conv2d)]2020-03-03 23:50:55</span>
-<span class="ansi-blue-intense-fg">[DISARM][model(AlexNet).features(Sequential).7(ReLU)]2020-03-03 23:50:55</span>
-<span class="ansi-blue-intense-fg">[DISARM][model(AlexNet).features(Sequential).8(Conv2d)]2020-03-03 23:50:55</span>
-<span class="ansi-blue-intense-fg">[DISARM][model(AlexNet).features(Sequential).9(ReLU)]2020-03-03 23:50:55</span>
-<span class="ansi-blue-intense-fg">[DISARM][model(AlexNet).features(Sequential).10(Conv2d)]2020-03-03 23:50:55</span>
-<span class="ansi-blue-intense-fg">[DISARM][model(AlexNet).features(Sequential).11(ReLU)]2020-03-03 23:50:55</span>
-<span class="ansi-blue-intense-fg">[DISARM][model(AlexNet).features(Sequential).12(MaxPool2d)]2020-03-03 23:50:55</span>
-<span class="ansi-blue-intense-fg">[DISARM][model(AlexNet).avgpool(AdaptiveAvgPool2d)]2020-03-03 23:50:55</span>
-<span class="ansi-blue-intense-fg">[DISARM][model(AlexNet).classifier(Sequential)]2020-03-03 23:50:55</span>
-<span class="ansi-blue-intense-fg">[DISARM][model(AlexNet).classifier(Sequential).0(Dropout)]2020-03-03 23:50:55</span>
-<span class="ansi-blue-intense-fg">[DISARM][model(AlexNet).classifier(Sequential).1(Linear)]2020-03-03 23:50:55</span>
-<span class="ansi-blue-intense-fg">[DISARM][model(AlexNet).classifier(Sequential).2(ReLU)]2020-03-03 23:50:55</span>
-<span class="ansi-blue-intense-fg">[DISARM][model(AlexNet).classifier(Sequential).3(Dropout)]2020-03-03 23:50:55</span>
-<span class="ansi-blue-intense-fg">[DISARM][model(AlexNet).classifier(Sequential).4(Linear)]2020-03-03 23:50:55</span>
-<span class="ansi-blue-intense-fg">[DISARM][model(AlexNet).classifier(Sequential).5(ReLU)]2020-03-03 23:50:55</span>
-<span class="ansi-blue-intense-fg">[DISARM][model(AlexNet).classifier(Sequential).6(Linear)]2020-03-03 23:50:55</span>
-<span class="ansi-blue-intense-fg">[DISARM][DONE]2020-03-03 23:50:55</span>
+<pre><span class="ansi-blue-intense-fg">[DISARM][model(AlexNet)]2020-03-07 10:37:40</span>
+<span class="ansi-blue-intense-fg">[DISARM][model(AlexNet).features(Sequential)]2020-03-07 10:37:40</span>
+<span class="ansi-blue-intense-fg">[DISARM][model(AlexNet).features(Sequential).0(Conv2d)]2020-03-07 10:37:40</span>
+<span class="ansi-blue-intense-fg">[DISARM][model(AlexNet).features(Sequential).1(ReLU)]2020-03-07 10:37:40</span>
+<span class="ansi-blue-intense-fg">[DISARM][model(AlexNet).features(Sequential).2(MaxPool2d)]2020-03-07 10:37:40</span>
+<span class="ansi-blue-intense-fg">[DISARM][model(AlexNet).features(Sequential).3(Conv2d)]2020-03-07 10:37:40</span>
+<span class="ansi-blue-intense-fg">[DISARM][model(AlexNet).features(Sequential).4(ReLU)]2020-03-07 10:37:40</span>
+<span class="ansi-blue-intense-fg">[DISARM][model(AlexNet).features(Sequential).5(MaxPool2d)]2020-03-07 10:37:40</span>
+<span class="ansi-blue-intense-fg">[DISARM][model(AlexNet).features(Sequential).6(Conv2d)]2020-03-07 10:37:40</span>
+<span class="ansi-blue-intense-fg">[DISARM][model(AlexNet).features(Sequential).7(ReLU)]2020-03-07 10:37:40</span>
+<span class="ansi-blue-intense-fg">[DISARM][model(AlexNet).features(Sequential).8(Conv2d)]2020-03-07 10:37:40</span>
+<span class="ansi-blue-intense-fg">[DISARM][model(AlexNet).features(Sequential).9(ReLU)]2020-03-07 10:37:40</span>
+<span class="ansi-blue-intense-fg">[DISARM][model(AlexNet).features(Sequential).10(Conv2d)]2020-03-07 10:37:40</span>
+<span class="ansi-blue-intense-fg">[DISARM][model(AlexNet).features(Sequential).11(ReLU)]2020-03-07 10:37:40</span>
+<span class="ansi-blue-intense-fg">[DISARM][model(AlexNet).features(Sequential).12(MaxPool2d)]2020-03-07 10:37:40</span>
+<span class="ansi-blue-intense-fg">[DISARM][model(AlexNet).avgpool(AdaptiveAvgPool2d)]2020-03-07 10:37:40</span>
+<span class="ansi-blue-intense-fg">[DISARM][model(AlexNet).classifier(Sequential)]2020-03-07 10:37:40</span>
+<span class="ansi-blue-intense-fg">[DISARM][model(AlexNet).classifier(Sequential).0(Dropout)]2020-03-07 10:37:40</span>
+<span class="ansi-blue-intense-fg">[DISARM][model(AlexNet).classifier(Sequential).1(Linear)]2020-03-07 10:37:40</span>
+<span class="ansi-blue-intense-fg">[DISARM][model(AlexNet).classifier(Sequential).2(ReLU)]2020-03-07 10:37:40</span>
+<span class="ansi-blue-intense-fg">[DISARM][model(AlexNet).classifier(Sequential).3(Dropout)]2020-03-07 10:37:40</span>
+<span class="ansi-blue-intense-fg">[DISARM][model(AlexNet).classifier(Sequential).4(Linear)]2020-03-07 10:37:40</span>
+<span class="ansi-blue-intense-fg">[DISARM][model(AlexNet).classifier(Sequential).5(ReLU)]2020-03-07 10:37:40</span>
+<span class="ansi-blue-intense-fg">[DISARM][model(AlexNet).classifier(Sequential).6(Linear)]2020-03-07 10:37:40</span>
+<span class="ansi-blue-intense-fg">[DISARM][DONE]2020-03-07 10:37:40</span>
 </pre>
 </div>
 </div>
@@ -382,57 +382,57 @@ this will return a dictionary</p>
 <div class="output_area">
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre><span class="ansi-blue-intense-fg">[DISARM][model(AlexNet)]2020-03-03 23:50:56</span>
-<span class="ansi-blue-intense-fg">[DISARM][model(AlexNet).features(Sequential)]2020-03-03 23:50:56</span>
-<span class="ansi-blue-intense-fg">[DISARM][model(AlexNet).features(Sequential).0(Conv2d)]2020-03-03 23:50:56</span>
-<span class="ansi-blue-intense-fg">[DISARM][model(AlexNet).features(Sequential).1(ReLU)]2020-03-03 23:50:56</span>
-<span class="ansi-blue-intense-fg">[DISARM][model(AlexNet).features(Sequential).2(MaxPool2d)]2020-03-03 23:50:56</span>
-<span class="ansi-blue-intense-fg">[DISARM][model(AlexNet).features(Sequential).3(Conv2d)]2020-03-03 23:50:56</span>
-<span class="ansi-blue-intense-fg">[DISARM][model(AlexNet).features(Sequential).4(ReLU)]2020-03-03 23:50:56</span>
-<span class="ansi-blue-intense-fg">[DISARM][model(AlexNet).features(Sequential).5(MaxPool2d)]2020-03-03 23:50:56</span>
-<span class="ansi-blue-intense-fg">[DISARM][model(AlexNet).features(Sequential).6(Conv2d)]2020-03-03 23:50:56</span>
-<span class="ansi-blue-intense-fg">[DISARM][model(AlexNet).features(Sequential).7(ReLU)]2020-03-03 23:50:56</span>
-<span class="ansi-blue-intense-fg">[DISARM][model(AlexNet).features(Sequential).8(Conv2d)]2020-03-03 23:50:56</span>
-<span class="ansi-blue-intense-fg">[DISARM][model(AlexNet).features(Sequential).9(ReLU)]2020-03-03 23:50:56</span>
-<span class="ansi-blue-intense-fg">[DISARM][model(AlexNet).features(Sequential).10(Conv2d)]2020-03-03 23:50:56</span>
-<span class="ansi-blue-intense-fg">[DISARM][model(AlexNet).features(Sequential).11(ReLU)]2020-03-03 23:50:56</span>
-<span class="ansi-blue-intense-fg">[DISARM][model(AlexNet).features(Sequential).12(MaxPool2d)]2020-03-03 23:50:56</span>
-<span class="ansi-blue-intense-fg">[DISARM][model(AlexNet).avgpool(AdaptiveAvgPool2d)]2020-03-03 23:50:56</span>
-<span class="ansi-blue-intense-fg">[DISARM][model(AlexNet).classifier(Sequential)]2020-03-03 23:50:56</span>
-<span class="ansi-blue-intense-fg">[DISARM][model(AlexNet).classifier(Sequential).0(Dropout)]2020-03-03 23:50:56</span>
-<span class="ansi-blue-intense-fg">[DISARM][model(AlexNet).classifier(Sequential).1(Linear)]2020-03-03 23:50:56</span>
-<span class="ansi-blue-intense-fg">[DISARM][model(AlexNet).classifier(Sequential).2(ReLU)]2020-03-03 23:50:56</span>
-<span class="ansi-blue-intense-fg">[DISARM][model(AlexNet).classifier(Sequential).3(Dropout)]2020-03-03 23:50:56</span>
-<span class="ansi-blue-intense-fg">[DISARM][model(AlexNet).classifier(Sequential).4(Linear)]2020-03-03 23:50:56</span>
-<span class="ansi-blue-intense-fg">[DISARM][model(AlexNet).classifier(Sequential).5(ReLU)]2020-03-03 23:50:56</span>
-<span class="ansi-blue-intense-fg">[DISARM][model(AlexNet).classifier(Sequential).6(Linear)]2020-03-03 23:50:56</span>
-<span class="ansi-blue-intense-fg">[DISARM][DONE]2020-03-03 23:50:56</span>
-<span class="ansi-yellow-intense-fg">[ARMING][START]2020-03-03 23:50:56</span>
-<span class="ansi-cyan-intense-fg">[BUILD FORWARD][model(AlexNet)]2020-03-03 23:50:56</span>
-<span class="ansi-cyan-intense-fg">[BUILD FORWARD][model(AlexNet).features(Sequential)]2020-03-03 23:50:56</span>
-<span class="ansi-cyan-intense-fg">[BUILD FORWARD][model(AlexNet).features(Sequential).0(Conv2d)]2020-03-03 23:50:56</span>
-<span class="ansi-cyan-intense-fg">[BUILD FORWARD][model(AlexNet).features(Sequential).1(ReLU)]2020-03-03 23:50:56</span>
-<span class="ansi-cyan-intense-fg">[BUILD FORWARD][model(AlexNet).features(Sequential).2(MaxPool2d)]2020-03-03 23:50:56</span>
-<span class="ansi-cyan-intense-fg">[BUILD FORWARD][model(AlexNet).features(Sequential).3(Conv2d)]2020-03-03 23:50:56</span>
-<span class="ansi-cyan-intense-fg">[BUILD FORWARD][model(AlexNet).features(Sequential).4(ReLU)]2020-03-03 23:50:56</span>
-<span class="ansi-cyan-intense-fg">[BUILD FORWARD][model(AlexNet).features(Sequential).5(MaxPool2d)]2020-03-03 23:50:56</span>
-<span class="ansi-cyan-intense-fg">[BUILD FORWARD][model(AlexNet).features(Sequential).6(Conv2d)]2020-03-03 23:50:56</span>
-<span class="ansi-cyan-intense-fg">[BUILD FORWARD][model(AlexNet).features(Sequential).7(ReLU)]2020-03-03 23:50:56</span>
-<span class="ansi-cyan-intense-fg">[BUILD FORWARD][model(AlexNet).features(Sequential).8(Conv2d)]2020-03-03 23:50:56</span>
-<span class="ansi-cyan-intense-fg">[BUILD FORWARD][model(AlexNet).features(Sequential).9(ReLU)]2020-03-03 23:50:56</span>
-<span class="ansi-cyan-intense-fg">[BUILD FORWARD][model(AlexNet).features(Sequential).10(Conv2d)]2020-03-03 23:50:56</span>
-<span class="ansi-cyan-intense-fg">[BUILD FORWARD][model(AlexNet).features(Sequential).11(ReLU)]2020-03-03 23:50:56</span>
-<span class="ansi-cyan-intense-fg">[BUILD FORWARD][model(AlexNet).features(Sequential).12(MaxPool2d)]2020-03-03 23:50:56</span>
-<span class="ansi-cyan-intense-fg">[BUILD FORWARD][model(AlexNet).avgpool(AdaptiveAvgPool2d)]2020-03-03 23:50:56</span>
-<span class="ansi-cyan-intense-fg">[BUILD FORWARD][model(AlexNet).classifier(Sequential)]2020-03-03 23:50:56</span>
-<span class="ansi-cyan-intense-fg">[BUILD FORWARD][model(AlexNet).classifier(Sequential).0(Dropout)]2020-03-03 23:50:56</span>
-<span class="ansi-cyan-intense-fg">[BUILD FORWARD][model(AlexNet).classifier(Sequential).1(Linear)]2020-03-03 23:50:56</span>
-<span class="ansi-cyan-intense-fg">[BUILD FORWARD][model(AlexNet).classifier(Sequential).2(ReLU)]2020-03-03 23:50:56</span>
-<span class="ansi-cyan-intense-fg">[BUILD FORWARD][model(AlexNet).classifier(Sequential).3(Dropout)]2020-03-03 23:50:56</span>
-<span class="ansi-cyan-intense-fg">[BUILD FORWARD][model(AlexNet).classifier(Sequential).4(Linear)]2020-03-03 23:50:56</span>
-<span class="ansi-cyan-intense-fg">[BUILD FORWARD][model(AlexNet).classifier(Sequential).5(ReLU)]2020-03-03 23:50:56</span>
-<span class="ansi-cyan-intense-fg">[BUILD FORWARD][model(AlexNet).classifier(Sequential).6(Linear)]2020-03-03 23:50:56</span>
-<span class="ansi-yellow-intense-fg">[ARMING][SUCCESS]2020-03-03 23:50:56</span>
+<pre><span class="ansi-blue-intense-fg">[DISARM][model(AlexNet)]2020-03-07 10:37:41</span>
+<span class="ansi-blue-intense-fg">[DISARM][model(AlexNet).features(Sequential)]2020-03-07 10:37:41</span>
+<span class="ansi-blue-intense-fg">[DISARM][model(AlexNet).features(Sequential).0(Conv2d)]2020-03-07 10:37:41</span>
+<span class="ansi-blue-intense-fg">[DISARM][model(AlexNet).features(Sequential).1(ReLU)]2020-03-07 10:37:41</span>
+<span class="ansi-blue-intense-fg">[DISARM][model(AlexNet).features(Sequential).2(MaxPool2d)]2020-03-07 10:37:41</span>
+<span class="ansi-blue-intense-fg">[DISARM][model(AlexNet).features(Sequential).3(Conv2d)]2020-03-07 10:37:41</span>
+<span class="ansi-blue-intense-fg">[DISARM][model(AlexNet).features(Sequential).4(ReLU)]2020-03-07 10:37:41</span>
+<span class="ansi-blue-intense-fg">[DISARM][model(AlexNet).features(Sequential).5(MaxPool2d)]2020-03-07 10:37:41</span>
+<span class="ansi-blue-intense-fg">[DISARM][model(AlexNet).features(Sequential).6(Conv2d)]2020-03-07 10:37:41</span>
+<span class="ansi-blue-intense-fg">[DISARM][model(AlexNet).features(Sequential).7(ReLU)]2020-03-07 10:37:41</span>
+<span class="ansi-blue-intense-fg">[DISARM][model(AlexNet).features(Sequential).8(Conv2d)]2020-03-07 10:37:41</span>
+<span class="ansi-blue-intense-fg">[DISARM][model(AlexNet).features(Sequential).9(ReLU)]2020-03-07 10:37:41</span>
+<span class="ansi-blue-intense-fg">[DISARM][model(AlexNet).features(Sequential).10(Conv2d)]2020-03-07 10:37:41</span>
+<span class="ansi-blue-intense-fg">[DISARM][model(AlexNet).features(Sequential).11(ReLU)]2020-03-07 10:37:41</span>
+<span class="ansi-blue-intense-fg">[DISARM][model(AlexNet).features(Sequential).12(MaxPool2d)]2020-03-07 10:37:41</span>
+<span class="ansi-blue-intense-fg">[DISARM][model(AlexNet).avgpool(AdaptiveAvgPool2d)]2020-03-07 10:37:41</span>
+<span class="ansi-blue-intense-fg">[DISARM][model(AlexNet).classifier(Sequential)]2020-03-07 10:37:41</span>
+<span class="ansi-blue-intense-fg">[DISARM][model(AlexNet).classifier(Sequential).0(Dropout)]2020-03-07 10:37:41</span>
+<span class="ansi-blue-intense-fg">[DISARM][model(AlexNet).classifier(Sequential).1(Linear)]2020-03-07 10:37:41</span>
+<span class="ansi-blue-intense-fg">[DISARM][model(AlexNet).classifier(Sequential).2(ReLU)]2020-03-07 10:37:41</span>
+<span class="ansi-blue-intense-fg">[DISARM][model(AlexNet).classifier(Sequential).3(Dropout)]2020-03-07 10:37:41</span>
+<span class="ansi-blue-intense-fg">[DISARM][model(AlexNet).classifier(Sequential).4(Linear)]2020-03-07 10:37:41</span>
+<span class="ansi-blue-intense-fg">[DISARM][model(AlexNet).classifier(Sequential).5(ReLU)]2020-03-07 10:37:41</span>
+<span class="ansi-blue-intense-fg">[DISARM][model(AlexNet).classifier(Sequential).6(Linear)]2020-03-07 10:37:41</span>
+<span class="ansi-blue-intense-fg">[DISARM][DONE]2020-03-07 10:37:41</span>
+<span class="ansi-yellow-intense-fg">[ARMING][START]2020-03-07 10:37:41</span>
+<span class="ansi-cyan-intense-fg">[BUILD FORWARD][model(AlexNet)]2020-03-07 10:37:41</span>
+<span class="ansi-cyan-intense-fg">[BUILD FORWARD][model(AlexNet).features(Sequential)]2020-03-07 10:37:41</span>
+<span class="ansi-cyan-intense-fg">[BUILD FORWARD][model(AlexNet).features(Sequential).0(Conv2d)]2020-03-07 10:37:41</span>
+<span class="ansi-cyan-intense-fg">[BUILD FORWARD][model(AlexNet).features(Sequential).1(ReLU)]2020-03-07 10:37:41</span>
+<span class="ansi-cyan-intense-fg">[BUILD FORWARD][model(AlexNet).features(Sequential).2(MaxPool2d)]2020-03-07 10:37:41</span>
+<span class="ansi-cyan-intense-fg">[BUILD FORWARD][model(AlexNet).features(Sequential).3(Conv2d)]2020-03-07 10:37:41</span>
+<span class="ansi-cyan-intense-fg">[BUILD FORWARD][model(AlexNet).features(Sequential).4(ReLU)]2020-03-07 10:37:41</span>
+<span class="ansi-cyan-intense-fg">[BUILD FORWARD][model(AlexNet).features(Sequential).5(MaxPool2d)]2020-03-07 10:37:41</span>
+<span class="ansi-cyan-intense-fg">[BUILD FORWARD][model(AlexNet).features(Sequential).6(Conv2d)]2020-03-07 10:37:41</span>
+<span class="ansi-cyan-intense-fg">[BUILD FORWARD][model(AlexNet).features(Sequential).7(ReLU)]2020-03-07 10:37:41</span>
+<span class="ansi-cyan-intense-fg">[BUILD FORWARD][model(AlexNet).features(Sequential).8(Conv2d)]2020-03-07 10:37:41</span>
+<span class="ansi-cyan-intense-fg">[BUILD FORWARD][model(AlexNet).features(Sequential).9(ReLU)]2020-03-07 10:37:41</span>
+<span class="ansi-cyan-intense-fg">[BUILD FORWARD][model(AlexNet).features(Sequential).10(Conv2d)]2020-03-07 10:37:41</span>
+<span class="ansi-cyan-intense-fg">[BUILD FORWARD][model(AlexNet).features(Sequential).11(ReLU)]2020-03-07 10:37:41</span>
+<span class="ansi-cyan-intense-fg">[BUILD FORWARD][model(AlexNet).features(Sequential).12(MaxPool2d)]2020-03-07 10:37:41</span>
+<span class="ansi-cyan-intense-fg">[BUILD FORWARD][model(AlexNet).avgpool(AdaptiveAvgPool2d)]2020-03-07 10:37:41</span>
+<span class="ansi-cyan-intense-fg">[BUILD FORWARD][model(AlexNet).classifier(Sequential)]2020-03-07 10:37:41</span>
+<span class="ansi-cyan-intense-fg">[BUILD FORWARD][model(AlexNet).classifier(Sequential).0(Dropout)]2020-03-07 10:37:41</span>
+<span class="ansi-cyan-intense-fg">[BUILD FORWARD][model(AlexNet).classifier(Sequential).1(Linear)]2020-03-07 10:37:41</span>
+<span class="ansi-cyan-intense-fg">[BUILD FORWARD][model(AlexNet).classifier(Sequential).2(ReLU)]2020-03-07 10:37:41</span>
+<span class="ansi-cyan-intense-fg">[BUILD FORWARD][model(AlexNet).classifier(Sequential).3(Dropout)]2020-03-07 10:37:41</span>
+<span class="ansi-cyan-intense-fg">[BUILD FORWARD][model(AlexNet).classifier(Sequential).4(Linear)]2020-03-07 10:37:41</span>
+<span class="ansi-cyan-intense-fg">[BUILD FORWARD][model(AlexNet).classifier(Sequential).5(ReLU)]2020-03-07 10:37:41</span>
+<span class="ansi-cyan-intense-fg">[BUILD FORWARD][model(AlexNet).classifier(Sequential).6(Linear)]2020-03-07 10:37:41</span>
+<span class="ansi-yellow-intense-fg">[ARMING][SUCCESS]2020-03-07 10:37:41</span>
 </pre>
 </div>
 </div>
@@ -491,11 +491,11 @@ this will return a dictionary</p>
 <div class="output_area">
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>total 400
--rw-r--r--  1 salvor  staff  59804 Mar  3 23:51 init-00_phase-train_epoch-0.log
--rw-r--r--  1 salvor  staff  59832 Mar  3 23:51 init-00_phase-train_epoch-1.log
--rw-r--r--  1 salvor  staff  39868 Mar  3 23:51 init-00_phase-valid_epoch-0.log
--rw-r--r--  1 salvor  staff  39859 Mar  3 23:51 init-00_phase-valid_epoch-1.log
+<pre>total 2248
+-rw-r--r--  1 salvor  staff   59804 Mar  3 23:51 init-00_phase-train_epoch-0.log
+-rw-r--r--  1 salvor  staff   59832 Mar  3 23:51 init-00_phase-train_epoch-1.log
+-rw-r--r--  1 salvor  staff   39868 Mar  3 23:51 init-00_phase-valid_epoch-0.log
+-rw-r--r--  1 salvor  staff  942405 Mar  3 23:52 init-00_phase-valid_epoch-1.log
 </pre>
 </div>
 </div>
@@ -547,189 +547,11 @@ this will return a dictionary</p>
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>shape</th>
-      <th>mean</th>
-      <th>std</th>
-      <th>max</th>
-      <th>min</th>
-      <th>cnt_zero</th>
-      <th>zero_pct</th>
-      <th>module</th>
-      <th>ts</th>
-      <th>ttype</th>
-      <th>tname</th>
-      <th>n_batch</th>
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <th>0</th>
-      <td>[2, 3, 224, 224]</td>
-      <td>-1.000057</td>
-      <td>0.577234</td>
-      <td>-0.000005</td>
-      <td>-1.999995</td>
-      <td>0</td>
-      <td>0.0</td>
-      <td>model(AlexNet)</td>
-      <td>2020-03-03 23:51:12</td>
-      <td>input</td>
-      <td>x</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>[2, 3, 224, 224]</td>
-      <td>-1.000057</td>
-      <td>0.577234</td>
-      <td>-0.000005</td>
-      <td>-1.999995</td>
-      <td>0</td>
-      <td>0.0</td>
-      <td>model(AlexNet).features(Sequential)</td>
-      <td>2020-03-03 23:51:12</td>
-      <td>input</td>
-      <td>input</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>[2, 3, 224, 224]</td>
-      <td>-1.000057</td>
-      <td>0.577234</td>
-      <td>-0.000005</td>
-      <td>-1.999995</td>
-      <td>0</td>
-      <td>0.0</td>
-      <td>model(AlexNet).features(Sequential).0(Conv2d)</td>
-      <td>2020-03-03 23:51:12</td>
-      <td>input</td>
-      <td>input</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>[64, 3, 11, 11]</td>
-      <td>-0.000027</td>
-      <td>0.030262</td>
-      <td>0.052485</td>
-      <td>-0.052486</td>
-      <td>0</td>
-      <td>0.0</td>
-      <td>model(AlexNet).features(Sequential).0(Conv2d)</td>
-      <td>2020-03-03 23:51:12</td>
-      <td>weight</td>
-      <td>weight_0</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>[64]</td>
-      <td>-0.001849</td>
-      <td>0.029150</td>
-      <td>0.052460</td>
-      <td>-0.048437</td>
-      <td>0</td>
-      <td>0.0</td>
-      <td>model(AlexNet).features(Sequential).0(Conv2d)</td>
-      <td>2020-03-03 23:51:12</td>
-      <td>weight</td>
-      <td>weight_1</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <th>...</th>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-    </tr>
-    <tr>
-      <th>123</th>
-      <td>[1000, 4096]</td>
-      <td>-0.000004</td>
-      <td>0.009020</td>
-      <td>0.015625</td>
-      <td>-0.015625</td>
-      <td>0</td>
-      <td>0.0</td>
-      <td>model(AlexNet).classifier(Sequential).6(Linear)</td>
-      <td>2020-03-03 23:51:14</td>
-      <td>weight</td>
-      <td>weight_0</td>
-      <td>1</td>
-    </tr>
-    <tr>
-      <th>124</th>
-      <td>[1000]</td>
-      <td>-0.000127</td>
-      <td>0.008769</td>
-      <td>0.015615</td>
-      <td>-0.015500</td>
-      <td>0</td>
-      <td>0.0</td>
-      <td>model(AlexNet).classifier(Sequential).6(Linear)</td>
-      <td>2020-03-03 23:51:14</td>
-      <td>weight</td>
-      <td>weight_1</td>
-      <td>1</td>
-    </tr>
-    <tr>
-      <th>125</th>
-      <td>[2, 1000]</td>
-      <td>-0.000347</td>
-      <td>0.011486</td>
-      <td>0.033753</td>
-      <td>-0.034803</td>
-      <td>0</td>
-      <td>0.0</td>
-      <td>model(AlexNet).classifier(Sequential).6(Linear)</td>
-      <td>2020-03-03 23:51:14</td>
-      <td>output</td>
-      <td>output_0</td>
-      <td>1</td>
-    </tr>
-    <tr>
-      <th>126</th>
-      <td>[2, 1000]</td>
-      <td>-0.000347</td>
-      <td>0.011486</td>
-      <td>0.033753</td>
-      <td>-0.034803</td>
-      <td>0</td>
-      <td>0.0</td>
-      <td>model(AlexNet).classifier(Sequential)</td>
-      <td>2020-03-03 23:51:14</td>
-      <td>output</td>
-      <td>output_0</td>
-      <td>1</td>
-    </tr>
-    <tr>
-      <th>127</th>
-      <td>[2, 1000]</td>
-      <td>-0.000347</td>
-      <td>0.011486</td>
-      <td>0.033753</td>
-      <td>-0.034803</td>
-      <td>0</td>
-      <td>0.0</td>
-      <td>model(AlexNet)</td>
-      <td>2020-03-03 23:51:14</td>
-      <td>output</td>
-      <td>output_0</td>
-      <td>1</td>
-    </tr>
   </tbody>
 </table>
-<p>128 rows × 12 columns</p>
 </div>
 </div>
 
@@ -777,144 +599,6 @@ this will return a dictionary</p>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">te</span><span class="o">.</span><span class="n">t</span><span class="o">.</span><span class="n">df</span><span class="p">[</span><span class="n">te</span><span class="o">.</span><span class="n">t</span><span class="o">.</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;ttype&quot;</span><span class="p">]</span><span class="o">==</span><span class="s2">&quot;weight_grad&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-<div class="output_area">
-
-
-<div class="output_html rendered_html output_subarea output_execute_result">
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>shape</th>
-      <th>mean</th>
-      <th>std</th>
-      <th>max</th>
-      <th>min</th>
-      <th>cnt_zero</th>
-      <th>zero_pct</th>
-      <th>module</th>
-      <th>ts</th>
-      <th>ttype</th>
-      <th>tname</th>
-      <th>n_batch</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>196</th>
-      <td>[64, 3, 11, 11]</td>
-      <td>5.763019e-06</td>
-      <td>0.000020</td>
-      <td>0.000087</td>
-      <td>-0.000070</td>
-      <td>67</td>
-      <td>0.002884</td>
-      <td>model(AlexNet).features(Sequential).0(Conv2d)</td>
-      <td>2020-03-03 23:51:49</td>
-      <td>weight_grad</td>
-      <td>grad_0</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>198</th>
-      <td>[64]</td>
-      <td>-5.816310e-06</td>
-      <td>0.000018</td>
-      <td>0.000041</td>
-      <td>-0.000059</td>
-      <td>0</td>
-      <td>0.000000</td>
-      <td>model(AlexNet).features(Sequential).0(Conv2d)</td>
-      <td>2020-03-03 23:51:49</td>
-      <td>weight_grad</td>
-      <td>grad_1</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>206</th>
-      <td>[192, 64, 5, 5]</td>
-      <td>-1.541117e-06</td>
-      <td>0.000016</td>
-      <td>0.000106</td>
-      <td>-0.000138</td>
-      <td>38819</td>
-      <td>0.126364</td>
-      <td>model(AlexNet).features(Sequential).3(Conv2d)</td>
-      <td>2020-03-03 23:51:49</td>
-      <td>weight_grad</td>
-      <td>grad_0</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>208</th>
-      <td>[192]</td>
-      <td>-2.695832e-06</td>
-      <td>0.000022</td>
-      <td>0.000062</td>
-      <td>-0.000080</td>
-      <td>6</td>
-      <td>0.031250</td>
-      <td>model(AlexNet).features(Sequential).3(Conv2d)</td>
-      <td>2020-03-03 23:51:49</td>
-      <td>weight_grad</td>
-      <td>grad_1</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>216</th>
-      <td>[384, 192, 3, 3]</td>
-      <td>-5.951989e-07</td>
-      <td>0.000012</td>
-      <td>0.000155</td>
-      <td>-0.000147</td>
-      <td>184824</td>
-      <td>0.278537</td>
-      <td>model(AlexNet).features(Sequential).6(Conv2d)</td>
-      <td>2020-03-03 23:51:49</td>
-      <td>weight_grad</td>
-      <td>grad_0</td>
-      <td>NaN</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="Module-tree-json">Module tree json<a class="anchor-link" href="#Module-tree-json">&#182;</a></h3><p>This file will be stored at <code>$HOME/.torchember/data/structure_&lt;modelname&gt;_&lt;date&gt;_&lt;time&gt;.json</code></p>
@@ -934,69 +618,6 @@ this will return a dictionary</p>
 </div>
 </div>
 
-<div class="output_wrapper">
-<div class="output">
-
-<div class="output_area">
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>{&#39;name&#39;: &#39;model(AlexNet)&#39;,
- &#39;short&#39;: &#39;model(AlexNet)&#39;,
- &#39;children&#39;: [{&#39;name&#39;: &#39;model(AlexNet).features(Sequential)&#39;,
-   &#39;short&#39;: &#39;features(Sequential)&#39;,
-   &#39;children&#39;: [{&#39;name&#39;: &#39;model(AlexNet).features(Sequential).0(Conv2d)&#39;,
-     &#39;short&#39;: &#39;0(Conv2d)&#39;},
-    {&#39;name&#39;: &#39;model(AlexNet).features(Sequential).1(ReLU)&#39;,
-     &#39;short&#39;: &#39;1(ReLU)&#39;},
-    {&#39;name&#39;: &#39;model(AlexNet).features(Sequential).2(MaxPool2d)&#39;,
-     &#39;short&#39;: &#39;2(MaxPool2d)&#39;},
-    {&#39;name&#39;: &#39;model(AlexNet).features(Sequential).3(Conv2d)&#39;,
-     &#39;short&#39;: &#39;3(Conv2d)&#39;},
-    {&#39;name&#39;: &#39;model(AlexNet).features(Sequential).4(ReLU)&#39;,
-     &#39;short&#39;: &#39;4(ReLU)&#39;},
-    {&#39;name&#39;: &#39;model(AlexNet).features(Sequential).5(MaxPool2d)&#39;,
-     &#39;short&#39;: &#39;5(MaxPool2d)&#39;},
-    {&#39;name&#39;: &#39;model(AlexNet).features(Sequential).6(Conv2d)&#39;,
-     &#39;short&#39;: &#39;6(Conv2d)&#39;},
-    {&#39;name&#39;: &#39;model(AlexNet).features(Sequential).7(ReLU)&#39;,
-     &#39;short&#39;: &#39;7(ReLU)&#39;},
-    {&#39;name&#39;: &#39;model(AlexNet).features(Sequential).8(Conv2d)&#39;,
-     &#39;short&#39;: &#39;8(Conv2d)&#39;},
-    {&#39;name&#39;: &#39;model(AlexNet).features(Sequential).9(ReLU)&#39;,
-     &#39;short&#39;: &#39;9(ReLU)&#39;},
-    {&#39;name&#39;: &#39;model(AlexNet).features(Sequential).10(Conv2d)&#39;,
-     &#39;short&#39;: &#39;10(Conv2d)&#39;},
-    {&#39;name&#39;: &#39;model(AlexNet).features(Sequential).11(ReLU)&#39;,
-     &#39;short&#39;: &#39;11(ReLU)&#39;},
-    {&#39;name&#39;: &#39;model(AlexNet).features(Sequential).12(MaxPool2d)&#39;,
-     &#39;short&#39;: &#39;12(MaxPool2d)&#39;}]},
-  {&#39;name&#39;: &#39;model(AlexNet).avgpool(AdaptiveAvgPool2d)&#39;,
-   &#39;short&#39;: &#39;avgpool(AdaptiveAvgPool2d)&#39;},
-  {&#39;name&#39;: &#39;model(AlexNet).classifier(Sequential)&#39;,
-   &#39;short&#39;: &#39;classifier(Sequential)&#39;,
-   &#39;children&#39;: [{&#39;name&#39;: &#39;model(AlexNet).classifier(Sequential).0(Dropout)&#39;,
-     &#39;short&#39;: &#39;0(Dropout)&#39;},
-    {&#39;name&#39;: &#39;model(AlexNet).classifier(Sequential).1(Linear)&#39;,
-     &#39;short&#39;: &#39;1(Linear)&#39;},
-    {&#39;name&#39;: &#39;model(AlexNet).classifier(Sequential).2(ReLU)&#39;,
-     &#39;short&#39;: &#39;2(ReLU)&#39;},
-    {&#39;name&#39;: &#39;model(AlexNet).classifier(Sequential).3(Dropout)&#39;,
-     &#39;short&#39;: &#39;3(Dropout)&#39;},
-    {&#39;name&#39;: &#39;model(AlexNet).classifier(Sequential).4(Linear)&#39;,
-     &#39;short&#39;: &#39;4(Linear)&#39;},
-    {&#39;name&#39;: &#39;model(AlexNet).classifier(Sequential).5(ReLU)&#39;,
-     &#39;short&#39;: &#39;5(ReLU)&#39;},
-    {&#39;name&#39;: &#39;model(AlexNet).classifier(Sequential).6(Linear)&#39;,
-     &#39;short&#39;: &#39;6(Linear)&#39;}]}]}</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
@@ -1007,69 +628,6 @@ this will return a dictionary</p>
 </pre></div>
 
     </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-<div class="output_area">
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>[&#39;enter model(AlexNet)&#39;,
- &#39;enter model(AlexNet).features(Sequential)&#39;,
- &#39;enter model(AlexNet).features(Sequential).0(Conv2d)&#39;,
- &#39;exit model(AlexNet).features(Sequential).0(Conv2d)&#39;,
- &#39;enter model(AlexNet).features(Sequential).1(ReLU)&#39;,
- &#39;exit model(AlexNet).features(Sequential).1(ReLU)&#39;,
- &#39;enter model(AlexNet).features(Sequential).2(MaxPool2d)&#39;,
- &#39;exit model(AlexNet).features(Sequential).2(MaxPool2d)&#39;,
- &#39;enter model(AlexNet).features(Sequential).3(Conv2d)&#39;,
- &#39;exit model(AlexNet).features(Sequential).3(Conv2d)&#39;,
- &#39;enter model(AlexNet).features(Sequential).4(ReLU)&#39;,
- &#39;exit model(AlexNet).features(Sequential).4(ReLU)&#39;,
- &#39;enter model(AlexNet).features(Sequential).5(MaxPool2d)&#39;,
- &#39;exit model(AlexNet).features(Sequential).5(MaxPool2d)&#39;,
- &#39;enter model(AlexNet).features(Sequential).6(Conv2d)&#39;,
- &#39;exit model(AlexNet).features(Sequential).6(Conv2d)&#39;,
- &#39;enter model(AlexNet).features(Sequential).7(ReLU)&#39;,
- &#39;exit model(AlexNet).features(Sequential).7(ReLU)&#39;,
- &#39;enter model(AlexNet).features(Sequential).8(Conv2d)&#39;,
- &#39;exit model(AlexNet).features(Sequential).8(Conv2d)&#39;,
- &#39;enter model(AlexNet).features(Sequential).9(ReLU)&#39;,
- &#39;exit model(AlexNet).features(Sequential).9(ReLU)&#39;,
- &#39;enter model(AlexNet).features(Sequential).10(Conv2d)&#39;,
- &#39;exit model(AlexNet).features(Sequential).10(Conv2d)&#39;,
- &#39;enter model(AlexNet).features(Sequential).11(ReLU)&#39;,
- &#39;exit model(AlexNet).features(Sequential).11(ReLU)&#39;,
- &#39;enter model(AlexNet).features(Sequential).12(MaxPool2d)&#39;,
- &#39;exit model(AlexNet).features(Sequential).12(MaxPool2d)&#39;,
- &#39;exit model(AlexNet).features(Sequential)&#39;,
- &#39;enter model(AlexNet).avgpool(AdaptiveAvgPool2d)&#39;,
- &#39;exit model(AlexNet).avgpool(AdaptiveAvgPool2d)&#39;,
- &#39;enter model(AlexNet).classifier(Sequential)&#39;,
- &#39;enter model(AlexNet).classifier(Sequential).0(Dropout)&#39;,
- &#39;exit model(AlexNet).classifier(Sequential).0(Dropout)&#39;,
- &#39;enter model(AlexNet).classifier(Sequential).1(Linear)&#39;,
- &#39;exit model(AlexNet).classifier(Sequential).1(Linear)&#39;,
- &#39;enter model(AlexNet).classifier(Sequential).2(ReLU)&#39;,
- &#39;exit model(AlexNet).classifier(Sequential).2(ReLU)&#39;,
- &#39;enter model(AlexNet).classifier(Sequential).3(Dropout)&#39;,
- &#39;exit model(AlexNet).classifier(Sequential).3(Dropout)&#39;,
- &#39;enter model(AlexNet).classifier(Sequential).4(Linear)&#39;,
- &#39;exit model(AlexNet).classifier(Sequential).4(Linear)&#39;,
- &#39;enter model(AlexNet).classifier(Sequential).5(ReLU)&#39;,
- &#39;exit model(AlexNet).classifier(Sequential).5(ReLU)&#39;,
- &#39;enter model(AlexNet).classifier(Sequential).6(Linear)&#39;,
- &#39;exit model(AlexNet).classifier(Sequential).6(Linear)&#39;,
- &#39;exit model(AlexNet).classifier(Sequential)&#39;,
- &#39;exit model(AlexNet)&#39;]</pre>
-</div>
-
-</div>
-
 </div>
 </div>
 
@@ -1089,210 +647,6 @@ this will return a dictionary</p>
 </pre></div>
 
     </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-<div class="output_area">
-
-
-<div class="output_html rendered_html output_subarea output_execute_result">
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>shape</th>
-      <th>mean</th>
-      <th>std</th>
-      <th>max</th>
-      <th>min</th>
-      <th>cnt_zero</th>
-      <th>zero_pct</th>
-      <th>module</th>
-      <th>ts</th>
-      <th>ttype</th>
-      <th>tname</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>[2, 3, 224, 224]</td>
-      <td>-1.000057</td>
-      <td>0.577234</td>
-      <td>-0.000005</td>
-      <td>-1.999995</td>
-      <td>0</td>
-      <td>0.000000</td>
-      <td>model(AlexNet)</td>
-      <td>2020-03-03 23:51:51</td>
-      <td>input</td>
-      <td>x</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>[2, 3, 224, 224]</td>
-      <td>-1.000057</td>
-      <td>0.577234</td>
-      <td>-0.000005</td>
-      <td>-1.999995</td>
-      <td>0</td>
-      <td>0.000000</td>
-      <td>model(AlexNet).features(Sequential)</td>
-      <td>2020-03-03 23:51:51</td>
-      <td>input</td>
-      <td>input</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>[2, 3, 224, 224]</td>
-      <td>-1.000057</td>
-      <td>0.577234</td>
-      <td>-0.000005</td>
-      <td>-1.999995</td>
-      <td>0</td>
-      <td>0.000000</td>
-      <td>model(AlexNet).features(Sequential).0(Conv2d)</td>
-      <td>2020-03-03 23:51:51</td>
-      <td>input</td>
-      <td>input</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>[64, 3, 11, 11]</td>
-      <td>-0.000027</td>
-      <td>0.030262</td>
-      <td>0.052485</td>
-      <td>-0.052486</td>
-      <td>0</td>
-      <td>0.000000</td>
-      <td>model(AlexNet).features(Sequential).0(Conv2d)</td>
-      <td>2020-03-03 23:51:51</td>
-      <td>weight</td>
-      <td>weight_0</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>[64, 3, 11, 11]</td>
-      <td>0.000007</td>
-      <td>0.000028</td>
-      <td>0.000130</td>
-      <td>-0.000096</td>
-      <td>67</td>
-      <td>0.002884</td>
-      <td>model(AlexNet).features(Sequential).0(Conv2d)</td>
-      <td>2020-03-03 23:51:51</td>
-      <td>weight_grad</td>
-      <td>grad_0</td>
-    </tr>
-    <tr>
-      <th>...</th>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-    </tr>
-    <tr>
-      <th>75</th>
-      <td>[1000]</td>
-      <td>-0.000127</td>
-      <td>0.008769</td>
-      <td>0.015615</td>
-      <td>-0.015500</td>
-      <td>0</td>
-      <td>0.000000</td>
-      <td>model(AlexNet).classifier(Sequential).6(Linear)</td>
-      <td>2020-03-03 23:51:53</td>
-      <td>weight</td>
-      <td>weight_1</td>
-    </tr>
-    <tr>
-      <th>76</th>
-      <td>[1000]</td>
-      <td>0.002000</td>
-      <td>0.000000</td>
-      <td>0.002000</td>
-      <td>0.002000</td>
-      <td>0</td>
-      <td>0.000000</td>
-      <td>model(AlexNet).classifier(Sequential).6(Linear)</td>
-      <td>2020-03-03 23:51:53</td>
-      <td>weight_grad</td>
-      <td>grad_1</td>
-    </tr>
-    <tr>
-      <th>77</th>
-      <td>[2, 1000]</td>
-      <td>-0.000499</td>
-      <td>0.011397</td>
-      <td>0.033915</td>
-      <td>-0.030265</td>
-      <td>0</td>
-      <td>0.000000</td>
-      <td>model(AlexNet).classifier(Sequential).6(Linear)</td>
-      <td>2020-03-03 23:51:53</td>
-      <td>output</td>
-      <td>output_0</td>
-    </tr>
-    <tr>
-      <th>78</th>
-      <td>[2, 1000]</td>
-      <td>-0.000499</td>
-      <td>0.011397</td>
-      <td>0.033915</td>
-      <td>-0.030265</td>
-      <td>0</td>
-      <td>0.000000</td>
-      <td>model(AlexNet).classifier(Sequential)</td>
-      <td>2020-03-03 23:51:53</td>
-      <td>output</td>
-      <td>output_0</td>
-    </tr>
-    <tr>
-      <th>79</th>
-      <td>[2, 1000]</td>
-      <td>-0.000499</td>
-      <td>0.011397</td>
-      <td>0.033915</td>
-      <td>-0.030265</td>
-      <td>0</td>
-      <td>0.000000</td>
-      <td>model(AlexNet)</td>
-      <td>2020-03-03 23:51:53</td>
-      <td>output</td>
-      <td>output_0</td>
-    </tr>
-  </tbody>
-</table>
-<p>80 rows × 11 columns</p>
-</div>
-</div>
-
-</div>
-
 </div>
 </div>
 
@@ -1383,24 +737,6 @@ this will return a dictionary</p>
 </div>
 </div>
 
-<div class="output_wrapper">
-<div class="output">
-
-<div class="output_area">
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>tensor([[ 0.0178, -0.0009,  0.0027,  ..., -0.0085, -0.0016, -0.0087],
-        [ 0.0171, -0.0024, -0.0035,  ...,  0.0063,  0.0160, -0.0035]],
-       grad_fn=&lt;AddmmBackward&gt;)</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -1459,9 +795,9 @@ this will return a dictionary</p>
     <tr>
       <th>0</th>
       <td>301056</td>
-      <td>[-1.9999693632125854, -1.9999945163726807]</td>
+      <td>[-1.9999991655349731, -1.9999991655349731]</td>
       <td>model(AlexNet)</td>
-      <td>2020-03-03 23:52:12</td>
+      <td>2020-03-05 23:10:22</td>
       <td>input</td>
       <td>x</td>
       <td>NaN</td>
@@ -1469,9 +805,9 @@ this will return a dictionary</p>
     <tr>
       <th>1</th>
       <td>301056</td>
-      <td>[-1.9999693632125854, -1.9999945163726807]</td>
+      <td>[-1.9999991655349731, -1.9999991655349731]</td>
       <td>model(AlexNet).features(Sequential)</td>
-      <td>2020-03-03 23:52:12</td>
+      <td>2020-03-05 23:10:22</td>
       <td>input</td>
       <td>input</td>
       <td>NaN</td>
@@ -1479,9 +815,9 @@ this will return a dictionary</p>
     <tr>
       <th>2</th>
       <td>301056</td>
-      <td>[-1.9999693632125854, -1.9999945163726807]</td>
+      <td>[-1.9999991655349731, -1.9999991655349731]</td>
       <td>model(AlexNet).features(Sequential).0(Conv2d)</td>
-      <td>2020-03-03 23:52:12</td>
+      <td>2020-03-05 23:10:22</td>
       <td>input</td>
       <td>input</td>
       <td>NaN</td>
@@ -1491,20 +827,20 @@ this will return a dictionary</p>
       <td>23232</td>
       <td>NaN</td>
       <td>model(AlexNet).features(Sequential).0(Conv2d)</td>
-      <td>2020-03-03 23:52:12</td>
+      <td>2020-03-05 23:10:22</td>
       <td>weight</td>
       <td>weight_0</td>
-      <td>[0.05223393440246582, 0.052147045731544495, 0....</td>
+      <td>[0.0520191565155983, 0.05243277549743652, 0.05...</td>
     </tr>
     <tr>
       <th>4</th>
       <td>23232</td>
       <td>NaN</td>
       <td>model(AlexNet).features(Sequential).0(Conv2d)</td>
-      <td>2020-03-03 23:52:12</td>
+      <td>2020-03-05 23:10:22</td>
       <td>weight_grad</td>
       <td>grad_0</td>
-      <td>[1.9010796677321196e-05, 7.584694685647264e-05...</td>
+      <td>[3.522511906339787e-05, 1.3242663044366054e-05...</td>
     </tr>
     <tr>
       <th>...</th>
@@ -1521,17 +857,17 @@ this will return a dictionary</p>
       <td>1000</td>
       <td>NaN</td>
       <td>model(AlexNet).classifier(Sequential).6(Linear)</td>
-      <td>2020-03-03 23:52:12</td>
+      <td>2020-03-05 23:10:23</td>
       <td>weight</td>
       <td>weight_1</td>
-      <td>[0.008336527273058891, 0.00010786205530166626,...</td>
+      <td>[-0.004558052867650986, 0.014331953600049019, ...</td>
     </tr>
     <tr>
       <th>76</th>
       <td>1000</td>
       <td>NaN</td>
       <td>model(AlexNet).classifier(Sequential).6(Linear)</td>
-      <td>2020-03-03 23:52:12</td>
+      <td>2020-03-05 23:10:23</td>
       <td>weight_grad</td>
       <td>grad_1</td>
       <td>[0.003000000026077032, 0.003000000026077032, 0...</td>
@@ -1539,9 +875,9 @@ this will return a dictionary</p>
     <tr>
       <th>77</th>
       <td>2000</td>
-      <td>[-0.03156087547540665, -0.03723128139972687]</td>
+      <td>[-0.03184821456670761, -0.0329386442899704]</td>
       <td>model(AlexNet).classifier(Sequential).6(Linear)</td>
-      <td>2020-03-03 23:52:12</td>
+      <td>2020-03-05 23:10:23</td>
       <td>output</td>
       <td>output_0</td>
       <td>NaN</td>
@@ -1549,9 +885,9 @@ this will return a dictionary</p>
     <tr>
       <th>78</th>
       <td>2000</td>
-      <td>[-0.03156087547540665, -0.03723128139972687]</td>
+      <td>[-0.03184821456670761, -0.0329386442899704]</td>
       <td>model(AlexNet).classifier(Sequential)</td>
-      <td>2020-03-03 23:52:12</td>
+      <td>2020-03-05 23:10:23</td>
       <td>output</td>
       <td>output_0</td>
       <td>NaN</td>
@@ -1559,9 +895,9 @@ this will return a dictionary</p>
     <tr>
       <th>79</th>
       <td>2000</td>
-      <td>[-0.03156087547540665, -0.03723128139972687]</td>
+      <td>[-0.03184821456670761, -0.0329386442899704]</td>
       <td>model(AlexNet)</td>
-      <td>2020-03-03 23:52:12</td>
+      <td>2020-03-05 23:10:23</td>
       <td>output</td>
       <td>output_0</td>
       <td>NaN</td>
@@ -1675,11 +1011,11 @@ this will return a dictionary</p>
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>tensor([[0.5395, 0.1158, 0.2436, 0.6968, 0.5318, 0.5479],
-        [0.5569, 0.2847, 0.3291, 0.6477, 0.0778, 0.0844],
-        [0.0548, 0.5794, 0.4905, 0.6806, 0.6258, 0.2134],
-        [0.7322, 0.0742, 0.1259, 0.5159, 0.7725, 0.7967],
-        [0.8471, 0.6944, 0.3707, 0.2552, 0.6063, 0.2456]])</pre>
+<pre>tensor([[0.1462, 0.6524, 0.6635, 0.0931, 0.8485, 0.3402],
+        [0.6705, 0.0846, 0.6348, 0.3046, 0.7542, 0.6418],
+        [0.6934, 0.4078, 0.9792, 0.1871, 0.7833, 0.6145],
+        [0.6606, 0.6178, 0.2674, 0.4398, 0.4242, 0.2114],
+        [0.9054, 0.9068, 0.6374, 0.8210, 0.7212, 0.4652]])</pre>
 </div>
 
 </div>
@@ -1785,11 +1121,11 @@ this will return a dictionary</p>
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>tensor([[0.6532, 0.3970, 0.9357, 0.7104, 0.5795, 1.4977],
-        [1.5565, 1.0672, 0.4137, 1.4910, 0.9587, 0.2552],
-        [0.2027, 1.4541, 1.2611, 1.3104, 0.6991, 0.5013],
-        [1.1817, 1.0199, 0.5722, 0.9614, 1.0298, 1.1048],
-        [0.8859, 0.7230, 1.1873, 1.1150, 1.1920, 0.2781]])</pre>
+<pre>tensor([[1.0196, 1.1548, 1.1521, 0.1822, 1.7265, 0.4464],
+        [1.2865, 0.4544, 0.9891, 0.8650, 1.1334, 1.2300],
+        [1.3343, 0.8323, 1.9395, 1.1801, 1.5499, 0.7846],
+        [1.1385, 1.2144, 0.6191, 0.6455, 0.9545, 0.8413],
+        [1.3088, 1.7986, 1.2820, 1.6781, 1.5974, 0.9433]])</pre>
 </div>
 
 </div>
@@ -1818,11 +1154,11 @@ this will return a dictionary</p>
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>tensor([[0.6532, 0.3970, 0.9357, 0.7104, 0.5795, 1.4977],
-        [1.5565, 1.0672, 0.4137, 1.4910, 0.9587, 0.2552],
-        [0.2027, 1.4541, 1.2611, 1.3104, 0.6991, 0.5013],
-        [1.1817, 1.0199, 0.5722, 0.9614, 1.0298, 1.1048],
-        [0.8859, 0.7230, 1.1873, 1.1150, 1.1920, 0.2781]])</pre>
+<pre>tensor([[1.0196, 1.1548, 1.1521, 0.1822, 1.7265, 0.4464],
+        [1.2865, 0.4544, 0.9891, 0.8650, 1.1334, 1.2300],
+        [1.3343, 0.8323, 1.9395, 1.1801, 1.5499, 0.7846],
+        [1.1385, 1.2144, 0.6191, 0.6455, 0.9545, 0.8413],
+        [1.3088, 1.7986, 1.2820, 1.6781, 1.5974, 0.9433]])</pre>
 </div>
 
 </div>

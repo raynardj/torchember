@@ -41,7 +41,6 @@ import json
 import pandas as pd
 from datetime import datetime
 import torch
-from functools import partial
 
 class tracker(object):
     def __init__(self, libname, fname):
@@ -58,6 +57,10 @@ class tracker(object):
         self.log_path.mkdir(exist_ok=True)
         self.marked = {}
         self.mark(init="00")
+
+    @property
+    def log_files(self):
+        return os.listdir(self.log_path)
 
     def __repr__(self):
         return f"<{self.libname}:{self.fname}>"
@@ -95,10 +98,6 @@ class tracker(object):
     def ts(self):
         return datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 
-    @property
-    def df(self):
-        return pd.DataFrame(self.lines())
-
 class emberTracker(tracker):
     def __init__(self, fname):
         super().__init__("torchember",fname)
@@ -106,7 +105,7 @@ class emberTracker(tracker):
         self.latest_lines = ""
 
     def logging(self,line):
-        with open(self.log_file,"a") as f : f.write(line+"\n")
+        with open(self.log_file,"a") as f : f.write(","+line)
         self.latest_lines+=(line+"\n")
         return self.log_file
 

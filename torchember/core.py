@@ -6,6 +6,8 @@ __all__ = ['moduleTrack', 'get_stats', 'torchEmber']
 from types import MethodType
 from datetime import datetime
 from .helper import color,emberTracker
+from functools import partial
+import os
 
 class moduleTrack(object):
     def __init__(self,module, name=None, root_module = False):
