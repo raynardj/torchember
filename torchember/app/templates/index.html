@@ -1,8 +1,10 @@
 {%extends "appbuilder/base.html"%}
 
 {%block content%}
-<h2><i class="fa fa-fire"></i> Torch Ember</h2>
-
+<h2>
+    <strong><span class="text-danger"> >>>[ </span></strong><span class="font-weight-light">Torch</span><span class="text-warning"><strong>EM</span></strong><span class="font-weight-light text-danger">ber<strong>]</strong> </span>
+</h2>
+<br>
 {%if ember_list%}
 <div>
     <div class="col-sm-4">
@@ -13,10 +15,10 @@
                 <span class="caret"></span>
             </button>
             <ul class="dropdown-menu" aria-labelledby="historyMenu">
-                <li class="btn" onClick="window.location.reload();">Refresh for more</li>
+                <li class="btn" onClick="window.location.reload();"><i class="fa fa-refresh"></i> Refresh for more</li>
                 {% for emb in ember_list%}
-                <li class="history_select" data-name="{{emb.name}}"><a><i class="fa fa-android"></i> {{emb.name[:-16]}} <span
-                            class="badge">{{emb.start}}</span></a></li>
+                <li class="history_select" data-name="{{emb.name}}" {%if emb.latest==0%}id="first_hist_option"{%endif%}><a><i class="fa fa-android"></i> {{emb.name[:-16]}}
+                        <span class="badge"> {{emb.start}}</span></a></li>
                 {% endfor %}
             </ul>
         </div>
@@ -37,11 +39,14 @@
 <div>
     <!-- Nav tabs -->
     <ul class="nav nav-tabs">
-        <li role="presentation" class="tab-btn"><a role="tab" data-toggle="tab" href="#structure"><i class="fa fa-cubes"></i> Structure</a>
+        <li role="presentation" class="tab-btn"><a role="tab" data-toggle="tab" href="#structure"><i
+                    class="fa fa-cubes"></i> Structure</a>
         </li>
-        <li role="presentation" class="tab-btn"><a role="tab" data-toggle="tab" href="#raw_data"><i class="fa fa-database"></i> Raw Data</a>
+        <li role="presentation" class="tab-btn"><a role="tab" data-toggle="tab" href="#raw_data"><i
+                    class="fa fa-database"></i> Raw Data</a>
         </li>
-        <li role="presentation" class="tab-btn active"><a role="tab" data-toggle="tab" href="#charts_search"><i class="fa fa-bar-chart"></i> Charts</a>
+        <li role="presentation" class="tab-btn active"><a role="tab" data-toggle="tab" href="#charts_search"><i
+                    class="fa fa-bar-chart"></i> Charts</a>
         </li>
     </ul>
     <!-- Tab panes -->
@@ -70,9 +75,25 @@
             <div id="raw_data_block">Please select model first</div>
         </div>
         <div role="tabpanel" class="tab-pane active" id="charts_search">
-            <h3><i class="fa bar-chart"></i>Charts</h3>
-            {%import "charts_search.html" as charts%}
-            {{charts.charts()}}
+            <div class="row">
+                <div class="col-sm-4">
+                    <h3>
+                        <i class="fa fa-book"></i> Log Files <button class="btn-xs btn-success btn_update_log_files"><i class="fa fa-refresh"></i></button>
+                    </h3>
+                        <div class="log_files_list">
+                            Not log files yet 
+                        </div>
+                    <h3><i class="fa fa-cubes"></i> Modules</h3>
+                    <div class="module_filter">
+
+                    </div>
+                </div>
+                <div class="col-sm-8">
+                    <h3><i class="fa fa-bar-chart"></i> Charts</h3>
+                    {%import "charts_search.html" as charts%}
+                    {{charts.charts()}}
+                </div>
+            </div>
         </div>
     </div>
 </div>
@@ -82,6 +103,8 @@
 {{super()}}
 <script src="/static/js/Chart.min.js"></script>
 <script src="/static/js/nunjucks.js"></script>
+<script src="/static/js/echarts.js"></script>
 <script src="/static/js/utils.js"></script>
+<script src="/static/js/log.js"></script>
 <script src="/static/js/index.js"></script>
 {%endblock%}

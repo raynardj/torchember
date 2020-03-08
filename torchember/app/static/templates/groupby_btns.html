@@ -1,0 +1,12 @@
+{%for cate,kv in counters%}
+<h3><i class="fa fa-check"></i> {{cate}}</h3>
+
+<div class="btn-group">
+{%for k,v  in kv%}
+    <button class="btn btn-sm btn-default">
+        <strong>{{k}}</strong> <span class="badge"> {{v}}</span>
+    </button>
+{%endfor %}
+</div>
+
+{%endfor%}

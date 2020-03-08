@@ -93,12 +93,28 @@ class emberReadView(BaseView):
         er = emberReader(name)
         return er
 
-    @expose("/log_file/<middle_path>/<filename>/")
-    def log_file(self,middle_path, filename):
-        home = Path(os.environ["HOME"])
-        emberhome = home/".torchember"
-        loghome = emberhome/"log"
-        if middle_path != "log":
-            modelhome = loghome/middle_path
-        file_path = str(modelhome/filename)
-        return Response(open(file_path,"r").read())
+    @expose("/log_files/<dir_name>/")
+    def log_files(self,dir_name):
+        er = emberReader(dir_name)
+        return Response(json.dumps(er.t.log_files))
+
+    @expose("/log_files_api/",methods=["GET","POST"])
+    @api_wrap
+    def log_files_api(self):
+        dir_name = json.loads(request.data)["dir_name"]
+        er = emberReader(dir_name)
+        return er.t.log_files
+
+    @expose("/log_file/<dir_name>/<filename>/",methods=["GET","POST"])
+    def log_file(self,dir_name, filename):
+        er = emberReader(dir_name)
+        return Response(er.read_log(filename))
+
+    @expose("/download_log_file/<dir_name>/<filename>/",methods=["GET","POST"])
+    def download_log_file(self,dir_name, filename):
+        er = emberReader(dir_name)
+        return Response(
+            er.read_log(filename),
+            mimetype="text/json",
+            headers={"Content-disposition":
+                 f"attachment; filename={dir_name}_{filename}.json"})

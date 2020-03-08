@@ -2,7 +2,7 @@ import logging
 
 from flask import Flask
 from flask_appbuilder import AppBuilder, SQLA
-from torchember.utils import get_ember_list,get_ember_df
+from torchember.utils import get_ember_list,get_ember_df,get_ember_record
 from torchember import config
 
 """
@@ -24,12 +24,8 @@ class indexView(IndexView):
     @expose("/",methods=["GET"])
     def index(self):
         # inspect environment to offer search suggest
-        ember_list = get_ember_list()
-        if ember_list==None:
-            return self.render_template("index.html",ember_list=ember_list)
-        else:
-            df = get_ember_df(ember_list)
-            return self.render_template("index.html", ember_list=df.to_dict(orient="record"))
+        ember_list = get_ember_record()
+        return self.render_template("index.html", ember_list=ember_list)
 
 db = SQLA(app)
 appbuilder = AppBuilder(app, db.session,indexview=indexView)

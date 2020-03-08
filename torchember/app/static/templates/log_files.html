@@ -1,0 +1,10 @@
+<ul class="list-group">
+    {%for log in log_files%}
+    <li class="list-group-item log_file_option" data-hist_name="{{hist_name}}" data-file_name="{{log}}">
+        <div class="row">
+            <div class="col-sm-12"><a target="_blank" href="/eread/download_log_file/{{hist_name}}/{{log}}/"
+                    class="btn btn-xs btn-info"><i class="fa fa-download"></i></a> {{log}}</div>
+        </div>
+    </li>
+    {%endfor %}
+</ul>
