@@ -175,6 +175,7 @@ summary: "Build utilities for flask"
 <div class="output_markdown rendered_html output_subarea ">
 <h4 id="get_ember_df" class="doc_header"><code>get_ember_df</code><a href="https://github.com/raynardj/torchember/tree/master/torchember/utils.py#L42" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>get_ember_df</code>(<strong><code>ember_list</code></strong>)</p>
 </blockquote>
+<p>list out the latest 5 tracking record metadata</p>
 
 </div>
 
@@ -288,7 +289,7 @@ summary: "Build utilities for flask"
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h2 id="emberReader" class="doc_header"><code>class</code> <code>emberReader</code><a href="" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>emberReader</code>(<strong><code>name</code></strong>)</p>
+<h2 id="emberReader" class="doc_header"><code>class</code> <code>emberReader</code><a href="" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>emberReader</code>(<strong><code>name</code></strong>, <strong><code>verbose</code></strong>=<em><code>False</code></em>)</p>
 </blockquote>
 
 </div>
@@ -304,10 +305,24 @@ summary: "Build utilities for flask"
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">er</span> <span class="o">=</span> <span class="n">emberReader</span><span class="p">(</span><span class="s2">&quot;AlexNet_20200307_103737&quot;</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">er</span> <span class="o">=</span> <span class="n">emberReader</span><span class="p">(</span><span class="s2">&quot;AlexNet_20200307_103737&quot;</span><span class="p">,</span><span class="n">verbose</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
 </pre></div>
 
     </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>[&#39;init-00_phase-valid_epoch-0.log&#39;, &#39;init-00_phase-train_epoch-0.log&#39;, &#39;init-00_phase-train_epoch-1.log&#39;, &#39;init-00_phase-valid_epoch-1.log&#39;]
+</pre>
+</div>
+</div>
+
 </div>
 </div>
 
@@ -388,6 +403,13 @@ summary: "Build utilities for flask"
 </div>
 
 </div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Basical information</p>
+
+</div>
+</div>
+</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
@@ -417,6 +439,13 @@ summary: "Build utilities for flask"
 </div>
 
 </div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>List the log files under log directory on this module task</p>
+
+</div>
+</div>
+</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
@@ -434,34 +463,27 @@ summary: "Build utilities for flask"
 
 <div class="output_area">
 
-<div class="output_subarea output_text output_error">
-<pre>
-<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
-<span class="ansi-red-fg">FileNotFoundError</span>                         Traceback (most recent call last)
-<span class="ansi-green-fg">&lt;ipython-input-20-4c155ed4365a&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
-<span class="ansi-green-fg">----&gt; 1</span><span class="ansi-red-fg"> </span>er<span class="ansi-blue-fg">.</span>t<span class="ansi-blue-fg">.</span>df
 
-<span class="ansi-green-fg">~/github/torchember/torchember/helper.py</span> in <span class="ansi-cyan-fg">df</span><span class="ansi-blue-fg">(self)</span>
-<span class="ansi-green-intense-fg ansi-bold">     97</span>     <span class="ansi-blue-fg">@</span>property
-<span class="ansi-green-intense-fg ansi-bold">     98</span>     <span class="ansi-green-fg">def</span> df<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
-<span class="ansi-green-fg">---&gt; 99</span><span class="ansi-red-fg">         </span><span class="ansi-green-fg">return</span> pd<span class="ansi-blue-fg">.</span>DataFrame<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">.</span>lines<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">    100</span> 
-<span class="ansi-green-intense-fg ansi-bold">    101</span> <span class="ansi-green-fg">class</span> emberTracker<span class="ansi-blue-fg">(</span>tracker<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
 
-<span class="ansi-green-fg">~/github/torchember/torchember/helper.py</span> in <span class="ansi-cyan-fg">lines</span><span class="ansi-blue-fg">(self)</span>
-<span class="ansi-green-intense-fg ansi-bold">     89</span> 
-<span class="ansi-green-intense-fg ansi-bold">     90</span>     <span class="ansi-green-fg">def</span> lines<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
-<span class="ansi-green-fg">---&gt; 91</span><span class="ansi-red-fg">         </span><span class="ansi-green-fg">return</span> list<span class="ansi-blue-fg">(</span>json<span class="ansi-blue-fg">.</span>loads<span class="ansi-blue-fg">(</span>i<span class="ansi-blue-fg">)</span> <span class="ansi-green-fg">for</span> i <span class="ansi-green-fg">in</span> open<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">.</span>log_file<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">.</span>read<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">.</span>split<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#34;\n&#34;</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">[</span><span class="ansi-blue-fg">:</span><span class="ansi-blue-fg">-</span><span class="ansi-cyan-fg">1</span><span class="ansi-blue-fg">]</span><span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">     92</span> 
-<span class="ansi-green-intense-fg ansi-bold">     93</span>     <span class="ansi-blue-fg">@</span>property
-
-<span class="ansi-red-fg">FileNotFoundError</span>: [Errno 2] No such file or directory: &#39;/Users/salvor/.torchember/log/AlexNet_20200307_103737/init-00.log&#39;</pre>
+<div class="output_text output_subarea output_execute_result">
+<pre>[&#39;init-00_phase-valid_epoch-0.log&#39;,
+ &#39;init-00_phase-train_epoch-0.log&#39;,
+ &#39;init-00_phase-train_epoch-1.log&#39;,
+ &#39;init-00_phase-valid_epoch-1.log&#39;]</pre>
 </div>
+
 </div>
 
 </div>
 </div>
 
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Latest record as dataframe</p>
+
+</div>
+</div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
@@ -691,6 +713,1820 @@ summary: "Build utilities for flask"
 </div>
 </div>
 
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Load a log file as a long list of dictionary</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">er</span><span class="o">.</span><span class="n">read_log</span><span class="p">(</span><span class="s1">&#39;init-00_phase-valid_epoch-1.log&#39;</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>[{&#39;shape&#39;: [2, 3, 224, 224],
+  &#39;mean&#39;: -1.001885175704956,
+  &#39;std&#39;: 0.5775364637374878,
+  &#39;max&#39;: -1.5735626220703125e-05,
+  &#39;min&#39;: -1.9999974966049194,
+  &#39;cnt_zero&#39;: 0,
+  &#39;zero_pct&#39;: 0.0,
+  &#39;module&#39;: &#39;model(AlexNet)&#39;,
+  &#39;ts&#39;: &#39;2020-03-07 10:37:50&#39;,
+  &#39;ttype&#39;: &#39;input&#39;,
+  &#39;tname&#39;: &#39;x&#39;,
+  &#39;n_batch&#39;: 0},
+ {&#39;shape&#39;: [2, 3, 224, 224],
+  &#39;mean&#39;: -1.001885175704956,
+  &#39;std&#39;: 0.5775364637374878,
+  &#39;max&#39;: -1.5735626220703125e-05,
+  &#39;min&#39;: -1.9999974966049194,
+  &#39;cnt_zero&#39;: 0,
+  &#39;zero_pct&#39;: 0.0,
+  &#39;module&#39;: &#39;model(AlexNet).features(Sequential)&#39;,
+  &#39;ts&#39;: &#39;2020-03-07 10:37:50&#39;,
+  &#39;ttype&#39;: &#39;input&#39;,
+  &#39;tname&#39;: &#39;input&#39;,
+  &#39;n_batch&#39;: 0},
+ {&#39;shape&#39;: [2, 3, 224, 224],
+  &#39;mean&#39;: -1.001885175704956,
+  &#39;std&#39;: 0.5775364637374878,
+  &#39;max&#39;: -1.5735626220703125e-05,
+  &#39;min&#39;: -1.9999974966049194,
+  &#39;cnt_zero&#39;: 0,
+  &#39;zero_pct&#39;: 0.0,
+  &#39;module&#39;: &#39;model(AlexNet).features(Sequential).0(Conv2d)&#39;,
+  &#39;ts&#39;: &#39;2020-03-07 10:37:50&#39;,
+  &#39;ttype&#39;: &#39;input&#39;,
+  &#39;tname&#39;: &#39;input&#39;,
+  &#39;n_batch&#39;: 0},
+ {&#39;shape&#39;: [64, 3, 11, 11],
+  &#39;mean&#39;: -0.000151715605170466,
+  &#39;std&#39;: 0.03028801828622818,
+  &#39;max&#39;: 0.05246129631996155,
+  &#39;min&#39;: -0.05248286575078964,
+  &#39;cnt_zero&#39;: 0,
+  &#39;zero_pct&#39;: 0.0,
+  &#39;module&#39;: &#39;model(AlexNet).features(Sequential).0(Conv2d)&#39;,
+  &#39;ts&#39;: &#39;2020-03-07 10:37:50&#39;,
+  &#39;ttype&#39;: &#39;weight&#39;,
+  &#39;tname&#39;: &#39;weight_0&#39;,
+  &#39;n_batch&#39;: 0},
+ {&#39;shape&#39;: [64],
+  &#39;mean&#39;: 0.003515456337481737,
+  &#39;std&#39;: 0.027836013585329056,
+  &#39;max&#39;: 0.0517314150929451,
+  &#39;min&#39;: -0.04436026141047478,
+  &#39;cnt_zero&#39;: 0,
+  &#39;zero_pct&#39;: 0.0,
+  &#39;module&#39;: &#39;model(AlexNet).features(Sequential).0(Conv2d)&#39;,
+  &#39;ts&#39;: &#39;2020-03-07 10:37:50&#39;,
+  &#39;ttype&#39;: &#39;weight&#39;,
+  &#39;tname&#39;: &#39;weight_1&#39;,
+  &#39;n_batch&#39;: 0},
+ {&#39;shape&#39;: [2, 64, 55, 55],
+  &#39;mean&#39;: 0.058029815554618835,
+  &#39;std&#39;: 0.6799391508102417,
+  &#39;max&#39;: 2.8890106678009033,
+  &#39;min&#39;: -2.7371437549591064,
+  &#39;cnt_zero&#39;: 0,
+  &#39;zero_pct&#39;: 0.0,
+  &#39;module&#39;: &#39;model(AlexNet).features(Sequential).0(Conv2d)&#39;,
+  &#39;ts&#39;: &#39;2020-03-07 10:37:50&#39;,
+  &#39;ttype&#39;: &#39;output&#39;,
+  &#39;tname&#39;: &#39;output_0&#39;,
+  &#39;n_batch&#39;: 0},
+ {&#39;shape&#39;: [2, 64, 55, 55],
+  &#39;mean&#39;: 0.058029815554618835,
+  &#39;std&#39;: 0.6799391508102417,
+  &#39;max&#39;: 2.8890106678009033,
+  &#39;min&#39;: -2.7371437549591064,
+  &#39;cnt_zero&#39;: 0,
+  &#39;zero_pct&#39;: 0.0,
+  &#39;module&#39;: &#39;model(AlexNet).features(Sequential).1(ReLU)&#39;,
+  &#39;ts&#39;: &#39;2020-03-07 10:37:50&#39;,
+  &#39;ttype&#39;: &#39;input&#39;,
+  &#39;tname&#39;: &#39;input&#39;,
+  &#39;n_batch&#39;: 0},
+ {&#39;shape&#39;: [2, 64, 55, 55],
+  &#39;mean&#39;: 0.2949860095977783,
+  &#39;std&#39;: 0.4212140142917633,
+  &#39;max&#39;: 2.8890106678009033,
+  &#39;min&#39;: 0.0,
+  &#39;cnt_zero&#39;: 179115,
+  &#39;zero_pct&#39;: 0.4625903925619835,
+  &#39;module&#39;: &#39;model(AlexNet).features(Sequential).1(ReLU)&#39;,
+  &#39;ts&#39;: &#39;2020-03-07 10:37:50&#39;,
+  &#39;ttype&#39;: &#39;output&#39;,
+  &#39;tname&#39;: &#39;output_0&#39;,
+  &#39;n_batch&#39;: 0},
+ {&#39;shape&#39;: [2, 64, 55, 55],
+  &#39;mean&#39;: 0.2949860095977783,
+  &#39;std&#39;: 0.4212140142917633,
+  &#39;max&#39;: 2.8890106678009033,
+  &#39;min&#39;: 0.0,
+  &#39;cnt_zero&#39;: 179115,
+  &#39;zero_pct&#39;: 0.4625903925619835,
+  &#39;module&#39;: &#39;model(AlexNet).features(Sequential).2(MaxPool2d)&#39;,
+  &#39;ts&#39;: &#39;2020-03-07 10:37:50&#39;,
+  &#39;ttype&#39;: &#39;input&#39;,
+  &#39;tname&#39;: &#39;input&#39;,
+  &#39;n_batch&#39;: 0},
+ {&#39;shape&#39;: [2, 64, 27, 27],
+  &#39;mean&#39;: 0.6178204417228699,
+  &#39;std&#39;: 0.5235710144042969,
+  &#39;max&#39;: 2.8890106678009033,
+  &#39;min&#39;: 0.0,
+  &#39;cnt_zero&#39;: 16626,
+  &#39;zero_pct&#39;: 0.17817644032921812,
+  &#39;module&#39;: &#39;model(AlexNet).features(Sequential).2(MaxPool2d)&#39;,
+  &#39;ts&#39;: &#39;2020-03-07 10:37:51&#39;,
+  &#39;ttype&#39;: &#39;output&#39;,
+  &#39;tname&#39;: &#39;output_0&#39;,
+  &#39;n_batch&#39;: 0},
+ {&#39;shape&#39;: [2, 64, 27, 27],
+  &#39;mean&#39;: 0.6178204417228699,
+  &#39;std&#39;: 0.5235710144042969,
+  &#39;max&#39;: 2.8890106678009033,
+  &#39;min&#39;: 0.0,
+  &#39;cnt_zero&#39;: 16626,
+  &#39;zero_pct&#39;: 0.17817644032921812,
+  &#39;module&#39;: &#39;model(AlexNet).features(Sequential).3(Conv2d)&#39;,
+  &#39;ts&#39;: &#39;2020-03-07 10:37:51&#39;,
+  &#39;ttype&#39;: &#39;input&#39;,
+  &#39;tname&#39;: &#39;input&#39;,
+  &#39;n_batch&#39;: 0},
+ {&#39;shape&#39;: [192, 64, 5, 5],
+  &#39;mean&#39;: 2.920041879406199e-05,
+  &#39;std&#39;: 0.014425805769860744,
+  &#39;max&#39;: 0.024999992921948433,
+  &#39;min&#39;: -0.024999914690852165,
+  &#39;cnt_zero&#39;: 0,
+  &#39;zero_pct&#39;: 0.0,
+  &#39;module&#39;: &#39;model(AlexNet).features(Sequential).3(Conv2d)&#39;,
+  &#39;ts&#39;: &#39;2020-03-07 10:37:51&#39;,
+  &#39;ttype&#39;: &#39;weight&#39;,
+  &#39;tname&#39;: &#39;weight_0&#39;,
+  &#39;n_batch&#39;: 0},
+ {&#39;shape&#39;: [192],
+  &#39;mean&#39;: 5.584982500295155e-05,
+  &#39;std&#39;: 0.01449640840291977,
+  &#39;max&#39;: 0.02486034296452999,
+  &#39;min&#39;: -0.024976877495646477,
+  &#39;cnt_zero&#39;: 0,
+  &#39;zero_pct&#39;: 0.0,
+  &#39;module&#39;: &#39;model(AlexNet).features(Sequential).3(Conv2d)&#39;,
+  &#39;ts&#39;: &#39;2020-03-07 10:37:51&#39;,
+  &#39;ttype&#39;: &#39;weight&#39;,
+  &#39;tname&#39;: &#39;weight_1&#39;,
+  &#39;n_batch&#39;: 0},
+ {&#39;shape&#39;: [2, 192, 27, 27],
+  &#39;mean&#39;: 0.005711908917874098,
+  &#39;std&#39;: 0.4219861924648285,
+  &#39;max&#39;: 1.3408710956573486,
+  &#39;min&#39;: -1.5709540843963623,
+  &#39;cnt_zero&#39;: 0,
+  &#39;zero_pct&#39;: 0.0,
+  &#39;module&#39;: &#39;model(AlexNet).features(Sequential).3(Conv2d)&#39;,
+  &#39;ts&#39;: &#39;2020-03-07 10:37:51&#39;,
+  &#39;ttype&#39;: &#39;output&#39;,
+  &#39;tname&#39;: &#39;output_0&#39;,
+  &#39;n_batch&#39;: 0},
+ {&#39;shape&#39;: [2, 192, 27, 27],
+  &#39;mean&#39;: 0.005711908917874098,
+  &#39;std&#39;: 0.4219861924648285,
+  &#39;max&#39;: 1.3408710956573486,
+  &#39;min&#39;: -1.5709540843963623,
+  &#39;cnt_zero&#39;: 0,
+  &#39;zero_pct&#39;: 0.0,
+  &#39;module&#39;: &#39;model(AlexNet).features(Sequential).4(ReLU)&#39;,
+  &#39;ts&#39;: &#39;2020-03-07 10:37:51&#39;,
+  &#39;ttype&#39;: &#39;input&#39;,
+  &#39;tname&#39;: &#39;input&#39;,
+  &#39;n_batch&#39;: 0},
+ {&#39;shape&#39;: [2, 192, 27, 27],
+  &#39;mean&#39;: 0.1750352382659912,
+  &#39;std&#39;: 0.24230045080184937,
+  &#39;max&#39;: 1.3408710956573486,
+  &#39;min&#39;: 0.0,
+  &#39;cnt_zero&#39;: 136728,
+  &#39;zero_pct&#39;: 0.48842592592592593,
+  &#39;module&#39;: &#39;model(AlexNet).features(Sequential).4(ReLU)&#39;,
+  &#39;ts&#39;: &#39;2020-03-07 10:37:51&#39;,
+  &#39;ttype&#39;: &#39;output&#39;,
+  &#39;tname&#39;: &#39;output_0&#39;,
+  &#39;n_batch&#39;: 0},
+ {&#39;shape&#39;: [2, 192, 27, 27],
+  &#39;mean&#39;: 0.1750352382659912,
+  &#39;std&#39;: 0.24230045080184937,
+  &#39;max&#39;: 1.3408710956573486,
+  &#39;min&#39;: 0.0,
+  &#39;cnt_zero&#39;: 136728,
+  &#39;zero_pct&#39;: 0.48842592592592593,
+  &#39;module&#39;: &#39;model(AlexNet).features(Sequential).5(MaxPool2d)&#39;,
+  &#39;ts&#39;: &#39;2020-03-07 10:37:51&#39;,
+  &#39;ttype&#39;: &#39;input&#39;,
+  &#39;tname&#39;: &#39;input&#39;,
+  &#39;n_batch&#39;: 0},
+ {&#39;shape&#39;: [2, 192, 13, 13],
+  &#39;mean&#39;: 0.2699883282184601,
+  &#39;std&#39;: 0.29403892159461975,
+  &#39;max&#39;: 1.3408710956573486,
+  &#39;min&#39;: 0.0,
+  &#39;cnt_zero&#39;: 22632,
+  &#39;zero_pct&#39;: 0.34874260355029585,
+  &#39;module&#39;: &#39;model(AlexNet).features(Sequential).5(MaxPool2d)&#39;,
+  &#39;ts&#39;: &#39;2020-03-07 10:37:51&#39;,
+  &#39;ttype&#39;: &#39;output&#39;,
+  &#39;tname&#39;: &#39;output_0&#39;,
+  &#39;n_batch&#39;: 0},
+ {&#39;shape&#39;: [2, 192, 13, 13],
+  &#39;mean&#39;: 0.2699883282184601,
+  &#39;std&#39;: 0.29403892159461975,
+  &#39;max&#39;: 1.3408710956573486,
+  &#39;min&#39;: 0.0,
+  &#39;cnt_zero&#39;: 22632,
+  &#39;zero_pct&#39;: 0.34874260355029585,
+  &#39;module&#39;: &#39;model(AlexNet).features(Sequential).6(Conv2d)&#39;,
+  &#39;ts&#39;: &#39;2020-03-07 10:37:51&#39;,
+  &#39;ttype&#39;: &#39;input&#39;,
+  &#39;tname&#39;: &#39;input&#39;,
+  &#39;n_batch&#39;: 0},
+ {&#39;shape&#39;: [384, 192, 3, 3],
+  &#39;mean&#39;: -1.0054035556095187e-05,
+  &#39;std&#39;: 0.013890313915908337,
+  &#39;max&#39;: 0.02405625395476818,
+  &#39;min&#39;: -0.024056246504187584,
+  &#39;cnt_zero&#39;: 0,
+  &#39;zero_pct&#39;: 0.0,
+  &#39;module&#39;: &#39;model(AlexNet).features(Sequential).6(Conv2d)&#39;,
+  &#39;ts&#39;: &#39;2020-03-07 10:37:51&#39;,
+  &#39;ttype&#39;: &#39;weight&#39;,
+  &#39;tname&#39;: &#39;weight_0&#39;,
+  &#39;n_batch&#39;: 0},
+ {&#39;shape&#39;: [384],
+  &#39;mean&#39;: -0.00042058341205120087,
+  &#39;std&#39;: 0.013936573639512062,
+  &#39;max&#39;: 0.02394459955394268,
+  &#39;min&#39;: -0.023925118148326874,
+  &#39;cnt_zero&#39;: 0,
+  &#39;zero_pct&#39;: 0.0,
+  &#39;module&#39;: &#39;model(AlexNet).features(Sequential).6(Conv2d)&#39;,
+  &#39;ts&#39;: &#39;2020-03-07 10:37:51&#39;,
+  &#39;ttype&#39;: &#39;weight&#39;,
+  &#39;tname&#39;: &#39;weight_1&#39;,
+  &#39;n_batch&#39;: 0},
+ {&#39;shape&#39;: [2, 384, 13, 13],
+  &#39;mean&#39;: -0.008931996300816536,
+  &#39;std&#39;: 0.2149755209684372,
+  &#39;max&#39;: 0.7376869916915894,
+  &#39;min&#39;: -0.7926941514015198,
+  &#39;cnt_zero&#39;: 0,
+  &#39;zero_pct&#39;: 0.0,
+  &#39;module&#39;: &#39;model(AlexNet).features(Sequential).6(Conv2d)&#39;,
+  &#39;ts&#39;: &#39;2020-03-07 10:37:51&#39;,
+  &#39;ttype&#39;: &#39;output&#39;,
+  &#39;tname&#39;: &#39;output_0&#39;,
+  &#39;n_batch&#39;: 0},
+ {&#39;shape&#39;: [2, 384, 13, 13],
+  &#39;mean&#39;: -0.008931996300816536,
+  &#39;std&#39;: 0.2149755209684372,
+  &#39;max&#39;: 0.7376869916915894,
+  &#39;min&#39;: -0.7926941514015198,
+  &#39;cnt_zero&#39;: 0,
+  &#39;zero_pct&#39;: 0.0,
+  &#39;module&#39;: &#39;model(AlexNet).features(Sequential).7(ReLU)&#39;,
+  &#39;ts&#39;: &#39;2020-03-07 10:37:51&#39;,
+  &#39;ttype&#39;: &#39;input&#39;,
+  &#39;tname&#39;: &#39;input&#39;,
+  &#39;n_batch&#39;: 0},
+ {&#39;shape&#39;: [2, 384, 13, 13],
+  &#39;mean&#39;: 0.08150506764650345,
+  &#39;std&#39;: 0.122230164706707,
+  &#39;max&#39;: 0.7376869916915894,
+  &#39;min&#39;: 0.0,
+  &#39;cnt_zero&#39;: 67078,
+  &#39;zero_pct&#39;: 0.5168115138067061,
+  &#39;module&#39;: &#39;model(AlexNet).features(Sequential).7(ReLU)&#39;,
+  &#39;ts&#39;: &#39;2020-03-07 10:37:51&#39;,
+  &#39;ttype&#39;: &#39;output&#39;,
+  &#39;tname&#39;: &#39;output_0&#39;,
+  &#39;n_batch&#39;: 0},
+ {&#39;shape&#39;: [2, 384, 13, 13],
+  &#39;mean&#39;: 0.08150506764650345,
+  &#39;std&#39;: 0.122230164706707,
+  &#39;max&#39;: 0.7376869916915894,
+  &#39;min&#39;: 0.0,
+  &#39;cnt_zero&#39;: 67078,
+  &#39;zero_pct&#39;: 0.5168115138067061,
+  &#39;module&#39;: &#39;model(AlexNet).features(Sequential).8(Conv2d)&#39;,
+  &#39;ts&#39;: &#39;2020-03-07 10:37:51&#39;,
+  &#39;ttype&#39;: &#39;input&#39;,
+  &#39;tname&#39;: &#39;input&#39;,
+  &#39;n_batch&#39;: 0},
+ {&#39;shape&#39;: [256, 384, 3, 3],
+  &#39;mean&#39;: 1.5411440472234972e-05,
+  &#39;std&#39;: 0.009823623113334179,
+  &#39;max&#39;: 0.017010334879159927,
+  &#39;min&#39;: -0.017010342329740524,
+  &#39;cnt_zero&#39;: 0,
+  &#39;zero_pct&#39;: 0.0,
+  &#39;module&#39;: &#39;model(AlexNet).features(Sequential).8(Conv2d)&#39;,
+  &#39;ts&#39;: &#39;2020-03-07 10:37:51&#39;,
+  &#39;ttype&#39;: &#39;weight&#39;,
+  &#39;tname&#39;: &#39;weight_0&#39;,
+  &#39;n_batch&#39;: 0},
+ {&#39;shape&#39;: [256],
+  &#39;mean&#39;: 0.0004253720981068909,
+  &#39;std&#39;: 0.009670977480709553,
+  &#39;max&#39;: 0.016636833548545837,
+  &#39;min&#39;: -0.016954980790615082,
+  &#39;cnt_zero&#39;: 0,
+  &#39;zero_pct&#39;: 0.0,
+  &#39;module&#39;: &#39;model(AlexNet).features(Sequential).8(Conv2d)&#39;,
+  &#39;ts&#39;: &#39;2020-03-07 10:37:51&#39;,
+  &#39;ttype&#39;: &#39;weight&#39;,
+  &#39;tname&#39;: &#39;weight_1&#39;,
+  &#39;n_batch&#39;: 0},
+ {&#39;shape&#39;: [2, 256, 13, 13],
+  &#39;mean&#39;: 0.0047131311148405075,
+  &#39;std&#39;: 0.08358980715274811,
+  &#39;max&#39;: 0.33009663224220276,
+  &#39;min&#39;: -0.3189106583595276,
+  &#39;cnt_zero&#39;: 0,
+  &#39;zero_pct&#39;: 0.0,
+  &#39;module&#39;: &#39;model(AlexNet).features(Sequential).8(Conv2d)&#39;,
+  &#39;ts&#39;: &#39;2020-03-07 10:37:51&#39;,
+  &#39;ttype&#39;: &#39;output&#39;,
+  &#39;tname&#39;: &#39;output_0&#39;,
+  &#39;n_batch&#39;: 0},
+ {&#39;shape&#39;: [2, 256, 13, 13],
+  &#39;mean&#39;: 0.0047131311148405075,
+  &#39;std&#39;: 0.08358980715274811,
+  &#39;max&#39;: 0.33009663224220276,
+  &#39;min&#39;: -0.3189106583595276,
+  &#39;cnt_zero&#39;: 0,
+  &#39;zero_pct&#39;: 0.0,
+  &#39;module&#39;: &#39;model(AlexNet).features(Sequential).9(ReLU)&#39;,
+  &#39;ts&#39;: &#39;2020-03-07 10:37:51&#39;,
+  &#39;ttype&#39;: &#39;input&#39;,
+  &#39;tname&#39;: &#39;input&#39;,
+  &#39;n_batch&#39;: 0},
+ {&#39;shape&#39;: [2, 256, 13, 13],
+  &#39;mean&#39;: 0.03535669669508934,
+  &#39;std&#39;: 0.0499359592795372,
+  &#39;max&#39;: 0.33009663224220276,
+  &#39;min&#39;: 0.0,
+  &#39;cnt_zero&#39;: 41035,
+  &#39;zero_pct&#39;: 0.4742395525147929,
+  &#39;module&#39;: &#39;model(AlexNet).features(Sequential).9(ReLU)&#39;,
+  &#39;ts&#39;: &#39;2020-03-07 10:37:51&#39;,
+  &#39;ttype&#39;: &#39;output&#39;,
+  &#39;tname&#39;: &#39;output_0&#39;,
+  &#39;n_batch&#39;: 0},
+ {&#39;shape&#39;: [2, 256, 13, 13],
+  &#39;mean&#39;: 0.03535669669508934,
+  &#39;std&#39;: 0.0499359592795372,
+  &#39;max&#39;: 0.33009663224220276,
+  &#39;min&#39;: 0.0,
+  &#39;cnt_zero&#39;: 41035,
+  &#39;zero_pct&#39;: 0.4742395525147929,
+  &#39;module&#39;: &#39;model(AlexNet).features(Sequential).10(Conv2d)&#39;,
+  &#39;ts&#39;: &#39;2020-03-07 10:37:51&#39;,
+  &#39;ttype&#39;: &#39;input&#39;,
+  &#39;tname&#39;: &#39;input&#39;,
+  &#39;n_batch&#39;: 0},
+ {&#39;shape&#39;: [256, 256, 3, 3],
+  &#39;mean&#39;: 2.6003770472016186e-05,
+  &#39;std&#39;: 0.012027072720229626,
+  &#39;max&#39;: 0.020833326503634453,
+  &#39;min&#39;: -0.020833313465118408,
+  &#39;cnt_zero&#39;: 0,
+  &#39;zero_pct&#39;: 0.0,
+  &#39;module&#39;: &#39;model(AlexNet).features(Sequential).10(Conv2d)&#39;,
+  &#39;ts&#39;: &#39;2020-03-07 10:37:51&#39;,
+  &#39;ttype&#39;: &#39;weight&#39;,
+  &#39;tname&#39;: &#39;weight_0&#39;,
+  &#39;n_batch&#39;: 0},
+ {&#39;shape&#39;: [256],
+  &#39;mean&#39;: 0.00011942532728426158,
+  &#39;std&#39;: 0.012175926938652992,
+  &#39;max&#39;: 0.020765984430909157,
+  &#39;min&#39;: -0.02049778774380684,
+  &#39;cnt_zero&#39;: 0,
+  &#39;zero_pct&#39;: 0.0,
+  &#39;module&#39;: &#39;model(AlexNet).features(Sequential).10(Conv2d)&#39;,
+  &#39;ts&#39;: &#39;2020-03-07 10:37:51&#39;,
+  &#39;ttype&#39;: &#39;weight&#39;,
+  &#39;tname&#39;: &#39;weight_1&#39;,
+  &#39;n_batch&#39;: 0},
+ {&#39;shape&#39;: [2, 256, 13, 13],
+  &#39;mean&#39;: 0.0005038615199737251,
+  &#39;std&#39;: 0.03571150824427605,
+  &#39;max&#39;: 0.12614856660366058,
+  &#39;min&#39;: -0.13716860115528107,
+  &#39;cnt_zero&#39;: 0,
+  &#39;zero_pct&#39;: 0.0,
+  &#39;module&#39;: &#39;model(AlexNet).features(Sequential).10(Conv2d)&#39;,
+  &#39;ts&#39;: &#39;2020-03-07 10:37:51&#39;,
+  &#39;ttype&#39;: &#39;output&#39;,
+  &#39;tname&#39;: &#39;output_0&#39;,
+  &#39;n_batch&#39;: 0},
+ {&#39;shape&#39;: [2, 256, 13, 13],
+  &#39;mean&#39;: 0.0005038615199737251,
+  &#39;std&#39;: 0.03571150824427605,
+  &#39;max&#39;: 0.12614856660366058,
+  &#39;min&#39;: -0.13716860115528107,
+  &#39;cnt_zero&#39;: 0,
+  &#39;zero_pct&#39;: 0.0,
+  &#39;module&#39;: &#39;model(AlexNet).features(Sequential).11(ReLU)&#39;,
+  &#39;ts&#39;: &#39;2020-03-07 10:37:51&#39;,
+  &#39;ttype&#39;: &#39;input&#39;,
+  &#39;tname&#39;: &#39;input&#39;,
+  &#39;n_batch&#39;: 0},
+ {&#39;shape&#39;: [2, 256, 13, 13],
+  &#39;mean&#39;: 0.014308960177004337,
+  &#39;std&#39;: 0.02128779888153076,
+  &#39;max&#39;: 0.12614856660366058,
+  &#39;min&#39;: 0.0,
+  &#39;cnt_zero&#39;: 43223,
+  &#39;zero_pct&#39;: 0.4995261649408284,
+  &#39;module&#39;: &#39;model(AlexNet).features(Sequential).11(ReLU)&#39;,
+  &#39;ts&#39;: &#39;2020-03-07 10:37:51&#39;,
+  &#39;ttype&#39;: &#39;output&#39;,
+  &#39;tname&#39;: &#39;output_0&#39;,
+  &#39;n_batch&#39;: 0},
+ {&#39;shape&#39;: [2, 256, 13, 13],
+  &#39;mean&#39;: 0.014308960177004337,
+  &#39;std&#39;: 0.02128779888153076,
+  &#39;max&#39;: 0.12614856660366058,
+  &#39;min&#39;: 0.0,
+  &#39;cnt_zero&#39;: 43223,
+  &#39;zero_pct&#39;: 0.4995261649408284,
+  &#39;module&#39;: &#39;model(AlexNet).features(Sequential).12(MaxPool2d)&#39;,
+  &#39;ts&#39;: &#39;2020-03-07 10:37:51&#39;,
+  &#39;ttype&#39;: &#39;input&#39;,
+  &#39;tname&#39;: &#39;input&#39;,
+  &#39;n_batch&#39;: 0},
+ {&#39;shape&#39;: [2, 256, 6, 6],
+  &#39;mean&#39;: 0.02180689387023449,
+  &#39;std&#39;: 0.025604762136936188,
+  &#39;max&#39;: 0.12614856660366058,
+  &#39;min&#39;: 0.0,
+  &#39;cnt_zero&#39;: 6580,
+  &#39;zero_pct&#39;: 0.3569878472222222,
+  &#39;module&#39;: &#39;model(AlexNet).features(Sequential).12(MaxPool2d)&#39;,
+  &#39;ts&#39;: &#39;2020-03-07 10:37:51&#39;,
+  &#39;ttype&#39;: &#39;output&#39;,
+  &#39;tname&#39;: &#39;output_0&#39;,
+  &#39;n_batch&#39;: 0},
+ {&#39;shape&#39;: [2, 256, 6, 6],
+  &#39;mean&#39;: 0.02180689387023449,
+  &#39;std&#39;: 0.025604762136936188,
+  &#39;max&#39;: 0.12614856660366058,
+  &#39;min&#39;: 0.0,
+  &#39;cnt_zero&#39;: 6580,
+  &#39;zero_pct&#39;: 0.3569878472222222,
+  &#39;module&#39;: &#39;model(AlexNet).features(Sequential)&#39;,
+  &#39;ts&#39;: &#39;2020-03-07 10:37:51&#39;,
+  &#39;ttype&#39;: &#39;output&#39;,
+  &#39;tname&#39;: &#39;output_0&#39;,
+  &#39;n_batch&#39;: 0},
+ {&#39;shape&#39;: [2, 256, 6, 6],
+  &#39;mean&#39;: 0.02180689387023449,
+  &#39;std&#39;: 0.025604762136936188,
+  &#39;max&#39;: 0.12614856660366058,
+  &#39;min&#39;: 0.0,
+  &#39;cnt_zero&#39;: 6580,
+  &#39;zero_pct&#39;: 0.3569878472222222,
+  &#39;module&#39;: &#39;model(AlexNet).avgpool(AdaptiveAvgPool2d)&#39;,
+  &#39;ts&#39;: &#39;2020-03-07 10:37:51&#39;,
+  &#39;ttype&#39;: &#39;input&#39;,
+  &#39;tname&#39;: &#39;input&#39;,
+  &#39;n_batch&#39;: 0},
+ {&#39;shape&#39;: [2, 256, 6, 6],
+  &#39;mean&#39;: 0.02180689387023449,
+  &#39;std&#39;: 0.025604762136936188,
+  &#39;max&#39;: 0.12614856660366058,
+  &#39;min&#39;: 0.0,
+  &#39;cnt_zero&#39;: 6580,
+  &#39;zero_pct&#39;: 0.3569878472222222,
+  &#39;module&#39;: &#39;model(AlexNet).avgpool(AdaptiveAvgPool2d)&#39;,
+  &#39;ts&#39;: &#39;2020-03-07 10:37:51&#39;,
+  &#39;ttype&#39;: &#39;output&#39;,
+  &#39;tname&#39;: &#39;output_0&#39;,
+  &#39;n_batch&#39;: 0},
+ {&#39;shape&#39;: [2, 9216],
+  &#39;mean&#39;: 0.02180689387023449,
+  &#39;std&#39;: 0.025604762136936188,
+  &#39;max&#39;: 0.12614856660366058,
+  &#39;min&#39;: 0.0,
+  &#39;cnt_zero&#39;: 6580,
+  &#39;zero_pct&#39;: 0.3569878472222222,
+  &#39;module&#39;: &#39;model(AlexNet).classifier(Sequential)&#39;,
+  &#39;ts&#39;: &#39;2020-03-07 10:37:51&#39;,
+  &#39;ttype&#39;: &#39;input&#39;,
+  &#39;tname&#39;: &#39;input&#39;,
+  &#39;n_batch&#39;: 0},
+ {&#39;shape&#39;: [2, 9216],
+  &#39;mean&#39;: 0.02180689387023449,
+  &#39;std&#39;: 0.025604762136936188,
+  &#39;max&#39;: 0.12614856660366058,
+  &#39;min&#39;: 0.0,
+  &#39;cnt_zero&#39;: 6580,
+  &#39;zero_pct&#39;: 0.3569878472222222,
+  &#39;module&#39;: &#39;model(AlexNet).classifier(Sequential).0(Dropout)&#39;,
+  &#39;ts&#39;: &#39;2020-03-07 10:37:51&#39;,
+  &#39;ttype&#39;: &#39;input&#39;,
+  &#39;tname&#39;: &#39;input&#39;,
+  &#39;n_batch&#39;: 0},
+ {&#39;shape&#39;: [2, 9216],
+  &#39;mean&#39;: 0.021722903475165367,
+  &#39;std&#39;: 0.04194366931915283,
+  &#39;max&#39;: 0.2518007457256317,
+  &#39;min&#39;: 0.0,
+  &#39;cnt_zero&#39;: 12470,
+  &#39;zero_pct&#39;: 0.6765407986111112,
+  &#39;module&#39;: &#39;model(AlexNet).classifier(Sequential).0(Dropout)&#39;,
+  &#39;ts&#39;: &#39;2020-03-07 10:37:51&#39;,
+  &#39;ttype&#39;: &#39;output&#39;,
+  &#39;tname&#39;: &#39;output_0&#39;,
+  &#39;n_batch&#39;: 0},
+ {&#39;shape&#39;: [2, 9216],
+  &#39;mean&#39;: 0.021722903475165367,
+  &#39;std&#39;: 0.04194366931915283,
+  &#39;max&#39;: 0.2518007457256317,
+  &#39;min&#39;: 0.0,
+  &#39;cnt_zero&#39;: 12470,
+  &#39;zero_pct&#39;: 0.6765407986111112,
+  &#39;module&#39;: &#39;model(AlexNet).classifier(Sequential).1(Linear)&#39;,
+  &#39;ts&#39;: &#39;2020-03-07 10:37:51&#39;,
+  &#39;ttype&#39;: &#39;input&#39;,
+  &#39;tname&#39;: &#39;input&#39;,
+  &#39;n_batch&#39;: 0},
+ {&#39;shape&#39;: [4096, 9216],
+  &#39;mean&#39;: 8.854000839164655e-07,
+  &#39;std&#39;: 0.006014422979205847,
+  &#39;max&#39;: 0.010416665114462376,
+  &#39;min&#39;: -0.010416666977107525,
+  &#39;cnt_zero&#39;: 1,
+  &#39;zero_pct&#39;: 2.6490953233506943e-08,
+  &#39;module&#39;: &#39;model(AlexNet).classifier(Sequential).1(Linear)&#39;,
+  &#39;ts&#39;: &#39;2020-03-07 10:37:51&#39;,
+  &#39;ttype&#39;: &#39;weight&#39;,
+  &#39;tname&#39;: &#39;weight_0&#39;,
+  &#39;n_batch&#39;: 0},
+ {&#39;shape&#39;: [4096],
+  &#39;mean&#39;: -4.447995888767764e-05,
+  &#39;std&#39;: 0.0060094729997217655,
+  &#39;max&#39;: 0.010400851257145405,
+  &#39;min&#39;: -0.010413545183837414,
+  &#39;cnt_zero&#39;: 0,
+  &#39;zero_pct&#39;: 0.0,
+  &#39;module&#39;: &#39;model(AlexNet).classifier(Sequential).1(Linear)&#39;,
+  &#39;ts&#39;: &#39;2020-03-07 10:37:51&#39;,
+  &#39;ttype&#39;: &#39;weight&#39;,
+  &#39;tname&#39;: &#39;weight_1&#39;,
+  &#39;n_batch&#39;: 0},
+ {&#39;shape&#39;: [2, 4096],
+  &#39;mean&#39;: 0.00023734159185551107,
+  &#39;std&#39;: 0.02741725742816925,
+  &#39;max&#39;: 0.09106789529323578,
+  &#39;min&#39;: -0.10247291624546051,
+  &#39;cnt_zero&#39;: 0,
+  &#39;zero_pct&#39;: 0.0,
+  &#39;module&#39;: &#39;model(AlexNet).classifier(Sequential).1(Linear)&#39;,
+  &#39;ts&#39;: &#39;2020-03-07 10:37:51&#39;,
+  &#39;ttype&#39;: &#39;output&#39;,
+  &#39;tname&#39;: &#39;output_0&#39;,
+  &#39;n_batch&#39;: 0},
+ {&#39;shape&#39;: [2, 4096],
+  &#39;mean&#39;: 0.00023734159185551107,
+  &#39;std&#39;: 0.02741725742816925,
+  &#39;max&#39;: 0.09106789529323578,
+  &#39;min&#39;: -0.10247291624546051,
+  &#39;cnt_zero&#39;: 0,
+  &#39;zero_pct&#39;: 0.0,
+  &#39;module&#39;: &#39;model(AlexNet).classifier(Sequential).2(ReLU)&#39;,
+  &#39;ts&#39;: &#39;2020-03-07 10:37:51&#39;,
+  &#39;ttype&#39;: &#39;input&#39;,
+  &#39;tname&#39;: &#39;input&#39;,
+  &#39;n_batch&#39;: 0},
+ {&#39;shape&#39;: [2, 4096],
+  &#39;mean&#39;: 0.011032940819859505,
+  &#39;std&#39;: 0.016011307016015053,
+  &#39;max&#39;: 0.09106789529323578,
+  &#39;min&#39;: 0.0,
+  &#39;cnt_zero&#39;: 4063,
+  &#39;zero_pct&#39;: 0.4959716796875,
+  &#39;module&#39;: &#39;model(AlexNet).classifier(Sequential).2(ReLU)&#39;,
+  &#39;ts&#39;: &#39;2020-03-07 10:37:51&#39;,
+  &#39;ttype&#39;: &#39;output&#39;,
+  &#39;tname&#39;: &#39;output_0&#39;,
+  &#39;n_batch&#39;: 0},
+ {&#39;shape&#39;: [2, 4096],
+  &#39;mean&#39;: 0.011032940819859505,
+  &#39;std&#39;: 0.016011307016015053,
+  &#39;max&#39;: 0.09106789529323578,
+  &#39;min&#39;: 0.0,
+  &#39;cnt_zero&#39;: 4063,
+  &#39;zero_pct&#39;: 0.4959716796875,
+  &#39;module&#39;: &#39;model(AlexNet).classifier(Sequential).3(Dropout)&#39;,
+  &#39;ts&#39;: &#39;2020-03-07 10:37:51&#39;,
+  &#39;ttype&#39;: &#39;input&#39;,
+  &#39;tname&#39;: &#39;input&#39;,
+  &#39;n_batch&#39;: 0},
+ {&#39;shape&#39;: [2, 4096],
+  &#39;mean&#39;: 0.01122759748250246,
+  &#39;std&#39;: 0.025463327765464783,
+  &#39;max&#39;: 0.18213579058647156,
+  &#39;min&#39;: 0.0,
+  &#39;cnt_zero&#39;: 6124,
+  &#39;zero_pct&#39;: 0.74755859375,
+  &#39;module&#39;: &#39;model(AlexNet).classifier(Sequential).3(Dropout)&#39;,
+  &#39;ts&#39;: &#39;2020-03-07 10:37:51&#39;,
+  &#39;ttype&#39;: &#39;output&#39;,
+  &#39;tname&#39;: &#39;output_0&#39;,
+  &#39;n_batch&#39;: 0},
+ {&#39;shape&#39;: [2, 4096],
+  &#39;mean&#39;: 0.01122759748250246,
+  &#39;std&#39;: 0.025463327765464783,
+  &#39;max&#39;: 0.18213579058647156,
+  &#39;min&#39;: 0.0,
+  &#39;cnt_zero&#39;: 6124,
+  &#39;zero_pct&#39;: 0.74755859375,
+  &#39;module&#39;: &#39;model(AlexNet).classifier(Sequential).4(Linear)&#39;,
+  &#39;ts&#39;: &#39;2020-03-07 10:37:51&#39;,
+  &#39;ttype&#39;: &#39;input&#39;,
+  &#39;tname&#39;: &#39;input&#39;,
+  &#39;n_batch&#39;: 0},
+ {&#39;shape&#39;: [4096, 4096],
+  &#39;mean&#39;: 2.2561544028576463e-06,
+  &#39;std&#39;: 0.00902175810188055,
+  &#39;max&#39;: 0.01562499813735485,
+  &#39;min&#39;: -0.01562499813735485,
+  &#39;cnt_zero&#39;: 0,
+  &#39;zero_pct&#39;: 0.0,
+  &#39;module&#39;: &#39;model(AlexNet).classifier(Sequential).4(Linear)&#39;,
+  &#39;ts&#39;: &#39;2020-03-07 10:37:51&#39;,
+  &#39;ttype&#39;: &#39;weight&#39;,
+  &#39;tname&#39;: &#39;weight_0&#39;,
+  &#39;n_batch&#39;: 0},
+ {&#39;shape&#39;: [4096],
+  &#39;mean&#39;: -0.00025126454420387745,
+  &#39;std&#39;: 0.009119285270571709,
+  &#39;max&#39;: 0.01561034843325615,
+  &#39;min&#39;: -0.015622705221176147,
+  &#39;cnt_zero&#39;: 0,
+  &#39;zero_pct&#39;: 0.0,
+  &#39;module&#39;: &#39;model(AlexNet).classifier(Sequential).4(Linear)&#39;,
+  &#39;ts&#39;: &#39;2020-03-07 10:37:52&#39;,
+  &#39;ttype&#39;: &#39;weight&#39;,
+  &#39;tname&#39;: &#39;weight_1&#39;,
+  &#39;n_batch&#39;: 0},
+ {&#39;shape&#39;: [2, 4096],
+  &#39;mean&#39;: -3.335143264848739e-05,
+  &#39;std&#39;: 0.018526341766119003,
+  &#39;max&#39;: 0.06954209506511688,
+  &#39;min&#39;: -0.06549615412950516,
+  &#39;cnt_zero&#39;: 0,
+  &#39;zero_pct&#39;: 0.0,
+  &#39;module&#39;: &#39;model(AlexNet).classifier(Sequential).4(Linear)&#39;,
+  &#39;ts&#39;: &#39;2020-03-07 10:37:52&#39;,
+  &#39;ttype&#39;: &#39;output&#39;,
+  &#39;tname&#39;: &#39;output_0&#39;,
+  &#39;n_batch&#39;: 0},
+ {&#39;shape&#39;: [2, 4096],
+  &#39;mean&#39;: -3.335143264848739e-05,
+  &#39;std&#39;: 0.018526341766119003,
+  &#39;max&#39;: 0.06954209506511688,
+  &#39;min&#39;: -0.06549615412950516,
+  &#39;cnt_zero&#39;: 0,
+  &#39;zero_pct&#39;: 0.0,
+  &#39;module&#39;: &#39;model(AlexNet).classifier(Sequential).5(ReLU)&#39;,
+  &#39;ts&#39;: &#39;2020-03-07 10:37:52&#39;,
+  &#39;ttype&#39;: &#39;input&#39;,
+  &#39;tname&#39;: &#39;input&#39;,
+  &#39;n_batch&#39;: 0},
+ {&#39;shape&#39;: [2, 4096],
+  &#39;mean&#39;: 0.007406808901578188,
+  &#39;std&#39;: 0.010857083834707737,
+  &#39;max&#39;: 0.06954209506511688,
+  &#39;min&#39;: 0.0,
+  &#39;cnt_zero&#39;: 4122,
+  &#39;zero_pct&#39;: 0.503173828125,
+  &#39;module&#39;: &#39;model(AlexNet).classifier(Sequential).5(ReLU)&#39;,
+  &#39;ts&#39;: &#39;2020-03-07 10:37:52&#39;,
+  &#39;ttype&#39;: &#39;output&#39;,
+  &#39;tname&#39;: &#39;output_0&#39;,
+  &#39;n_batch&#39;: 0},
+ {&#39;shape&#39;: [2, 4096],
+  &#39;mean&#39;: 0.007406808901578188,
+  &#39;std&#39;: 0.010857083834707737,
+  &#39;max&#39;: 0.06954209506511688,
+  &#39;min&#39;: 0.0,
+  &#39;cnt_zero&#39;: 4122,
+  &#39;zero_pct&#39;: 0.503173828125,
+  &#39;module&#39;: &#39;model(AlexNet).classifier(Sequential).6(Linear)&#39;,
+  &#39;ts&#39;: &#39;2020-03-07 10:37:52&#39;,
+  &#39;ttype&#39;: &#39;input&#39;,
+  &#39;tname&#39;: &#39;input&#39;,
+  &#39;n_batch&#39;: 0},
+ {&#39;shape&#39;: [1000, 4096],
+  &#39;mean&#39;: 7.572847152914619e-06,
+  &#39;std&#39;: 0.009020469151437283,
+  &#39;max&#39;: 0.015624983236193657,
+  &#39;min&#39;: -0.015624994412064552,
+  &#39;cnt_zero&#39;: 0,
+  &#39;zero_pct&#39;: 0.0,
+  &#39;module&#39;: &#39;model(AlexNet).classifier(Sequential).6(Linear)&#39;,
+  &#39;ts&#39;: &#39;2020-03-07 10:37:52&#39;,
+  &#39;ttype&#39;: &#39;weight&#39;,
+  &#39;tname&#39;: &#39;weight_0&#39;,
+  &#39;n_batch&#39;: 0},
+ {&#39;shape&#39;: [1000],
+  &#39;mean&#39;: 0.0005548058543354273,
+  &#39;std&#39;: 0.008900988847017288,
+  &#39;max&#39;: 0.015612822026014328,
+  &#39;min&#39;: -0.015597641468048096,
+  &#39;cnt_zero&#39;: 0,
+  &#39;zero_pct&#39;: 0.0,
+  &#39;module&#39;: &#39;model(AlexNet).classifier(Sequential).6(Linear)&#39;,
+  &#39;ts&#39;: &#39;2020-03-07 10:37:52&#39;,
+  &#39;ttype&#39;: &#39;weight&#39;,
+  &#39;tname&#39;: &#39;weight_1&#39;,
+  &#39;n_batch&#39;: 0},
+ {&#39;shape&#39;: [2, 1000],
+  &#39;mean&#39;: 0.0009677497437223792,
+  &#39;std&#39;: 0.011631517671048641,
+  &#39;max&#39;: 0.03033626265823841,
+  &#39;min&#39;: -0.03496428206562996,
+  &#39;cnt_zero&#39;: 0,
+  &#39;zero_pct&#39;: 0.0,
+  &#39;module&#39;: &#39;model(AlexNet).classifier(Sequential).6(Linear)&#39;,
+  &#39;ts&#39;: &#39;2020-03-07 10:37:52&#39;,
+  &#39;ttype&#39;: &#39;output&#39;,
+  &#39;tname&#39;: &#39;output_0&#39;,
+  &#39;n_batch&#39;: 0},
+ {&#39;shape&#39;: [2, 1000],
+  &#39;mean&#39;: 0.0009677497437223792,
+  &#39;std&#39;: 0.011631517671048641,
+  &#39;max&#39;: 0.03033626265823841,
+  &#39;min&#39;: -0.03496428206562996,
+  &#39;cnt_zero&#39;: 0,
+  &#39;zero_pct&#39;: 0.0,
+  &#39;module&#39;: &#39;model(AlexNet).classifier(Sequential)&#39;,
+  &#39;ts&#39;: &#39;2020-03-07 10:37:52&#39;,
+  &#39;ttype&#39;: &#39;output&#39;,
+  &#39;tname&#39;: &#39;output_0&#39;,
+  &#39;n_batch&#39;: 0},
+ {&#39;shape&#39;: [2, 1000],
+  &#39;mean&#39;: 0.0009677497437223792,
+  &#39;std&#39;: 0.011631517671048641,
+  &#39;max&#39;: 0.03033626265823841,
+  &#39;min&#39;: -0.03496428206562996,
+  &#39;cnt_zero&#39;: 0,
+  &#39;zero_pct&#39;: 0.0,
+  &#39;module&#39;: &#39;model(AlexNet)&#39;,
+  &#39;ts&#39;: &#39;2020-03-07 10:37:52&#39;,
+  &#39;ttype&#39;: &#39;output&#39;,
+  &#39;tname&#39;: &#39;output_0&#39;,
+  &#39;n_batch&#39;: 0},
+ {&#39;shape&#39;: [2, 3, 224, 224],
+  &#39;mean&#39;: -1.001885175704956,
+  &#39;std&#39;: 0.5775364637374878,
+  &#39;max&#39;: -1.5735626220703125e-05,
+  &#39;min&#39;: -1.9999974966049194,
+  &#39;cnt_zero&#39;: 0,
+  &#39;zero_pct&#39;: 0.0,
+  &#39;module&#39;: &#39;model(AlexNet)&#39;,
+  &#39;ts&#39;: &#39;2020-03-07 10:37:52&#39;,
+  &#39;ttype&#39;: &#39;input&#39;,
+  &#39;tname&#39;: &#39;x&#39;,
+  &#39;n_batch&#39;: 1},
+ {&#39;shape&#39;: [2, 3, 224, 224],
+  &#39;mean&#39;: -1.001885175704956,
+  &#39;std&#39;: 0.5775364637374878,
+  &#39;max&#39;: -1.5735626220703125e-05,
+  &#39;min&#39;: -1.9999974966049194,
+  &#39;cnt_zero&#39;: 0,
+  &#39;zero_pct&#39;: 0.0,
+  &#39;module&#39;: &#39;model(AlexNet).features(Sequential)&#39;,
+  &#39;ts&#39;: &#39;2020-03-07 10:37:52&#39;,
+  &#39;ttype&#39;: &#39;input&#39;,
+  &#39;tname&#39;: &#39;input&#39;,
+  &#39;n_batch&#39;: 1},
+ {&#39;shape&#39;: [2, 3, 224, 224],
+  &#39;mean&#39;: -1.001885175704956,
+  &#39;std&#39;: 0.5775364637374878,
+  &#39;max&#39;: -1.5735626220703125e-05,
+  &#39;min&#39;: -1.9999974966049194,
+  &#39;cnt_zero&#39;: 0,
+  &#39;zero_pct&#39;: 0.0,
+  &#39;module&#39;: &#39;model(AlexNet).features(Sequential).0(Conv2d)&#39;,
+  &#39;ts&#39;: &#39;2020-03-07 10:37:52&#39;,
+  &#39;ttype&#39;: &#39;input&#39;,
+  &#39;tname&#39;: &#39;input&#39;,
+  &#39;n_batch&#39;: 1},
+ {&#39;shape&#39;: [64, 3, 11, 11],
+  &#39;mean&#39;: -0.000151715605170466,
+  &#39;std&#39;: 0.03028801828622818,
+  &#39;max&#39;: 0.05246129631996155,
+  &#39;min&#39;: -0.05248286575078964,
+  &#39;cnt_zero&#39;: 0,
+  &#39;zero_pct&#39;: 0.0,
+  &#39;module&#39;: &#39;model(AlexNet).features(Sequential).0(Conv2d)&#39;,
+  &#39;ts&#39;: &#39;2020-03-07 10:37:52&#39;,
+  &#39;ttype&#39;: &#39;weight&#39;,
+  &#39;tname&#39;: &#39;weight_0&#39;,
+  &#39;n_batch&#39;: 1},
+ {&#39;shape&#39;: [64],
+  &#39;mean&#39;: 0.003515456337481737,
+  &#39;std&#39;: 0.027836013585329056,
+  &#39;max&#39;: 0.0517314150929451,
+  &#39;min&#39;: -0.04436026141047478,
+  &#39;cnt_zero&#39;: 0,
+  &#39;zero_pct&#39;: 0.0,
+  &#39;module&#39;: &#39;model(AlexNet).features(Sequential).0(Conv2d)&#39;,
+  &#39;ts&#39;: &#39;2020-03-07 10:37:52&#39;,
+  &#39;ttype&#39;: &#39;weight&#39;,
+  &#39;tname&#39;: &#39;weight_1&#39;,
+  &#39;n_batch&#39;: 1},
+ {&#39;shape&#39;: [2, 64, 55, 55],
+  &#39;mean&#39;: 0.058029815554618835,
+  &#39;std&#39;: 0.6799391508102417,
+  &#39;max&#39;: 2.8890106678009033,
+  &#39;min&#39;: -2.7371437549591064,
+  &#39;cnt_zero&#39;: 0,
+  &#39;zero_pct&#39;: 0.0,
+  &#39;module&#39;: &#39;model(AlexNet).features(Sequential).0(Conv2d)&#39;,
+  &#39;ts&#39;: &#39;2020-03-07 10:37:52&#39;,
+  &#39;ttype&#39;: &#39;output&#39;,
+  &#39;tname&#39;: &#39;output_0&#39;,
+  &#39;n_batch&#39;: 1},
+ {&#39;shape&#39;: [2, 64, 55, 55],
+  &#39;mean&#39;: 0.058029815554618835,
+  &#39;std&#39;: 0.6799391508102417,
+  &#39;max&#39;: 2.8890106678009033,
+  &#39;min&#39;: -2.7371437549591064,
+  &#39;cnt_zero&#39;: 0,
+  &#39;zero_pct&#39;: 0.0,
+  &#39;module&#39;: &#39;model(AlexNet).features(Sequential).1(ReLU)&#39;,
+  &#39;ts&#39;: &#39;2020-03-07 10:37:52&#39;,
+  &#39;ttype&#39;: &#39;input&#39;,
+  &#39;tname&#39;: &#39;input&#39;,
+  &#39;n_batch&#39;: 1},
+ {&#39;shape&#39;: [2, 64, 55, 55],
+  &#39;mean&#39;: 0.2949860095977783,
+  &#39;std&#39;: 0.4212140142917633,
+  &#39;max&#39;: 2.8890106678009033,
+  &#39;min&#39;: 0.0,
+  &#39;cnt_zero&#39;: 179115,
+  &#39;zero_pct&#39;: 0.4625903925619835,
+  &#39;module&#39;: &#39;model(AlexNet).features(Sequential).1(ReLU)&#39;,
+  &#39;ts&#39;: &#39;2020-03-07 10:37:52&#39;,
+  &#39;ttype&#39;: &#39;output&#39;,
+  &#39;tname&#39;: &#39;output_0&#39;,
+  &#39;n_batch&#39;: 1},
+ {&#39;shape&#39;: [2, 64, 55, 55],
+  &#39;mean&#39;: 0.2949860095977783,
+  &#39;std&#39;: 0.4212140142917633,
+  &#39;max&#39;: 2.8890106678009033,
+  &#39;min&#39;: 0.0,
+  &#39;cnt_zero&#39;: 179115,
+  &#39;zero_pct&#39;: 0.4625903925619835,
+  &#39;module&#39;: &#39;model(AlexNet).features(Sequential).2(MaxPool2d)&#39;,
+  &#39;ts&#39;: &#39;2020-03-07 10:37:52&#39;,
+  &#39;ttype&#39;: &#39;input&#39;,
+  &#39;tname&#39;: &#39;input&#39;,
+  &#39;n_batch&#39;: 1},
+ {&#39;shape&#39;: [2, 64, 27, 27],
+  &#39;mean&#39;: 0.6178204417228699,
+  &#39;std&#39;: 0.5235710144042969,
+  &#39;max&#39;: 2.8890106678009033,
+  &#39;min&#39;: 0.0,
+  &#39;cnt_zero&#39;: 16626,
+  &#39;zero_pct&#39;: 0.17817644032921812,
+  &#39;module&#39;: &#39;model(AlexNet).features(Sequential).2(MaxPool2d)&#39;,
+  &#39;ts&#39;: &#39;2020-03-07 10:37:52&#39;,
+  &#39;ttype&#39;: &#39;output&#39;,
+  &#39;tname&#39;: &#39;output_0&#39;,
+  &#39;n_batch&#39;: 1},
+ {&#39;shape&#39;: [2, 64, 27, 27],
+  &#39;mean&#39;: 0.6178204417228699,
+  &#39;std&#39;: 0.5235710144042969,
+  &#39;max&#39;: 2.8890106678009033,
+  &#39;min&#39;: 0.0,
+  &#39;cnt_zero&#39;: 16626,
+  &#39;zero_pct&#39;: 0.17817644032921812,
+  &#39;module&#39;: &#39;model(AlexNet).features(Sequential).3(Conv2d)&#39;,
+  &#39;ts&#39;: &#39;2020-03-07 10:37:52&#39;,
+  &#39;ttype&#39;: &#39;input&#39;,
+  &#39;tname&#39;: &#39;input&#39;,
+  &#39;n_batch&#39;: 1},
+ {&#39;shape&#39;: [192, 64, 5, 5],
+  &#39;mean&#39;: 2.920041879406199e-05,
+  &#39;std&#39;: 0.014425805769860744,
+  &#39;max&#39;: 0.024999992921948433,
+  &#39;min&#39;: -0.024999914690852165,
+  &#39;cnt_zero&#39;: 0,
+  &#39;zero_pct&#39;: 0.0,
+  &#39;module&#39;: &#39;model(AlexNet).features(Sequential).3(Conv2d)&#39;,
+  &#39;ts&#39;: &#39;2020-03-07 10:37:52&#39;,
+  &#39;ttype&#39;: &#39;weight&#39;,
+  &#39;tname&#39;: &#39;weight_0&#39;,
+  &#39;n_batch&#39;: 1},
+ {&#39;shape&#39;: [192],
+  &#39;mean&#39;: 5.584982500295155e-05,
+  &#39;std&#39;: 0.01449640840291977,
+  &#39;max&#39;: 0.02486034296452999,
+  &#39;min&#39;: -0.024976877495646477,
+  &#39;cnt_zero&#39;: 0,
+  &#39;zero_pct&#39;: 0.0,
+  &#39;module&#39;: &#39;model(AlexNet).features(Sequential).3(Conv2d)&#39;,
+  &#39;ts&#39;: &#39;2020-03-07 10:37:52&#39;,
+  &#39;ttype&#39;: &#39;weight&#39;,
+  &#39;tname&#39;: &#39;weight_1&#39;,
+  &#39;n_batch&#39;: 1},
+ {&#39;shape&#39;: [2, 192, 27, 27],
+  &#39;mean&#39;: 0.005711908917874098,
+  &#39;std&#39;: 0.4219861924648285,
+  &#39;max&#39;: 1.3408710956573486,
+  &#39;min&#39;: -1.5709540843963623,
+  &#39;cnt_zero&#39;: 0,
+  &#39;zero_pct&#39;: 0.0,
+  &#39;module&#39;: &#39;model(AlexNet).features(Sequential).3(Conv2d)&#39;,
+  &#39;ts&#39;: &#39;2020-03-07 10:37:52&#39;,
+  &#39;ttype&#39;: &#39;output&#39;,
+  &#39;tname&#39;: &#39;output_0&#39;,
+  &#39;n_batch&#39;: 1},
+ {&#39;shape&#39;: [2, 192, 27, 27],
+  &#39;mean&#39;: 0.005711908917874098,
+  &#39;std&#39;: 0.4219861924648285,
+  &#39;max&#39;: 1.3408710956573486,
+  &#39;min&#39;: -1.5709540843963623,
+  &#39;cnt_zero&#39;: 0,
+  &#39;zero_pct&#39;: 0.0,
+  &#39;module&#39;: &#39;model(AlexNet).features(Sequential).4(ReLU)&#39;,
+  &#39;ts&#39;: &#39;2020-03-07 10:37:52&#39;,
+  &#39;ttype&#39;: &#39;input&#39;,
+  &#39;tname&#39;: &#39;input&#39;,
+  &#39;n_batch&#39;: 1},
+ {&#39;shape&#39;: [2, 192, 27, 27],
+  &#39;mean&#39;: 0.1750352382659912,
+  &#39;std&#39;: 0.24230045080184937,
+  &#39;max&#39;: 1.3408710956573486,
+  &#39;min&#39;: 0.0,
+  &#39;cnt_zero&#39;: 136728,
+  &#39;zero_pct&#39;: 0.48842592592592593,
+  &#39;module&#39;: &#39;model(AlexNet).features(Sequential).4(ReLU)&#39;,
+  &#39;ts&#39;: &#39;2020-03-07 10:37:52&#39;,
+  &#39;ttype&#39;: &#39;output&#39;,
+  &#39;tname&#39;: &#39;output_0&#39;,
+  &#39;n_batch&#39;: 1},
+ {&#39;shape&#39;: [2, 192, 27, 27],
+  &#39;mean&#39;: 0.1750352382659912,
+  &#39;std&#39;: 0.24230045080184937,
+  &#39;max&#39;: 1.3408710956573486,
+  &#39;min&#39;: 0.0,
+  &#39;cnt_zero&#39;: 136728,
+  &#39;zero_pct&#39;: 0.48842592592592593,
+  &#39;module&#39;: &#39;model(AlexNet).features(Sequential).5(MaxPool2d)&#39;,
+  &#39;ts&#39;: &#39;2020-03-07 10:37:52&#39;,
+  &#39;ttype&#39;: &#39;input&#39;,
+  &#39;tname&#39;: &#39;input&#39;,
+  &#39;n_batch&#39;: 1},
+ {&#39;shape&#39;: [2, 192, 13, 13],
+  &#39;mean&#39;: 0.2699883282184601,
+  &#39;std&#39;: 0.29403892159461975,
+  &#39;max&#39;: 1.3408710956573486,
+  &#39;min&#39;: 0.0,
+  &#39;cnt_zero&#39;: 22632,
+  &#39;zero_pct&#39;: 0.34874260355029585,
+  &#39;module&#39;: &#39;model(AlexNet).features(Sequential).5(MaxPool2d)&#39;,
+  &#39;ts&#39;: &#39;2020-03-07 10:37:52&#39;,
+  &#39;ttype&#39;: &#39;output&#39;,
+  &#39;tname&#39;: &#39;output_0&#39;,
+  &#39;n_batch&#39;: 1},
+ {&#39;shape&#39;: [2, 192, 13, 13],
+  &#39;mean&#39;: 0.2699883282184601,
+  &#39;std&#39;: 0.29403892159461975,
+  &#39;max&#39;: 1.3408710956573486,
+  &#39;min&#39;: 0.0,
+  &#39;cnt_zero&#39;: 22632,
+  &#39;zero_pct&#39;: 0.34874260355029585,
+  &#39;module&#39;: &#39;model(AlexNet).features(Sequential).6(Conv2d)&#39;,
+  &#39;ts&#39;: &#39;2020-03-07 10:37:52&#39;,
+  &#39;ttype&#39;: &#39;input&#39;,
+  &#39;tname&#39;: &#39;input&#39;,
+  &#39;n_batch&#39;: 1},
+ {&#39;shape&#39;: [384, 192, 3, 3],
+  &#39;mean&#39;: -1.0054035556095187e-05,
+  &#39;std&#39;: 0.013890313915908337,
+  &#39;max&#39;: 0.02405625395476818,
+  &#39;min&#39;: -0.024056246504187584,
+  &#39;cnt_zero&#39;: 0,
+  &#39;zero_pct&#39;: 0.0,
+  &#39;module&#39;: &#39;model(AlexNet).features(Sequential).6(Conv2d)&#39;,
+  &#39;ts&#39;: &#39;2020-03-07 10:37:52&#39;,
+  &#39;ttype&#39;: &#39;weight&#39;,
+  &#39;tname&#39;: &#39;weight_0&#39;,
+  &#39;n_batch&#39;: 1},
+ {&#39;shape&#39;: [384],
+  &#39;mean&#39;: -0.00042058341205120087,
+  &#39;std&#39;: 0.013936573639512062,
+  &#39;max&#39;: 0.02394459955394268,
+  &#39;min&#39;: -0.023925118148326874,
+  &#39;cnt_zero&#39;: 0,
+  &#39;zero_pct&#39;: 0.0,
+  &#39;module&#39;: &#39;model(AlexNet).features(Sequential).6(Conv2d)&#39;,
+  &#39;ts&#39;: &#39;2020-03-07 10:37:52&#39;,
+  &#39;ttype&#39;: &#39;weight&#39;,
+  &#39;tname&#39;: &#39;weight_1&#39;,
+  &#39;n_batch&#39;: 1},
+ {&#39;shape&#39;: [2, 384, 13, 13],
+  &#39;mean&#39;: -0.008931996300816536,
+  &#39;std&#39;: 0.2149755209684372,
+  &#39;max&#39;: 0.7376869916915894,
+  &#39;min&#39;: -0.7926941514015198,
+  &#39;cnt_zero&#39;: 0,
+  &#39;zero_pct&#39;: 0.0,
+  &#39;module&#39;: &#39;model(AlexNet).features(Sequential).6(Conv2d)&#39;,
+  &#39;ts&#39;: &#39;2020-03-07 10:37:52&#39;,
+  &#39;ttype&#39;: &#39;output&#39;,
+  &#39;tname&#39;: &#39;output_0&#39;,
+  &#39;n_batch&#39;: 1},
+ {&#39;shape&#39;: [2, 384, 13, 13],
+  &#39;mean&#39;: -0.008931996300816536,
+  &#39;std&#39;: 0.2149755209684372,
+  &#39;max&#39;: 0.7376869916915894,
+  &#39;min&#39;: -0.7926941514015198,
+  &#39;cnt_zero&#39;: 0,
+  &#39;zero_pct&#39;: 0.0,
+  &#39;module&#39;: &#39;model(AlexNet).features(Sequential).7(ReLU)&#39;,
+  &#39;ts&#39;: &#39;2020-03-07 10:37:52&#39;,
+  &#39;ttype&#39;: &#39;input&#39;,
+  &#39;tname&#39;: &#39;input&#39;,
+  &#39;n_batch&#39;: 1},
+ {&#39;shape&#39;: [2, 384, 13, 13],
+  &#39;mean&#39;: 0.08150506764650345,
+  &#39;std&#39;: 0.122230164706707,
+  &#39;max&#39;: 0.7376869916915894,
+  &#39;min&#39;: 0.0,
+  &#39;cnt_zero&#39;: 67078,
+  &#39;zero_pct&#39;: 0.5168115138067061,
+  &#39;module&#39;: &#39;model(AlexNet).features(Sequential).7(ReLU)&#39;,
+  &#39;ts&#39;: &#39;2020-03-07 10:37:52&#39;,
+  &#39;ttype&#39;: &#39;output&#39;,
+  &#39;tname&#39;: &#39;output_0&#39;,
+  &#39;n_batch&#39;: 1},
+ {&#39;shape&#39;: [2, 384, 13, 13],
+  &#39;mean&#39;: 0.08150506764650345,
+  &#39;std&#39;: 0.122230164706707,
+  &#39;max&#39;: 0.7376869916915894,
+  &#39;min&#39;: 0.0,
+  &#39;cnt_zero&#39;: 67078,
+  &#39;zero_pct&#39;: 0.5168115138067061,
+  &#39;module&#39;: &#39;model(AlexNet).features(Sequential).8(Conv2d)&#39;,
+  &#39;ts&#39;: &#39;2020-03-07 10:37:52&#39;,
+  &#39;ttype&#39;: &#39;input&#39;,
+  &#39;tname&#39;: &#39;input&#39;,
+  &#39;n_batch&#39;: 1},
+ {&#39;shape&#39;: [256, 384, 3, 3],
+  &#39;mean&#39;: 1.5411440472234972e-05,
+  &#39;std&#39;: 0.009823623113334179,
+  &#39;max&#39;: 0.017010334879159927,
+  &#39;min&#39;: -0.017010342329740524,
+  &#39;cnt_zero&#39;: 0,
+  &#39;zero_pct&#39;: 0.0,
+  &#39;module&#39;: &#39;model(AlexNet).features(Sequential).8(Conv2d)&#39;,
+  &#39;ts&#39;: &#39;2020-03-07 10:37:52&#39;,
+  &#39;ttype&#39;: &#39;weight&#39;,
+  &#39;tname&#39;: &#39;weight_0&#39;,
+  &#39;n_batch&#39;: 1},
+ {&#39;shape&#39;: [256],
+  &#39;mean&#39;: 0.0004253720981068909,
+  &#39;std&#39;: 0.009670977480709553,
+  &#39;max&#39;: 0.016636833548545837,
+  &#39;min&#39;: -0.016954980790615082,
+  &#39;cnt_zero&#39;: 0,
+  &#39;zero_pct&#39;: 0.0,
+  &#39;module&#39;: &#39;model(AlexNet).features(Sequential).8(Conv2d)&#39;,
+  &#39;ts&#39;: &#39;2020-03-07 10:37:52&#39;,
+  &#39;ttype&#39;: &#39;weight&#39;,
+  &#39;tname&#39;: &#39;weight_1&#39;,
+  &#39;n_batch&#39;: 1},
+ {&#39;shape&#39;: [2, 256, 13, 13],
+  &#39;mean&#39;: 0.0047131311148405075,
+  &#39;std&#39;: 0.08358980715274811,
+  &#39;max&#39;: 0.33009663224220276,
+  &#39;min&#39;: -0.3189106583595276,
+  &#39;cnt_zero&#39;: 0,
+  &#39;zero_pct&#39;: 0.0,
+  &#39;module&#39;: &#39;model(AlexNet).features(Sequential).8(Conv2d)&#39;,
+  &#39;ts&#39;: &#39;2020-03-07 10:37:52&#39;,
+  &#39;ttype&#39;: &#39;output&#39;,
+  &#39;tname&#39;: &#39;output_0&#39;,
+  &#39;n_batch&#39;: 1},
+ {&#39;shape&#39;: [2, 256, 13, 13],
+  &#39;mean&#39;: 0.0047131311148405075,
+  &#39;std&#39;: 0.08358980715274811,
+  &#39;max&#39;: 0.33009663224220276,
+  &#39;min&#39;: -0.3189106583595276,
+  &#39;cnt_zero&#39;: 0,
+  &#39;zero_pct&#39;: 0.0,
+  &#39;module&#39;: &#39;model(AlexNet).features(Sequential).9(ReLU)&#39;,
+  &#39;ts&#39;: &#39;2020-03-07 10:37:52&#39;,
+  &#39;ttype&#39;: &#39;input&#39;,
+  &#39;tname&#39;: &#39;input&#39;,
+  &#39;n_batch&#39;: 1},
+ {&#39;shape&#39;: [2, 256, 13, 13],
+  &#39;mean&#39;: 0.03535669669508934,
+  &#39;std&#39;: 0.0499359592795372,
+  &#39;max&#39;: 0.33009663224220276,
+  &#39;min&#39;: 0.0,
+  &#39;cnt_zero&#39;: 41035,
+  &#39;zero_pct&#39;: 0.4742395525147929,
+  &#39;module&#39;: &#39;model(AlexNet).features(Sequential).9(ReLU)&#39;,
+  &#39;ts&#39;: &#39;2020-03-07 10:37:52&#39;,
+  &#39;ttype&#39;: &#39;output&#39;,
+  &#39;tname&#39;: &#39;output_0&#39;,
+  &#39;n_batch&#39;: 1},
+ {&#39;shape&#39;: [2, 256, 13, 13],
+  &#39;mean&#39;: 0.03535669669508934,
+  &#39;std&#39;: 0.0499359592795372,
+  &#39;max&#39;: 0.33009663224220276,
+  &#39;min&#39;: 0.0,
+  &#39;cnt_zero&#39;: 41035,
+  &#39;zero_pct&#39;: 0.4742395525147929,
+  &#39;module&#39;: &#39;model(AlexNet).features(Sequential).10(Conv2d)&#39;,
+  &#39;ts&#39;: &#39;2020-03-07 10:37:52&#39;,
+  &#39;ttype&#39;: &#39;input&#39;,
+  &#39;tname&#39;: &#39;input&#39;,
+  &#39;n_batch&#39;: 1},
+ {&#39;shape&#39;: [256, 256, 3, 3],
+  &#39;mean&#39;: 2.6003770472016186e-05,
+  &#39;std&#39;: 0.012027072720229626,
+  &#39;max&#39;: 0.020833326503634453,
+  &#39;min&#39;: -0.020833313465118408,
+  &#39;cnt_zero&#39;: 0,
+  &#39;zero_pct&#39;: 0.0,
+  &#39;module&#39;: &#39;model(AlexNet).features(Sequential).10(Conv2d)&#39;,
+  &#39;ts&#39;: &#39;2020-03-07 10:37:52&#39;,
+  &#39;ttype&#39;: &#39;weight&#39;,
+  &#39;tname&#39;: &#39;weight_0&#39;,
+  &#39;n_batch&#39;: 1},
+ {&#39;shape&#39;: [256],
+  &#39;mean&#39;: 0.00011942532728426158,
+  &#39;std&#39;: 0.012175926938652992,
+  &#39;max&#39;: 0.020765984430909157,
+  &#39;min&#39;: -0.02049778774380684,
+  &#39;cnt_zero&#39;: 0,
+  &#39;zero_pct&#39;: 0.0,
+  &#39;module&#39;: &#39;model(AlexNet).features(Sequential).10(Conv2d)&#39;,
+  &#39;ts&#39;: &#39;2020-03-07 10:37:52&#39;,
+  &#39;ttype&#39;: &#39;weight&#39;,
+  &#39;tname&#39;: &#39;weight_1&#39;,
+  &#39;n_batch&#39;: 1},
+ {&#39;shape&#39;: [2, 256, 13, 13],
+  &#39;mean&#39;: 0.0005038615199737251,
+  &#39;std&#39;: 0.03571150824427605,
+  &#39;max&#39;: 0.12614856660366058,
+  &#39;min&#39;: -0.13716860115528107,
+  &#39;cnt_zero&#39;: 0,
+  &#39;zero_pct&#39;: 0.0,
+  &#39;module&#39;: &#39;model(AlexNet).features(Sequential).10(Conv2d)&#39;,
+  &#39;ts&#39;: &#39;2020-03-07 10:37:52&#39;,
+  &#39;ttype&#39;: &#39;output&#39;,
+  &#39;tname&#39;: &#39;output_0&#39;,
+  &#39;n_batch&#39;: 1},
+ {&#39;shape&#39;: [2, 256, 13, 13],
+  &#39;mean&#39;: 0.0005038615199737251,
+  &#39;std&#39;: 0.03571150824427605,
+  &#39;max&#39;: 0.12614856660366058,
+  &#39;min&#39;: -0.13716860115528107,
+  &#39;cnt_zero&#39;: 0,
+  &#39;zero_pct&#39;: 0.0,
+  &#39;module&#39;: &#39;model(AlexNet).features(Sequential).11(ReLU)&#39;,
+  &#39;ts&#39;: &#39;2020-03-07 10:37:52&#39;,
+  &#39;ttype&#39;: &#39;input&#39;,
+  &#39;tname&#39;: &#39;input&#39;,
+  &#39;n_batch&#39;: 1},
+ {&#39;shape&#39;: [2, 256, 13, 13],
+  &#39;mean&#39;: 0.014308960177004337,
+  &#39;std&#39;: 0.02128779888153076,
+  &#39;max&#39;: 0.12614856660366058,
+  &#39;min&#39;: 0.0,
+  &#39;cnt_zero&#39;: 43223,
+  &#39;zero_pct&#39;: 0.4995261649408284,
+  &#39;module&#39;: &#39;model(AlexNet).features(Sequential).11(ReLU)&#39;,
+  &#39;ts&#39;: &#39;2020-03-07 10:37:52&#39;,
+  &#39;ttype&#39;: &#39;output&#39;,
+  &#39;tname&#39;: &#39;output_0&#39;,
+  &#39;n_batch&#39;: 1},
+ {&#39;shape&#39;: [2, 256, 13, 13],
+  &#39;mean&#39;: 0.014308960177004337,
+  &#39;std&#39;: 0.02128779888153076,
+  &#39;max&#39;: 0.12614856660366058,
+  &#39;min&#39;: 0.0,
+  &#39;cnt_zero&#39;: 43223,
+  &#39;zero_pct&#39;: 0.4995261649408284,
+  &#39;module&#39;: &#39;model(AlexNet).features(Sequential).12(MaxPool2d)&#39;,
+  &#39;ts&#39;: &#39;2020-03-07 10:37:52&#39;,
+  &#39;ttype&#39;: &#39;input&#39;,
+  &#39;tname&#39;: &#39;input&#39;,
+  &#39;n_batch&#39;: 1},
+ {&#39;shape&#39;: [2, 256, 6, 6],
+  &#39;mean&#39;: 0.02180689387023449,
+  &#39;std&#39;: 0.025604762136936188,
+  &#39;max&#39;: 0.12614856660366058,
+  &#39;min&#39;: 0.0,
+  &#39;cnt_zero&#39;: 6580,
+  &#39;zero_pct&#39;: 0.3569878472222222,
+  &#39;module&#39;: &#39;model(AlexNet).features(Sequential).12(MaxPool2d)&#39;,
+  &#39;ts&#39;: &#39;2020-03-07 10:37:52&#39;,
+  &#39;ttype&#39;: &#39;output&#39;,
+  &#39;tname&#39;: &#39;output_0&#39;,
+  &#39;n_batch&#39;: 1},
+ {&#39;shape&#39;: [2, 256, 6, 6],
+  &#39;mean&#39;: 0.02180689387023449,
+  &#39;std&#39;: 0.025604762136936188,
+  &#39;max&#39;: 0.12614856660366058,
+  &#39;min&#39;: 0.0,
+  &#39;cnt_zero&#39;: 6580,
+  &#39;zero_pct&#39;: 0.3569878472222222,
+  &#39;module&#39;: &#39;model(AlexNet).features(Sequential)&#39;,
+  &#39;ts&#39;: &#39;2020-03-07 10:37:52&#39;,
+  &#39;ttype&#39;: &#39;output&#39;,
+  &#39;tname&#39;: &#39;output_0&#39;,
+  &#39;n_batch&#39;: 1},
+ {&#39;shape&#39;: [2, 256, 6, 6],
+  &#39;mean&#39;: 0.02180689387023449,
+  &#39;std&#39;: 0.025604762136936188,
+  &#39;max&#39;: 0.12614856660366058,
+  &#39;min&#39;: 0.0,
+  &#39;cnt_zero&#39;: 6580,
+  &#39;zero_pct&#39;: 0.3569878472222222,
+  &#39;module&#39;: &#39;model(AlexNet).avgpool(AdaptiveAvgPool2d)&#39;,
+  &#39;ts&#39;: &#39;2020-03-07 10:37:52&#39;,
+  &#39;ttype&#39;: &#39;input&#39;,
+  &#39;tname&#39;: &#39;input&#39;,
+  &#39;n_batch&#39;: 1},
+ {&#39;shape&#39;: [2, 256, 6, 6],
+  &#39;mean&#39;: 0.02180689387023449,
+  &#39;std&#39;: 0.025604762136936188,
+  &#39;max&#39;: 0.12614856660366058,
+  &#39;min&#39;: 0.0,
+  &#39;cnt_zero&#39;: 6580,
+  &#39;zero_pct&#39;: 0.3569878472222222,
+  &#39;module&#39;: &#39;model(AlexNet).avgpool(AdaptiveAvgPool2d)&#39;,
+  &#39;ts&#39;: &#39;2020-03-07 10:37:52&#39;,
+  &#39;ttype&#39;: &#39;output&#39;,
+  &#39;tname&#39;: &#39;output_0&#39;,
+  &#39;n_batch&#39;: 1},
+ {&#39;shape&#39;: [2, 9216],
+  &#39;mean&#39;: 0.02180689387023449,
+  &#39;std&#39;: 0.025604762136936188,
+  &#39;max&#39;: 0.12614856660366058,
+  &#39;min&#39;: 0.0,
+  &#39;cnt_zero&#39;: 6580,
+  &#39;zero_pct&#39;: 0.3569878472222222,
+  &#39;module&#39;: &#39;model(AlexNet).classifier(Sequential)&#39;,
+  &#39;ts&#39;: &#39;2020-03-07 10:37:52&#39;,
+  &#39;ttype&#39;: &#39;input&#39;,
+  &#39;tname&#39;: &#39;input&#39;,
+  &#39;n_batch&#39;: 1},
+ {&#39;shape&#39;: [2, 9216],
+  &#39;mean&#39;: 0.02180689387023449,
+  &#39;std&#39;: 0.025604762136936188,
+  &#39;max&#39;: 0.12614856660366058,
+  &#39;min&#39;: 0.0,
+  &#39;cnt_zero&#39;: 6580,
+  &#39;zero_pct&#39;: 0.3569878472222222,
+  &#39;module&#39;: &#39;model(AlexNet).classifier(Sequential).0(Dropout)&#39;,
+  &#39;ts&#39;: &#39;2020-03-07 10:37:52&#39;,
+  &#39;ttype&#39;: &#39;input&#39;,
+  &#39;tname&#39;: &#39;input&#39;,
+  &#39;n_batch&#39;: 1},
+ {&#39;shape&#39;: [2, 9216],
+  &#39;mean&#39;: 0.02170110121369362,
+  &#39;std&#39;: 0.04205140098929405,
+  &#39;max&#39;: 0.2518007457256317,
+  &#39;min&#39;: 0.0,
+  &#39;cnt_zero&#39;: 12475,
+  &#39;zero_pct&#39;: 0.6768120659722222,
+  &#39;module&#39;: &#39;model(AlexNet).classifier(Sequential).0(Dropout)&#39;,
+  &#39;ts&#39;: &#39;2020-03-07 10:37:52&#39;,
+  &#39;ttype&#39;: &#39;output&#39;,
+  &#39;tname&#39;: &#39;output_0&#39;,
+  &#39;n_batch&#39;: 1},
+ {&#39;shape&#39;: [2, 9216],
+  &#39;mean&#39;: 0.02170110121369362,
+  &#39;std&#39;: 0.04205140098929405,
+  &#39;max&#39;: 0.2518007457256317,
+  &#39;min&#39;: 0.0,
+  &#39;cnt_zero&#39;: 12475,
+  &#39;zero_pct&#39;: 0.6768120659722222,
+  &#39;module&#39;: &#39;model(AlexNet).classifier(Sequential).1(Linear)&#39;,
+  &#39;ts&#39;: &#39;2020-03-07 10:37:52&#39;,
+  &#39;ttype&#39;: &#39;input&#39;,
+  &#39;tname&#39;: &#39;input&#39;,
+  &#39;n_batch&#39;: 1},
+ {&#39;shape&#39;: [4096, 9216],
+  &#39;mean&#39;: 8.854000839164655e-07,
+  &#39;std&#39;: 0.006014422979205847,
+  &#39;max&#39;: 0.010416665114462376,
+  &#39;min&#39;: -0.010416666977107525,
+  &#39;cnt_zero&#39;: 1,
+  &#39;zero_pct&#39;: 2.6490953233506943e-08,
+  &#39;module&#39;: &#39;model(AlexNet).classifier(Sequential).1(Linear)&#39;,
+  &#39;ts&#39;: &#39;2020-03-07 10:37:52&#39;,
+  &#39;ttype&#39;: &#39;weight&#39;,
+  &#39;tname&#39;: &#39;weight_0&#39;,
+  &#39;n_batch&#39;: 1},
+ {&#39;shape&#39;: [4096],
+  &#39;mean&#39;: -4.447995888767764e-05,
+  &#39;std&#39;: 0.0060094729997217655,
+  &#39;max&#39;: 0.010400851257145405,
+  &#39;min&#39;: -0.010413545183837414,
+  &#39;cnt_zero&#39;: 0,
+  &#39;zero_pct&#39;: 0.0,
+  &#39;module&#39;: &#39;model(AlexNet).classifier(Sequential).1(Linear)&#39;,
+  &#39;ts&#39;: &#39;2020-03-07 10:37:52&#39;,
+  &#39;ttype&#39;: &#39;weight&#39;,
+  &#39;tname&#39;: &#39;weight_1&#39;,
+  &#39;n_batch&#39;: 1},
+ {&#39;shape&#39;: [2, 4096],
+  &#39;mean&#39;: -0.00019571068696677685,
+  &#39;std&#39;: 0.02773861587047577,
+  &#39;max&#39;: 0.11280506104230881,
+  &#39;min&#39;: -0.11589439958333969,
+  &#39;cnt_zero&#39;: 0,
+  &#39;zero_pct&#39;: 0.0,
+  &#39;module&#39;: &#39;model(AlexNet).classifier(Sequential).1(Linear)&#39;,
+  &#39;ts&#39;: &#39;2020-03-07 10:37:52&#39;,
+  &#39;ttype&#39;: &#39;output&#39;,
+  &#39;tname&#39;: &#39;output_0&#39;,
+  &#39;n_batch&#39;: 1},
+ {&#39;shape&#39;: [2, 4096],
+  &#39;mean&#39;: -0.00019571068696677685,
+  &#39;std&#39;: 0.02773861587047577,
+  &#39;max&#39;: 0.11280506104230881,
+  &#39;min&#39;: -0.11589439958333969,
+  &#39;cnt_zero&#39;: 0,
+  &#39;zero_pct&#39;: 0.0,
+  &#39;module&#39;: &#39;model(AlexNet).classifier(Sequential).2(ReLU)&#39;,
+  &#39;ts&#39;: &#39;2020-03-07 10:37:52&#39;,
+  &#39;ttype&#39;: &#39;input&#39;,
+  &#39;tname&#39;: &#39;input&#39;,
+  &#39;n_batch&#39;: 1},
+ {&#39;shape&#39;: [2, 4096],
+  &#39;mean&#39;: 0.010946482419967651,
+  &#39;std&#39;: 0.016068648546934128,
+  &#39;max&#39;: 0.11280506104230881,
+  &#39;min&#39;: 0.0,
+  &#39;cnt_zero&#39;: 4088,
+  &#39;zero_pct&#39;: 0.4990234375,
+  &#39;module&#39;: &#39;model(AlexNet).classifier(Sequential).2(ReLU)&#39;,
+  &#39;ts&#39;: &#39;2020-03-07 10:37:52&#39;,
+  &#39;ttype&#39;: &#39;output&#39;,
+  &#39;tname&#39;: &#39;output_0&#39;,
+  &#39;n_batch&#39;: 1},
+ {&#39;shape&#39;: [2, 4096],
+  &#39;mean&#39;: 0.010946482419967651,
+  &#39;std&#39;: 0.016068648546934128,
+  &#39;max&#39;: 0.11280506104230881,
+  &#39;min&#39;: 0.0,
+  &#39;cnt_zero&#39;: 4088,
+  &#39;zero_pct&#39;: 0.4990234375,
+  &#39;module&#39;: &#39;model(AlexNet).classifier(Sequential).3(Dropout)&#39;,
+  &#39;ts&#39;: &#39;2020-03-07 10:37:52&#39;,
+  &#39;ttype&#39;: &#39;input&#39;,
+  &#39;tname&#39;: &#39;input&#39;,
+  &#39;n_batch&#39;: 1},
+ {&#39;shape&#39;: [2, 4096],
+  &#39;mean&#39;: 0.010910511948168278,
+  &#39;std&#39;: 0.025273488834500313,
+  &#39;max&#39;: 0.22561012208461761,
+  &#39;min&#39;: 0.0,
+  &#39;cnt_zero&#39;: 6143,
+  &#39;zero_pct&#39;: 0.7498779296875,
+  &#39;module&#39;: &#39;model(AlexNet).classifier(Sequential).3(Dropout)&#39;,
+  &#39;ts&#39;: &#39;2020-03-07 10:37:52&#39;,
+  &#39;ttype&#39;: &#39;output&#39;,
+  &#39;tname&#39;: &#39;output_0&#39;,
+  &#39;n_batch&#39;: 1},
+ {&#39;shape&#39;: [2, 4096],
+  &#39;mean&#39;: 0.010910511948168278,
+  &#39;std&#39;: 0.025273488834500313,
+  &#39;max&#39;: 0.22561012208461761,
+  &#39;min&#39;: 0.0,
+  &#39;cnt_zero&#39;: 6143,
+  &#39;zero_pct&#39;: 0.7498779296875,
+  &#39;module&#39;: &#39;model(AlexNet).classifier(Sequential).4(Linear)&#39;,
+  &#39;ts&#39;: &#39;2020-03-07 10:37:52&#39;,
+  &#39;ttype&#39;: &#39;input&#39;,
+  &#39;tname&#39;: &#39;input&#39;,
+  &#39;n_batch&#39;: 1},
+ {&#39;shape&#39;: [4096, 4096],
+  &#39;mean&#39;: 2.2561544028576463e-06,
+  &#39;std&#39;: 0.00902175810188055,
+  &#39;max&#39;: 0.01562499813735485,
+  &#39;min&#39;: -0.01562499813735485,
+  &#39;cnt_zero&#39;: 0,
+  &#39;zero_pct&#39;: 0.0,
+  &#39;module&#39;: &#39;model(AlexNet).classifier(Sequential).4(Linear)&#39;,
+  &#39;ts&#39;: &#39;2020-03-07 10:37:52&#39;,
+  &#39;ttype&#39;: &#39;weight&#39;,
+  &#39;tname&#39;: &#39;weight_0&#39;,
+  &#39;n_batch&#39;: 1},
+ {&#39;shape&#39;: [4096],
+  &#39;mean&#39;: -0.00025126454420387745,
+  &#39;std&#39;: 0.009119285270571709,
+  &#39;max&#39;: 0.01561034843325615,
+  &#39;min&#39;: -0.015622705221176147,
+  &#39;cnt_zero&#39;: 0,
+  &#39;zero_pct&#39;: 0.0,
+  &#39;module&#39;: &#39;model(AlexNet).classifier(Sequential).4(Linear)&#39;,
+  &#39;ts&#39;: &#39;2020-03-07 10:37:53&#39;,
+  &#39;ttype&#39;: &#39;weight&#39;,
+  &#39;tname&#39;: &#39;weight_1&#39;,
+  &#39;n_batch&#39;: 1},
+ {&#39;shape&#39;: [2, 4096],
+  &#39;mean&#39;: -0.0001800916506908834,
+  &#39;std&#39;: 0.018164895474910736,
+  &#39;max&#39;: 0.0790843740105629,
+  &#39;min&#39;: -0.06692799180746078,
+  &#39;cnt_zero&#39;: 0,
+  &#39;zero_pct&#39;: 0.0,
+  &#39;module&#39;: &#39;model(AlexNet).classifier(Sequential).4(Linear)&#39;,
+  &#39;ts&#39;: &#39;2020-03-07 10:37:53&#39;,
+  &#39;ttype&#39;: &#39;output&#39;,
+  &#39;tname&#39;: &#39;output_0&#39;,
+  &#39;n_batch&#39;: 1},
+ {&#39;shape&#39;: [2, 4096],
+  &#39;mean&#39;: -0.0001800916506908834,
+  &#39;std&#39;: 0.018164895474910736,
+  &#39;max&#39;: 0.0790843740105629,
+  &#39;min&#39;: -0.06692799180746078,
+  &#39;cnt_zero&#39;: 0,
+  &#39;zero_pct&#39;: 0.0,
+  &#39;module&#39;: &#39;model(AlexNet).classifier(Sequential).5(ReLU)&#39;,
+  &#39;ts&#39;: &#39;2020-03-07 10:37:53&#39;,
+  &#39;ttype&#39;: &#39;input&#39;,
+  &#39;tname&#39;: &#39;input&#39;,
+  &#39;n_batch&#39;: 1},
+ {&#39;shape&#39;: [2, 4096],
+  &#39;mean&#39;: 0.007168028503656387,
+  &#39;std&#39;: 0.010531177744269371,
+  &#39;max&#39;: 0.0790843740105629,
+  &#39;min&#39;: 0.0,
+  &#39;cnt_zero&#39;: 4132,
+  &#39;zero_pct&#39;: 0.50439453125,
+  &#39;module&#39;: &#39;model(AlexNet).classifier(Sequential).5(ReLU)&#39;,
+  &#39;ts&#39;: &#39;2020-03-07 10:37:53&#39;,
+  &#39;ttype&#39;: &#39;output&#39;,
+  &#39;tname&#39;: &#39;output_0&#39;,
+  &#39;n_batch&#39;: 1},
+ {&#39;shape&#39;: [2, 4096],
+  &#39;mean&#39;: 0.007168028503656387,
+  &#39;std&#39;: 0.010531177744269371,
+  &#39;max&#39;: 0.0790843740105629,
+  &#39;min&#39;: 0.0,
+  &#39;cnt_zero&#39;: 4132,
+  &#39;zero_pct&#39;: 0.50439453125,
+  &#39;module&#39;: &#39;model(AlexNet).classifier(Sequential).6(Linear)&#39;,
+  &#39;ts&#39;: &#39;2020-03-07 10:37:53&#39;,
+  &#39;ttype&#39;: &#39;input&#39;,
+  &#39;tname&#39;: &#39;input&#39;,
+  &#39;n_batch&#39;: 1},
+ {&#39;shape&#39;: [1000, 4096],
+  &#39;mean&#39;: 7.572847152914619e-06,
+  &#39;std&#39;: 0.009020469151437283,
+  &#39;max&#39;: 0.015624983236193657,
+  &#39;min&#39;: -0.015624994412064552,
+  &#39;cnt_zero&#39;: 0,
+  &#39;zero_pct&#39;: 0.0,
+  &#39;module&#39;: &#39;model(AlexNet).classifier(Sequential).6(Linear)&#39;,
+  &#39;ts&#39;: &#39;2020-03-07 10:37:53&#39;,
+  &#39;ttype&#39;: &#39;weight&#39;,
+  &#39;tname&#39;: &#39;weight_0&#39;,
+  &#39;n_batch&#39;: 1},
+ {&#39;shape&#39;: [1000],
+  &#39;mean&#39;: 0.0005548058543354273,
+  &#39;std&#39;: 0.008900988847017288,
+  &#39;max&#39;: 0.015612822026014328,
+  &#39;min&#39;: -0.015597641468048096,
+  &#39;cnt_zero&#39;: 0,
+  &#39;zero_pct&#39;: 0.0,
+  &#39;module&#39;: &#39;model(AlexNet).classifier(Sequential).6(Linear)&#39;,
+  &#39;ts&#39;: &#39;2020-03-07 10:37:53&#39;,
+  &#39;ttype&#39;: &#39;weight&#39;,
+  &#39;tname&#39;: &#39;weight_1&#39;,
+  &#39;n_batch&#39;: 1},
+ {&#39;shape&#39;: [2, 1000],
+  &#39;mean&#39;: 0.0006374760414473712,
+  &#39;std&#39;: 0.011509544216096401,
+  &#39;max&#39;: 0.03328176215291023,
+  &#39;min&#39;: -0.033743541687726974,
+  &#39;cnt_zero&#39;: 0,
+  &#39;zero_pct&#39;: 0.0,
+  &#39;module&#39;: &#39;model(AlexNet).classifier(Sequential).6(Linear)&#39;,
+  &#39;ts&#39;: &#39;2020-03-07 10:37:53&#39;,
+  &#39;ttype&#39;: &#39;output&#39;,
+  &#39;tname&#39;: &#39;output_0&#39;,
+  &#39;n_batch&#39;: 1},
+ {&#39;shape&#39;: [2, 1000],
+  &#39;mean&#39;: 0.0006374760414473712,
+  &#39;std&#39;: 0.011509544216096401,
+  &#39;max&#39;: 0.03328176215291023,
+  &#39;min&#39;: -0.033743541687726974,
+  &#39;cnt_zero&#39;: 0,
+  &#39;zero_pct&#39;: 0.0,
+  &#39;module&#39;: &#39;model(AlexNet).classifier(Sequential)&#39;,
+  &#39;ts&#39;: &#39;2020-03-07 10:37:53&#39;,
+  &#39;ttype&#39;: &#39;output&#39;,
+  &#39;tname&#39;: &#39;output_0&#39;,
+  &#39;n_batch&#39;: 1},
+ {&#39;shape&#39;: [2, 1000],
+  &#39;mean&#39;: 0.0006374760414473712,
+  &#39;std&#39;: 0.011509544216096401,
+  &#39;max&#39;: 0.03328176215291023,
+  &#39;min&#39;: -0.033743541687726974,
+  &#39;cnt_zero&#39;: 0,
+  &#39;zero_pct&#39;: 0.0,
+  &#39;module&#39;: &#39;model(AlexNet)&#39;,
+  &#39;ts&#39;: &#39;2020-03-07 10:37:53&#39;,
+  &#39;ttype&#39;: &#39;output&#39;,
+  &#39;tname&#39;: &#39;output_0&#39;,
+  &#39;n_batch&#39;: 1}]</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Return log file as dataframe</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">er</span><span class="o">.</span><span class="n">json_df</span><span class="p">(</span><span class="s1">&#39;init-00_phase-valid_epoch-1.log&#39;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>shape</th>
+      <th>mean</th>
+      <th>std</th>
+      <th>max</th>
+      <th>min</th>
+      <th>cnt_zero</th>
+      <th>zero_pct</th>
+      <th>module</th>
+      <th>ts</th>
+      <th>ttype</th>
+      <th>tname</th>
+      <th>n_batch</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>[2, 3, 224, 224]</td>
+      <td>-1.001885</td>
+      <td>0.577536</td>
+      <td>-0.000016</td>
+      <td>-1.999997</td>
+      <td>0</td>
+      <td>0.0</td>
+      <td>model(AlexNet)</td>
+      <td>2020-03-07 10:37:50</td>
+      <td>input</td>
+      <td>x</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>[2, 3, 224, 224]</td>
+      <td>-1.001885</td>
+      <td>0.577536</td>
+      <td>-0.000016</td>
+      <td>-1.999997</td>
+      <td>0</td>
+      <td>0.0</td>
+      <td>model(AlexNet).features(Sequential)</td>
+      <td>2020-03-07 10:37:50</td>
+      <td>input</td>
+      <td>input</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>[2, 3, 224, 224]</td>
+      <td>-1.001885</td>
+      <td>0.577536</td>
+      <td>-0.000016</td>
+      <td>-1.999997</td>
+      <td>0</td>
+      <td>0.0</td>
+      <td>model(AlexNet).features(Sequential).0(Conv2d)</td>
+      <td>2020-03-07 10:37:50</td>
+      <td>input</td>
+      <td>input</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>[64, 3, 11, 11]</td>
+      <td>-0.000152</td>
+      <td>0.030288</td>
+      <td>0.052461</td>
+      <td>-0.052483</td>
+      <td>0</td>
+      <td>0.0</td>
+      <td>model(AlexNet).features(Sequential).0(Conv2d)</td>
+      <td>2020-03-07 10:37:50</td>
+      <td>weight</td>
+      <td>weight_0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>[64]</td>
+      <td>0.003515</td>
+      <td>0.027836</td>
+      <td>0.051731</td>
+      <td>-0.044360</td>
+      <td>0</td>
+      <td>0.0</td>
+      <td>model(AlexNet).features(Sequential).0(Conv2d)</td>
+      <td>2020-03-07 10:37:50</td>
+      <td>weight</td>
+      <td>weight_1</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>123</th>
+      <td>[1000, 4096]</td>
+      <td>0.000008</td>
+      <td>0.009020</td>
+      <td>0.015625</td>
+      <td>-0.015625</td>
+      <td>0</td>
+      <td>0.0</td>
+      <td>model(AlexNet).classifier(Sequential).6(Linear)</td>
+      <td>2020-03-07 10:37:53</td>
+      <td>weight</td>
+      <td>weight_0</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>124</th>
+      <td>[1000]</td>
+      <td>0.000555</td>
+      <td>0.008901</td>
+      <td>0.015613</td>
+      <td>-0.015598</td>
+      <td>0</td>
+      <td>0.0</td>
+      <td>model(AlexNet).classifier(Sequential).6(Linear)</td>
+      <td>2020-03-07 10:37:53</td>
+      <td>weight</td>
+      <td>weight_1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>125</th>
+      <td>[2, 1000]</td>
+      <td>0.000637</td>
+      <td>0.011510</td>
+      <td>0.033282</td>
+      <td>-0.033744</td>
+      <td>0</td>
+      <td>0.0</td>
+      <td>model(AlexNet).classifier(Sequential).6(Linear)</td>
+      <td>2020-03-07 10:37:53</td>
+      <td>output</td>
+      <td>output_0</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>126</th>
+      <td>[2, 1000]</td>
+      <td>0.000637</td>
+      <td>0.011510</td>
+      <td>0.033282</td>
+      <td>-0.033744</td>
+      <td>0</td>
+      <td>0.0</td>
+      <td>model(AlexNet).classifier(Sequential)</td>
+      <td>2020-03-07 10:37:53</td>
+      <td>output</td>
+      <td>output_0</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>127</th>
+      <td>[2, 1000]</td>
+      <td>0.000637</td>
+      <td>0.011510</td>
+      <td>0.033282</td>
+      <td>-0.033744</td>
+      <td>0</td>
+      <td>0.0</td>
+      <td>model(AlexNet)</td>
+      <td>2020-03-07 10:37:53</td>
+      <td>output</td>
+      <td>output_0</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+<p>128 rows × 12 columns</p>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Latest JSON data</p>
+
+</div>
+</div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">

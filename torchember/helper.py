@@ -58,10 +58,6 @@ class tracker(object):
         self.marked = {}
         self.mark(init="00")
 
-    @property
-    def log_files(self):
-        return os.listdir(self.log_path)
-
     def __repr__(self):
         return f"<{self.libname}:{self.fname}>"
 
@@ -103,6 +99,10 @@ class emberTracker(tracker):
         super().__init__("torchember",fname)
         self.latest = self.log/f"{fname}_latest"
         self.latest_lines = ""
+
+    @property
+    def log_files(self):
+        return os.listdir(self.log_path)
 
     def logging(self,line):
         with open(self.log_file,"a") as f : f.write(","+line)

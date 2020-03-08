@@ -40,6 +40,9 @@ def unpack_meta(fname):
     return dict_
 
 def get_ember_df(ember_list):
+    """
+    list out the latest 5 tracking record metadata
+    """
     df = pd.DataFrame(list(unpack_meta(i) for i in ember_list))
     df = df.sort_values(by = "start",ascending = False)
     return df.reset_index().drop("index",axis=1)
@@ -48,12 +51,24 @@ def get_ember_df(ember_list):
 from .core import emberTracker
 
 class emberReader(object):
-    def __init__(self, name):
+    def __init__(self, name,verbose = False):
+        self.verbose = verbose
         self.name = name
         self.t = emberTracker(name)
         self.structure = self.t[f"structure_{self.name}"]
         self.base = self.t[f"base_{self.name}"]
+        if self.verbose:print(self.t.log_files)
 
     @property
     def latest(self):
         return self.t.latest_df.to_dict(orient = "record")
+
+    def read_file(self,filename):
+        return open(self.t.log_path/filename,"r").read()
+
+    def read_log(self,log_name):
+        return "["+str(self.read_file(log_name)[1:])+"]"
+
+    def json_df(self,log_name):
+        return pd.DataFrame(json.loads(self.read_log(log_name)))
+
