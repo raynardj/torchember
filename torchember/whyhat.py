@@ -9,6 +9,7 @@ from pathlib import Path
 import os
 import json
 from .core import color
+from .helper import tracker
 
 # Cell
 class RichColumn(object):

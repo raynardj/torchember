@@ -60,6 +60,13 @@ summary: "Analytical approach using Neural Network on tabulate data"
 </div>
 
 </div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The AirBnB New York 2019 dataset</p>
+
+</div>
+</div>
+</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
@@ -78,240 +85,55 @@ summary: "Analytical approach using Neural Network on tabulate data"
 
 <div class="output_area">
 
+<div class="output_subarea output_text output_error">
+<pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">FileNotFoundError</span>                         Traceback (most recent call last)
+<span class="ansi-green-fg">&lt;ipython-input-4-d460e89aedef&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
+<span class="ansi-green-fg">----&gt; 1</span><span class="ansi-red-fg"> </span>df <span class="ansi-blue-fg">=</span> pd<span class="ansi-blue-fg">.</span>read_csv<span class="ansi-blue-fg">(</span>CSV_PATH<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">      2</span> df<span class="ansi-blue-fg">.</span>sample<span class="ansi-blue-fg">(</span><span class="ansi-cyan-fg">10</span><span class="ansi-blue-fg">)</span>
 
-<div class="output_html rendered_html output_subarea output_execute_result">
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
+<span class="ansi-green-fg">~/anaconda3/lib/python3.7/site-packages/pandas/io/parsers.py</span> in <span class="ansi-cyan-fg">parser_f</span><span class="ansi-blue-fg">(filepath_or_buffer, sep, delimiter, header, names, index_col, usecols, squeeze, prefix, mangle_dupe_cols, dtype, engine, converters, true_values, false_values, skipinitialspace, skiprows, skipfooter, nrows, na_values, keep_default_na, na_filter, verbose, skip_blank_lines, parse_dates, infer_datetime_format, keep_date_col, date_parser, dayfirst, cache_dates, iterator, chunksize, compression, thousands, decimal, lineterminator, quotechar, quoting, doublequote, escapechar, comment, encoding, dialect, error_bad_lines, warn_bad_lines, delim_whitespace, low_memory, memory_map, float_precision)</span>
+<span class="ansi-green-intense-fg ansi-bold">    683</span>         )
+<span class="ansi-green-intense-fg ansi-bold">    684</span> 
+<span class="ansi-green-fg">--&gt; 685</span><span class="ansi-red-fg">         </span><span class="ansi-green-fg">return</span> _read<span class="ansi-blue-fg">(</span>filepath_or_buffer<span class="ansi-blue-fg">,</span> kwds<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    686</span> 
+<span class="ansi-green-intense-fg ansi-bold">    687</span>     parser_f<span class="ansi-blue-fg">.</span>__name__ <span class="ansi-blue-fg">=</span> name
 
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
+<span class="ansi-green-fg">~/anaconda3/lib/python3.7/site-packages/pandas/io/parsers.py</span> in <span class="ansi-cyan-fg">_read</span><span class="ansi-blue-fg">(filepath_or_buffer, kwds)</span>
+<span class="ansi-green-intense-fg ansi-bold">    455</span> 
+<span class="ansi-green-intense-fg ansi-bold">    456</span>     <span class="ansi-red-fg"># Create the parser.</span>
+<span class="ansi-green-fg">--&gt; 457</span><span class="ansi-red-fg">     </span>parser <span class="ansi-blue-fg">=</span> TextFileReader<span class="ansi-blue-fg">(</span>fp_or_buf<span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">**</span>kwds<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    458</span> 
+<span class="ansi-green-intense-fg ansi-bold">    459</span>     <span class="ansi-green-fg">if</span> chunksize <span class="ansi-green-fg">or</span> iterator<span class="ansi-blue-fg">:</span>
 
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>id</th>
-      <th>name</th>
-      <th>host_id</th>
-      <th>host_name</th>
-      <th>neighbourhood_group</th>
-      <th>neighbourhood</th>
-      <th>latitude</th>
-      <th>longitude</th>
-      <th>room_type</th>
-      <th>price</th>
-      <th>minimum_nights</th>
-      <th>number_of_reviews</th>
-      <th>last_review</th>
-      <th>reviews_per_month</th>
-      <th>calculated_host_listings_count</th>
-      <th>availability_365</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>30776</td>
-      <td>23820538</td>
-      <td>Large 3 Bedroom Loft in Heart of Williamsburg</td>
-      <td>28373054</td>
-      <td>Nadira</td>
-      <td>Brooklyn</td>
-      <td>Williamsburg</td>
-      <td>40.71201</td>
-      <td>-73.95882</td>
-      <td>Entire home/apt</td>
-      <td>600</td>
-      <td>3</td>
-      <td>14</td>
-      <td>2019-06-17</td>
-      <td>0.98</td>
-      <td>1</td>
-      <td>167</td>
-    </tr>
-    <tr>
-      <td>19830</td>
-      <td>15876032</td>
-      <td>Great Bedroom in a great location. Fun hosts.</td>
-      <td>59358</td>
-      <td>V.Stephan</td>
-      <td>Manhattan</td>
-      <td>Upper East Side</td>
-      <td>40.78440</td>
-      <td>-73.94856</td>
-      <td>Private room</td>
-      <td>65</td>
-      <td>2</td>
-      <td>42</td>
-      <td>2019-06-13</td>
-      <td>1.31</td>
-      <td>2</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <td>43112</td>
-      <td>33451336</td>
-      <td>Artist Heaven Garden Loft</td>
-      <td>132099860</td>
-      <td>Mark</td>
-      <td>Manhattan</td>
-      <td>East Village</td>
-      <td>40.72283</td>
-      <td>-73.98382</td>
-      <td>Entire home/apt</td>
-      <td>450</td>
-      <td>5</td>
-      <td>0</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>1</td>
-      <td>310</td>
-    </tr>
-    <tr>
-      <td>15656</td>
-      <td>12644989</td>
-      <td>Modern high-end studio!</td>
-      <td>9997184</td>
-      <td>Kelly</td>
-      <td>Manhattan</td>
-      <td>Upper West Side</td>
-      <td>40.79376</td>
-      <td>-73.96734</td>
-      <td>Entire home/apt</td>
-      <td>185</td>
-      <td>2</td>
-      <td>10</td>
-      <td>2016-09-01</td>
-      <td>0.26</td>
-      <td>1</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <td>42497</td>
-      <td>32986796</td>
-      <td>Furnished private room 5 minutes from Subway</td>
-      <td>141547523</td>
-      <td>Mathew</td>
-      <td>Manhattan</td>
-      <td>Harlem</td>
-      <td>40.82943</td>
-      <td>-73.94690</td>
-      <td>Private room</td>
-      <td>50</td>
-      <td>2</td>
-      <td>13</td>
-      <td>2019-06-15</td>
-      <td>3.42</td>
-      <td>1</td>
-      <td>65</td>
-    </tr>
-    <tr>
-      <td>28719</td>
-      <td>22205765</td>
-      <td>Beautiful spacious Greenwich Village apt w/ ga...</td>
-      <td>16798487</td>
-      <td>Vadim</td>
-      <td>Manhattan</td>
-      <td>Greenwich Village</td>
-      <td>40.73506</td>
-      <td>-73.99743</td>
-      <td>Entire home/apt</td>
-      <td>400</td>
-      <td>7</td>
-      <td>0</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>1</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <td>33452</td>
-      <td>26447297</td>
-      <td>Northern Manhattan Getaway</td>
-      <td>319488</td>
-      <td>Melinda</td>
-      <td>Manhattan</td>
-      <td>Inwood</td>
-      <td>40.86755</td>
-      <td>-73.92870</td>
-      <td>Private room</td>
-      <td>125</td>
-      <td>2</td>
-      <td>21</td>
-      <td>2019-06-23</td>
-      <td>1.82</td>
-      <td>1</td>
-      <td>141</td>
-    </tr>
-    <tr>
-      <td>2873</td>
-      <td>1640995</td>
-      <td>One bedroom apartment - UES</td>
-      <td>8313953</td>
-      <td>Natalie</td>
-      <td>Manhattan</td>
-      <td>Upper East Side</td>
-      <td>40.76866</td>
-      <td>-73.95360</td>
-      <td>Entire home/apt</td>
-      <td>140</td>
-      <td>6</td>
-      <td>36</td>
-      <td>2019-06-06</td>
-      <td>0.69</td>
-      <td>1</td>
-      <td>71</td>
-    </tr>
-    <tr>
-      <td>20541</td>
-      <td>16338454</td>
-      <td>Cozy &amp; Sunlit Three Bedroom Apartment</td>
-      <td>5828836</td>
-      <td>Dana</td>
-      <td>Manhattan</td>
-      <td>Harlem</td>
-      <td>40.82548</td>
-      <td>-73.94983</td>
-      <td>Entire home/apt</td>
-      <td>255</td>
-      <td>2</td>
-      <td>1</td>
-      <td>2017-01-01</td>
-      <td>0.03</td>
-      <td>1</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <td>42490</td>
-      <td>32980398</td>
-      <td>Your own sanctuary! Private Floor, 3min to subway</td>
-      <td>5338560</td>
-      <td>Daniella</td>
-      <td>Brooklyn</td>
-      <td>Bedford-Stuyvesant</td>
-      <td>40.67812</td>
-      <td>-73.91465</td>
-      <td>Entire home/apt</td>
-      <td>95</td>
-      <td>2</td>
-      <td>14</td>
-      <td>2019-07-07</td>
-      <td>4.20</td>
-      <td>1</td>
-      <td>275</td>
-    </tr>
-  </tbody>
-</table>
+<span class="ansi-green-fg">~/anaconda3/lib/python3.7/site-packages/pandas/io/parsers.py</span> in <span class="ansi-cyan-fg">__init__</span><span class="ansi-blue-fg">(self, f, engine, **kwds)</span>
+<span class="ansi-green-intense-fg ansi-bold">    893</span>             self<span class="ansi-blue-fg">.</span>options<span class="ansi-blue-fg">[</span><span class="ansi-blue-fg">&#34;has_index_names&#34;</span><span class="ansi-blue-fg">]</span> <span class="ansi-blue-fg">=</span> kwds<span class="ansi-blue-fg">[</span><span class="ansi-blue-fg">&#34;has_index_names&#34;</span><span class="ansi-blue-fg">]</span>
+<span class="ansi-green-intense-fg ansi-bold">    894</span> 
+<span class="ansi-green-fg">--&gt; 895</span><span class="ansi-red-fg">         </span>self<span class="ansi-blue-fg">.</span>_make_engine<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">.</span>engine<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    896</span> 
+<span class="ansi-green-intense-fg ansi-bold">    897</span>     <span class="ansi-green-fg">def</span> close<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+
+<span class="ansi-green-fg">~/anaconda3/lib/python3.7/site-packages/pandas/io/parsers.py</span> in <span class="ansi-cyan-fg">_make_engine</span><span class="ansi-blue-fg">(self, engine)</span>
+<span class="ansi-green-intense-fg ansi-bold">   1133</span>     <span class="ansi-green-fg">def</span> _make_engine<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">,</span> engine<span class="ansi-blue-fg">=</span><span class="ansi-blue-fg">&#34;c&#34;</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-intense-fg ansi-bold">   1134</span>         <span class="ansi-green-fg">if</span> engine <span class="ansi-blue-fg">==</span> <span class="ansi-blue-fg">&#34;c&#34;</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-fg">-&gt; 1135</span><span class="ansi-red-fg">             </span>self<span class="ansi-blue-fg">.</span>_engine <span class="ansi-blue-fg">=</span> CParserWrapper<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">.</span>f<span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">**</span>self<span class="ansi-blue-fg">.</span>options<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">   1136</span>         <span class="ansi-green-fg">else</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-intense-fg ansi-bold">   1137</span>             <span class="ansi-green-fg">if</span> engine <span class="ansi-blue-fg">==</span> <span class="ansi-blue-fg">&#34;python&#34;</span><span class="ansi-blue-fg">:</span>
+
+<span class="ansi-green-fg">~/anaconda3/lib/python3.7/site-packages/pandas/io/parsers.py</span> in <span class="ansi-cyan-fg">__init__</span><span class="ansi-blue-fg">(self, src, **kwds)</span>
+<span class="ansi-green-intense-fg ansi-bold">   1915</span>         kwds<span class="ansi-blue-fg">[</span><span class="ansi-blue-fg">&#34;usecols&#34;</span><span class="ansi-blue-fg">]</span> <span class="ansi-blue-fg">=</span> self<span class="ansi-blue-fg">.</span>usecols
+<span class="ansi-green-intense-fg ansi-bold">   1916</span> 
+<span class="ansi-green-fg">-&gt; 1917</span><span class="ansi-red-fg">         </span>self<span class="ansi-blue-fg">.</span>_reader <span class="ansi-blue-fg">=</span> parsers<span class="ansi-blue-fg">.</span>TextReader<span class="ansi-blue-fg">(</span>src<span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">**</span>kwds<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">   1918</span>         self<span class="ansi-blue-fg">.</span>unnamed_cols <span class="ansi-blue-fg">=</span> self<span class="ansi-blue-fg">.</span>_reader<span class="ansi-blue-fg">.</span>unnamed_cols
+<span class="ansi-green-intense-fg ansi-bold">   1919</span> 
+
+<span class="ansi-green-fg">pandas/_libs/parsers.pyx</span> in <span class="ansi-cyan-fg">pandas._libs.parsers.TextReader.__cinit__</span><span class="ansi-blue-fg">()</span>
+
+<span class="ansi-green-fg">pandas/_libs/parsers.pyx</span> in <span class="ansi-cyan-fg">pandas._libs.parsers.TextReader._setup_parser_source</span><span class="ansi-blue-fg">()</span>
+
+<span class="ansi-red-fg">FileNotFoundError</span>: [Errno 2] File b&#39;../data/AB_NYC_2019.csv&#39; does not exist: b&#39;../data/AB_NYC_2019.csv&#39;</pre>
 </div>
-</div>
-
 </div>
 
 </div>
@@ -321,6 +143,17 @@ summary: "Analytical approach using Neural Network on tabulate data"
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="Config-how-we-learn-the-columns">Config how we learn the columns<a class="anchor-link" href="#Config-how-we-learn-the-columns">&#182;</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>This is a python/console interface, that will</p>
+<ul>
+<li>guide the user through columns one by one, </li>
+<li>let user decide how should we treat a column during the learning</li>
+</ul>
+
 </div>
 </div>
 </div>
@@ -336,7 +169,7 @@ summary: "Analytical approach using Neural Network on tabulate data"
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h2 id="RichColumn" class="doc_header"><code>class</code> <code>RichColumn</code><a href="https://github.com/raynardj/torchember/tree/master/torchember/whyhat.py#L14" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>RichColumn</code>(<strong><code>column</code></strong>, <strong><code>is_y</code></strong>=<em><code>False</code></em>, <strong><code>min_occur</code></strong>=<em><code>5</code></em>, <strong><code>is_emb</code></strong>=<em><code>True</code></em>, <strong><code>hidden_size</code></strong>=<em><code>50</code></em>)</p>
+<h2 id="RichColumn" class="doc_header"><code>class</code> <code>RichColumn</code><a href="https://github.com/raynardj/torchember/tree/master/torchember/whyhat.py#L15" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>RichColumn</code>(<strong><code>column</code></strong>, <strong><code>is_y</code></strong>=<em><code>False</code></em>, <strong><code>min_occur</code></strong>=<em><code>5</code></em>, <strong><code>is_emb</code></strong>=<em><code>True</code></em>, <strong><code>hidden_size</code></strong>=<em><code>50</code></em>)</p>
 </blockquote>
 <p>A pandas series manager</p>
 
@@ -357,7 +190,7 @@ summary: "Analytical approach using Neural Network on tabulate data"
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h2 id="RichDF" class="doc_header"><code>class</code> <code>RichDF</code><a href="https://github.com/raynardj/torchember/tree/master/torchember/whyhat.py#L90" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>RichDF</code>(<strong><code>df</code></strong>)</p>
+<h2 id="RichDF" class="doc_header"><code>class</code> <code>RichDF</code><a href="https://github.com/raynardj/torchember/tree/master/torchember/whyhat.py#L91" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>RichDF</code>(<strong><code>df</code></strong>)</p>
 </blockquote>
 <p>A pandas dataframe manager</p>
 
