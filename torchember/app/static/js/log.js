@@ -10,7 +10,7 @@ function load_log_files(hist_name) {
 }
 function update_log_files(hist_name) {
     var log_files_dt = load_log_files(hist_name)
-    console.log(log_files_dt)
+    //console.log(log_files_dt)
     if (log_files_dt.success == false) {
         console.log(log_files_dt.data)
     }
@@ -77,11 +77,34 @@ function split_count(data) {
     }
 }
 
+function get_hist_name(){
+    var hist_name = $("#selected").html()
+    return hist_name
+}
+
+function deploy_module(structure) {
+    var id = panel_id(structure.name);
+    var content = ""
+    if (structure.children != null) {
+        for (var i = 0; i < structure.children.length; i++) {
+            var child = structure.children[i]
+            content = content + deploy_module(child)
+        }
+    }
+    var data = { title: structure.short, 
+        id: "log"+id, 
+        content: content,
+        flavor: "default" ,}
+    return bs3_render("clp_panel_2.html",data)
+}
+
 function paint_split(data) {
     // data = module_strat(data)
     var result = split_count(data)
     var groupby = bs3_render("groupby_btns.html", { counters: result.tensor })
-    var module_ct = bs3_render("module_ct.html", { modules: result.module })
+    var structure_obj = read_structure_data(get_hist_name())
+    console.log(structure_obj)
+    var module_ct = deploy_module(structure_obj)
     $(".groupby_kv").each(function () {
         $(this).html(groupby)
     })

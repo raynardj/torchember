@@ -52,48 +52,13 @@
     <!-- Tab panes -->
     <div class="tab-content">
         <div role="tabpanel" class="tab-pane" id="structure">
-            <div class="row">
-                <div>
-                    <h3>Model Structure</h3>
-                </div>
-                <div>
-                    <!-- <div class="btn btn-default" id="real-time-btn">Real Time</div> -->
-                    <div class="btn btn-default" id="table-stats-btn">Table Stats</div>
-                    <div class="btn btn-default" id="reconstruct-gaussian-btn">Reconstruct Gaussian</div>
-                </div>
-            </div>
-            <hr>
-            <div id="model_structure">
-                Please select model first
-            </div>
+            {%include "visions/module_structure.html" %}
         </div>
         <div role="tabpanel" class="tab-pane" id="raw_data">
-            <h3>Raw Data</h3>
-            <div class="btn btn-default" id="table-stats-raw-btn">Table Stats</div>
-            <hr>
-
-            <div id="raw_data_block">Please select model first</div>
+            {%include "visions/raw_json_latest.html" %}
         </div>
         <div role="tabpanel" class="tab-pane active" id="charts_search">
-            <div class="row">
-                <div class="col-sm-4">
-                    <h3>
-                        <i class="fa fa-book"></i> Log Files <button class="btn-xs btn-success btn_update_log_files"><i class="fa fa-refresh"></i></button>
-                    </h3>
-                        <div class="log_files_list">
-                            Not log files yet 
-                        </div>
-                    <h3><i class="fa fa-cubes"></i> Modules</h3>
-                    <div class="module_filter">
-
-                    </div>
-                </div>
-                <div class="col-sm-8">
-                    <h3><i class="fa fa-bar-chart"></i> Charts</h3>
-                    {%import "charts_search.html" as charts%}
-                    {{charts.charts()}}
-                </div>
-            </div>
+            {%include "visions/charts.html" %}
         </div>
     </div>
 </div>
