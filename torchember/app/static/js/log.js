@@ -185,7 +185,33 @@ function log_pass_through_filter()
             result_list.push(row)
         }
     }
-    // todo: build charts upon here
+    
     window.log_filtered_now = result_list
     return result_list
+}
+function refactor_log_charts(){
+    // log_refactored
+    var lrf  = {}
+    var lrf_count = {}
+    for(i in window.log_filtered_now)
+    {
+        var row = window.log_filtered_now[i]
+        for(k in row)
+        {
+            if(lrf.hasOwnProperty(k)==false)
+            {lrf[k] = []}
+            lrf[k].push(row[k])
+        }
+    }
+    for(k in lrf)
+    {
+        lrf_count[k] = lrf[k].length
+    }
+    // todo: build charts upon here
+    window.log_refactored = lrf
+    window.log_refactored_count = lrf_count
+}
+function paint_log_charts(){
+    refactor_log_charts()
+    
 }
