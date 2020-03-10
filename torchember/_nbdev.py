@@ -19,6 +19,7 @@ index = {"color": "helper.ipynb",
          "get_ember_df": "utils.ipynb",
          "get_ember_record": "utils.ipynb",
          "emberReader": "utils.ipynb",
+         "md5hash": "why_hat.ipynb",
          "RichColumn": "why_hat.ipynb",
          "RichDF": "why_hat.ipynb"}
 
