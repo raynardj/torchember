@@ -17,6 +17,7 @@ index = {"color": "helper.ipynb",
          "get_ember_list": "utils.ipynb",
          "unpack_meta": "utils.ipynb",
          "get_ember_df": "utils.ipynb",
+         "get_ember_record": "utils.ipynb",
          "emberReader": "utils.ipynb",
          "RichColumn": "why_hat.ipynb",
          "RichDF": "why_hat.ipynb"}

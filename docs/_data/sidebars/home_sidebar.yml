@@ -13,13 +13,13 @@ entries:
       title: Helper Function
       url: /helper
     - output: web,pdf
-      title: Torch Ember Core
+      title: 00 Torch Ember Core
       url: /torch_ember_core
     - output: web,pdf
       title: Utilities
       url: /utils
     - output: web,pdf
-      title: Why Hat
+      title: 10 Why Hat
       url: /why_hat
     output: web
     title: torchember

@@ -94,7 +94,7 @@ function build_by_module(latest) {
             }
         }
         if (by_module[record.module] == null) { by_module[record.module] = { module: record.module, data: [], idx: i } }
-        
+
         by_module[record.module].data.push(record)
     }
     return by_module
@@ -126,7 +126,7 @@ vis_map = {
 
 function paint_standard(latest, cols, vis) {
     // over write cols in this function
-    cols = ["ttype", "tname", "shape","cnt_zero", "mean", "std", "min", "max"]
+    cols = ["ttype", "tname", "shape", "cnt_zero", "mean", "std", "min", "max"]
     var by_module = build_by_module(latest);
     for (mname in by_module) {
         paint_standard_module(by_module[mname], cols)
@@ -141,17 +141,16 @@ function assign_history_menu() {
         var structure_obj = read_structure_data(hist_name)
 
         $("#model_structure").html(deploy_structure(structure_obj))
+        update_log_files(hist_name)
         // assign the refresh-btn
         $("#table-stats-btn").click(function () { update_latest(hist_name) })
         $("#reconstruct-gaussian-btn").click(function () { update_reconstruct_norm(hist_name) })
-        $("#table-stats-raw-btn").click(function(){update_latest_raw(hist_name)})
-        // $("#real-time-btn").click(function()
-        // {
-        //     var intv = setInterval(function () {
-        //         console.log("Refresh")
-        //         $("#table-stats-btn").click()
-        //     }, 2000)
-        // })
+        $("#table-stats-raw-btn").click(function () { update_latest_raw(hist_name) })
+        $(".btn_update_log_files").each(function () {
+            $(this).click(function () {
+                update_log_files(hist_name)
+            })
+        })
     })
 }
 
@@ -181,6 +180,10 @@ function read_latest_data(hist_name) {
     return aj.responseJSON.data
 }
 
+function bs3_render(template, data) {
+    return env.render('static/templates/' + String(template), data)
+}
+
 function bs3_clp_panel(data) {
     /*
     data (a JS object)
@@ -189,7 +192,7 @@ function bs3_clp_panel(data) {
         id
         flavor(optional)
     */
-    return env.render('static/templates/clp_panel.html', data)
+    return bs3_render('clp_panel.html', data)
 }
 
 function bs3_standard_module(module, cols) {
@@ -198,7 +201,7 @@ function bs3_standard_module(module, cols) {
 }
 
 function bs3_norm_module(module) {
-    return env.render('static/templates/norm_module.html',module)
+    return env.render('static/templates/norm_module.html', module)
 }
 
 function id_proof(module_name) {
@@ -241,7 +244,94 @@ function update_latest(hist_name) {
 function update_latest_raw(hist_name) {
     var latest_data = read_latest_data(hist_name);
     var pre = document.createElement("pre")
-    $(pre).append(JSON.stringify(latest_data,null, 2))
+    $(pre).append(JSON.stringify(latest_data, null, 2))
     $("#raw_data_block").html(pre)
+}
+
+
+function paint_line_chart(conf) {
+    /*
+    var conf = {
+        frameId:"xxx",
+        titleText:"xxx",
+        seriesName:"xx",
+        data:array of float,
+        xData: data for x-axis
+    }
+    */
+    console.log("Start Painting line chart")
+    var myChart = echarts.init(document.getElementById(conf.frameId));
+
+    option = {
+        tooltip: {
+            trigger: 'axis',
+            position: function (pt) {
+                return [pt[0], '10%'];
+            }
+        },
+        title: {
+            left: 'center',
+            text: conf.titleText,
+        },
+        toolbox: {
+            feature: {
+                dataZoom: {
+                    yAxisIndex: 'none'
+                },
+                restore: {},
+                saveAsImage: {}
+            }
+        },
+        xAxis: {
+            type: 'category',
+            boundaryGap: false,
+            data: conf.xData
+        },
+        yAxis: {
+            type: 'value',
+            boundaryGap: [0, '100%']
+        },
+        dataZoom: [{
+            type: 'inside',
+            start: 0,
+            end: 10
+        }, {
+            start: 0,
+            end: 10,
+            handleIcon: 'M10.7,11.9v-1.3H9.3v1.3c-4.9,0.3-8.8,4.4-8.8,9.4c0,5,3.9,9.1,8.8,9.4v1.3h1.3v-1.3c4.9-0.3,8.8-4.4,8.8-9.4C19.5,16.3,15.6,12.2,10.7,11.9z M13.3,24.4H6.7V23h6.6V24.4z M13.3,19.6H6.7v-1.4h6.6V19.6z',
+            handleSize: '80%',
+            handleStyle: {
+                color: '#fff',
+                shadowBlur: 3,
+                shadowColor: 'rgba(0, 0, 0, 0.6)',
+                shadowOffsetX: 2,
+                shadowOffsetY: 2
+            }
+        }],
+        series: [
+            {
+                name: conf.seriesName,
+                type: 'line',
+                smooth: true,
+                symbol: 'none',
+                sampling: 'average',
+                itemStyle: {
+                    color: 'rgb(255, 70, 131)'
+                },
+                areaStyle: {
+                    color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+                        offset: 0,
+                        color: 'rgb(255, 158, 68)'
+                    }, {
+                        offset: 1,
+                        color: 'rgb(255, 70, 131)'
+                    }])
+                },
+                data: data
+            }
+        ]
+    };
+    console.log(option)
+    myChart.setOption(option);
 }
 

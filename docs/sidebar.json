@@ -2,8 +2,8 @@
   "torchember": {
     "Overview": "/",
     "Helper Function": "/helper",
-    "Torch Ember Core": "/torch_ember_core",
+    "00 Torch Ember Core": "/torch_ember_core",
     "Utilities": "/utils",
-    "Why Hat": "/why_hat"
+    "10 Why Hat": "/why_hat"
   }
 }
