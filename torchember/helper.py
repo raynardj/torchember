@@ -69,7 +69,10 @@ class tracker(object):
 
 
     def __getitem__(self,fname):
-        return json.loads(open(self.data/f"{fname}.json","r").read())
+        try:
+            return json.loads(open(self.data/f"{fname}.json","r").read())
+        except:
+            return None
 
     def logging(self,line):
         with open(self.log_file,"a") as f :f.write(line+"\n")

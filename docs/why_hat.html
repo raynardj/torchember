@@ -85,55 +85,240 @@ summary: "Analytical approach using Neural Network on tabulate data"
 
 <div class="output_area">
 
-<div class="output_subarea output_text output_error">
-<pre>
-<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
-<span class="ansi-red-fg">FileNotFoundError</span>                         Traceback (most recent call last)
-<span class="ansi-green-fg">&lt;ipython-input-4-d460e89aedef&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
-<span class="ansi-green-fg">----&gt; 1</span><span class="ansi-red-fg"> </span>df <span class="ansi-blue-fg">=</span> pd<span class="ansi-blue-fg">.</span>read_csv<span class="ansi-blue-fg">(</span>CSV_PATH<span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">      2</span> df<span class="ansi-blue-fg">.</span>sample<span class="ansi-blue-fg">(</span><span class="ansi-cyan-fg">10</span><span class="ansi-blue-fg">)</span>
 
-<span class="ansi-green-fg">~/anaconda3/lib/python3.7/site-packages/pandas/io/parsers.py</span> in <span class="ansi-cyan-fg">parser_f</span><span class="ansi-blue-fg">(filepath_or_buffer, sep, delimiter, header, names, index_col, usecols, squeeze, prefix, mangle_dupe_cols, dtype, engine, converters, true_values, false_values, skipinitialspace, skiprows, skipfooter, nrows, na_values, keep_default_na, na_filter, verbose, skip_blank_lines, parse_dates, infer_datetime_format, keep_date_col, date_parser, dayfirst, cache_dates, iterator, chunksize, compression, thousands, decimal, lineterminator, quotechar, quoting, doublequote, escapechar, comment, encoding, dialect, error_bad_lines, warn_bad_lines, delim_whitespace, low_memory, memory_map, float_precision)</span>
-<span class="ansi-green-intense-fg ansi-bold">    683</span>         )
-<span class="ansi-green-intense-fg ansi-bold">    684</span> 
-<span class="ansi-green-fg">--&gt; 685</span><span class="ansi-red-fg">         </span><span class="ansi-green-fg">return</span> _read<span class="ansi-blue-fg">(</span>filepath_or_buffer<span class="ansi-blue-fg">,</span> kwds<span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">    686</span> 
-<span class="ansi-green-intense-fg ansi-bold">    687</span>     parser_f<span class="ansi-blue-fg">.</span>__name__ <span class="ansi-blue-fg">=</span> name
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
 
-<span class="ansi-green-fg">~/anaconda3/lib/python3.7/site-packages/pandas/io/parsers.py</span> in <span class="ansi-cyan-fg">_read</span><span class="ansi-blue-fg">(filepath_or_buffer, kwds)</span>
-<span class="ansi-green-intense-fg ansi-bold">    455</span> 
-<span class="ansi-green-intense-fg ansi-bold">    456</span>     <span class="ansi-red-fg"># Create the parser.</span>
-<span class="ansi-green-fg">--&gt; 457</span><span class="ansi-red-fg">     </span>parser <span class="ansi-blue-fg">=</span> TextFileReader<span class="ansi-blue-fg">(</span>fp_or_buf<span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">**</span>kwds<span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">    458</span> 
-<span class="ansi-green-intense-fg ansi-bold">    459</span>     <span class="ansi-green-fg">if</span> chunksize <span class="ansi-green-fg">or</span> iterator<span class="ansi-blue-fg">:</span>
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
 
-<span class="ansi-green-fg">~/anaconda3/lib/python3.7/site-packages/pandas/io/parsers.py</span> in <span class="ansi-cyan-fg">__init__</span><span class="ansi-blue-fg">(self, f, engine, **kwds)</span>
-<span class="ansi-green-intense-fg ansi-bold">    893</span>             self<span class="ansi-blue-fg">.</span>options<span class="ansi-blue-fg">[</span><span class="ansi-blue-fg">&#34;has_index_names&#34;</span><span class="ansi-blue-fg">]</span> <span class="ansi-blue-fg">=</span> kwds<span class="ansi-blue-fg">[</span><span class="ansi-blue-fg">&#34;has_index_names&#34;</span><span class="ansi-blue-fg">]</span>
-<span class="ansi-green-intense-fg ansi-bold">    894</span> 
-<span class="ansi-green-fg">--&gt; 895</span><span class="ansi-red-fg">         </span>self<span class="ansi-blue-fg">.</span>_make_engine<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">.</span>engine<span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">    896</span> 
-<span class="ansi-green-intense-fg ansi-bold">    897</span>     <span class="ansi-green-fg">def</span> close<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
-
-<span class="ansi-green-fg">~/anaconda3/lib/python3.7/site-packages/pandas/io/parsers.py</span> in <span class="ansi-cyan-fg">_make_engine</span><span class="ansi-blue-fg">(self, engine)</span>
-<span class="ansi-green-intense-fg ansi-bold">   1133</span>     <span class="ansi-green-fg">def</span> _make_engine<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">,</span> engine<span class="ansi-blue-fg">=</span><span class="ansi-blue-fg">&#34;c&#34;</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
-<span class="ansi-green-intense-fg ansi-bold">   1134</span>         <span class="ansi-green-fg">if</span> engine <span class="ansi-blue-fg">==</span> <span class="ansi-blue-fg">&#34;c&#34;</span><span class="ansi-blue-fg">:</span>
-<span class="ansi-green-fg">-&gt; 1135</span><span class="ansi-red-fg">             </span>self<span class="ansi-blue-fg">.</span>_engine <span class="ansi-blue-fg">=</span> CParserWrapper<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">.</span>f<span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">**</span>self<span class="ansi-blue-fg">.</span>options<span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">   1136</span>         <span class="ansi-green-fg">else</span><span class="ansi-blue-fg">:</span>
-<span class="ansi-green-intense-fg ansi-bold">   1137</span>             <span class="ansi-green-fg">if</span> engine <span class="ansi-blue-fg">==</span> <span class="ansi-blue-fg">&#34;python&#34;</span><span class="ansi-blue-fg">:</span>
-
-<span class="ansi-green-fg">~/anaconda3/lib/python3.7/site-packages/pandas/io/parsers.py</span> in <span class="ansi-cyan-fg">__init__</span><span class="ansi-blue-fg">(self, src, **kwds)</span>
-<span class="ansi-green-intense-fg ansi-bold">   1915</span>         kwds<span class="ansi-blue-fg">[</span><span class="ansi-blue-fg">&#34;usecols&#34;</span><span class="ansi-blue-fg">]</span> <span class="ansi-blue-fg">=</span> self<span class="ansi-blue-fg">.</span>usecols
-<span class="ansi-green-intense-fg ansi-bold">   1916</span> 
-<span class="ansi-green-fg">-&gt; 1917</span><span class="ansi-red-fg">         </span>self<span class="ansi-blue-fg">.</span>_reader <span class="ansi-blue-fg">=</span> parsers<span class="ansi-blue-fg">.</span>TextReader<span class="ansi-blue-fg">(</span>src<span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">**</span>kwds<span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">   1918</span>         self<span class="ansi-blue-fg">.</span>unnamed_cols <span class="ansi-blue-fg">=</span> self<span class="ansi-blue-fg">.</span>_reader<span class="ansi-blue-fg">.</span>unnamed_cols
-<span class="ansi-green-intense-fg ansi-bold">   1919</span> 
-
-<span class="ansi-green-fg">pandas/_libs/parsers.pyx</span> in <span class="ansi-cyan-fg">pandas._libs.parsers.TextReader.__cinit__</span><span class="ansi-blue-fg">()</span>
-
-<span class="ansi-green-fg">pandas/_libs/parsers.pyx</span> in <span class="ansi-cyan-fg">pandas._libs.parsers.TextReader._setup_parser_source</span><span class="ansi-blue-fg">()</span>
-
-<span class="ansi-red-fg">FileNotFoundError</span>: [Errno 2] File b&#39;../data/AB_NYC_2019.csv&#39; does not exist: b&#39;../data/AB_NYC_2019.csv&#39;</pre>
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>id</th>
+      <th>name</th>
+      <th>host_id</th>
+      <th>host_name</th>
+      <th>neighbourhood_group</th>
+      <th>neighbourhood</th>
+      <th>latitude</th>
+      <th>longitude</th>
+      <th>room_type</th>
+      <th>price</th>
+      <th>minimum_nights</th>
+      <th>number_of_reviews</th>
+      <th>last_review</th>
+      <th>reviews_per_month</th>
+      <th>calculated_host_listings_count</th>
+      <th>availability_365</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>27254</td>
+      <td>21530562</td>
+      <td>Modern Cozy &amp; Clean Private 3 Bedroom Mins to NYC</td>
+      <td>154088360</td>
+      <td>Kelly</td>
+      <td>Queens</td>
+      <td>Long Island City</td>
+      <td>40.75331</td>
+      <td>-73.93907</td>
+      <td>Entire home/apt</td>
+      <td>300</td>
+      <td>4</td>
+      <td>65</td>
+      <td>2019-07-01</td>
+      <td>3.27</td>
+      <td>2</td>
+      <td>221</td>
+    </tr>
+    <tr>
+      <td>26267</td>
+      <td>20941420</td>
+      <td>Room in Chelsea</td>
+      <td>15487773</td>
+      <td>Sorcha</td>
+      <td>Manhattan</td>
+      <td>Chelsea</td>
+      <td>40.74063</td>
+      <td>-73.99998</td>
+      <td>Private room</td>
+      <td>100</td>
+      <td>2</td>
+      <td>4</td>
+      <td>2017-10-30</td>
+      <td>0.19</td>
+      <td>1</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>34798</td>
+      <td>27582416</td>
+      <td>Luxury Private Condo/Apartment</td>
+      <td>69997531</td>
+      <td>Markus</td>
+      <td>Brooklyn</td>
+      <td>Crown Heights</td>
+      <td>40.67512</td>
+      <td>-73.94192</td>
+      <td>Private room</td>
+      <td>82</td>
+      <td>2</td>
+      <td>21</td>
+      <td>2019-06-30</td>
+      <td>1.94</td>
+      <td>1</td>
+      <td>175</td>
+    </tr>
+    <tr>
+      <td>37518</td>
+      <td>29776064</td>
+      <td>New York Home with a View</td>
+      <td>51338091</td>
+      <td>Vander</td>
+      <td>Manhattan</td>
+      <td>Harlem</td>
+      <td>40.82816</td>
+      <td>-73.93827</td>
+      <td>Entire home/apt</td>
+      <td>130</td>
+      <td>7</td>
+      <td>1</td>
+      <td>2019-01-06</td>
+      <td>0.16</td>
+      <td>1</td>
+      <td>280</td>
+    </tr>
+    <tr>
+      <td>35159</td>
+      <td>27891791</td>
+      <td>Comfort Away from Home</td>
+      <td>205188960</td>
+      <td>Patrick</td>
+      <td>Brooklyn</td>
+      <td>East Flatbush</td>
+      <td>40.64910</td>
+      <td>-73.92532</td>
+      <td>Entire home/apt</td>
+      <td>75</td>
+      <td>3</td>
+      <td>12</td>
+      <td>2019-06-30</td>
+      <td>1.21</td>
+      <td>1</td>
+      <td>167</td>
+    </tr>
+    <tr>
+      <td>7235</td>
+      <td>5298458</td>
+      <td>Upper West SIDE,Washington bridge,Time Square 30'</td>
+      <td>2730883</td>
+      <td>Seb</td>
+      <td>Manhattan</td>
+      <td>Washington Heights</td>
+      <td>40.85341</td>
+      <td>-73.93181</td>
+      <td>Entire home/apt</td>
+      <td>37</td>
+      <td>30</td>
+      <td>3</td>
+      <td>2017-12-26</td>
+      <td>0.06</td>
+      <td>2</td>
+      <td>82</td>
+    </tr>
+    <tr>
+      <td>35357</td>
+      <td>28046851</td>
+      <td>Bellrose  Home - 15 minutes from both NYC airp...</td>
+      <td>211860521</td>
+      <td>Tamara</td>
+      <td>Queens</td>
+      <td>Bellerose</td>
+      <td>40.72908</td>
+      <td>-73.72778</td>
+      <td>Private room</td>
+      <td>105</td>
+      <td>3</td>
+      <td>7</td>
+      <td>2019-05-31</td>
+      <td>0.76</td>
+      <td>2</td>
+      <td>343</td>
+    </tr>
+    <tr>
+      <td>21555</td>
+      <td>17261922</td>
+      <td>Townhouse apt. Close to city. 3 bedrooms &amp; 2 bath</td>
+      <td>116365995</td>
+      <td>Dan</td>
+      <td>Queens</td>
+      <td>Woodside</td>
+      <td>40.74705</td>
+      <td>-73.90792</td>
+      <td>Entire home/apt</td>
+      <td>275</td>
+      <td>4</td>
+      <td>31</td>
+      <td>2019-07-04</td>
+      <td>1.21</td>
+      <td>2</td>
+      <td>283</td>
+    </tr>
+    <tr>
+      <td>32765</td>
+      <td>25812660</td>
+      <td>*Luxurious* Sparkling Clean Two Bedroom Apartment</td>
+      <td>183803880</td>
+      <td>Alisa</td>
+      <td>Manhattan</td>
+      <td>Hell's Kitchen</td>
+      <td>40.76578</td>
+      <td>-73.98383</td>
+      <td>Entire home/apt</td>
+      <td>499</td>
+      <td>3</td>
+      <td>26</td>
+      <td>2019-06-20</td>
+      <td>2.50</td>
+      <td>1</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>37366</td>
+      <td>29657375</td>
+      <td>Gorgeous Room in Williamsburg, 10min to Soho</td>
+      <td>2967914</td>
+      <td>Nina</td>
+      <td>Brooklyn</td>
+      <td>Williamsburg</td>
+      <td>40.71304</td>
+      <td>-73.96238</td>
+      <td>Private room</td>
+      <td>102</td>
+      <td>1</td>
+      <td>48</td>
+      <td>2019-06-21</td>
+      <td>5.81</td>
+      <td>2</td>
+      <td>20</td>
+    </tr>
+  </tbody>
+</table>
 </div>
+</div>
+
 </div>
 
 </div>
@@ -169,7 +354,27 @@ summary: "Analytical approach using Neural Network on tabulate data"
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h2 id="RichColumn" class="doc_header"><code>class</code> <code>RichColumn</code><a href="https://github.com/raynardj/torchember/tree/master/torchember/whyhat.py#L15" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>RichColumn</code>(<strong><code>column</code></strong>, <strong><code>is_y</code></strong>=<em><code>False</code></em>, <strong><code>min_occur</code></strong>=<em><code>5</code></em>, <strong><code>is_emb</code></strong>=<em><code>True</code></em>, <strong><code>hidden_size</code></strong>=<em><code>50</code></em>)</p>
+<h4 id="md5hash" class="doc_header"><code>md5hash</code><a href="https://github.com/raynardj/torchember/tree/master/torchember/whyhat.py#L17" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>md5hash</code>(<strong><code>x</code></strong>)</p>
+</blockquote>
+
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_markdown rendered_html output_subarea ">
+<h2 id="RichColumn" class="doc_header"><code>class</code> <code>RichColumn</code><a href="https://github.com/raynardj/torchember/tree/master/torchember/whyhat.py#L20" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>RichColumn</code>(<strong><code>column</code></strong>, <strong><code>is_y</code></strong>=<em><code>False</code></em>, <strong><code>min_occur</code></strong>=<em><code>5</code></em>, <strong><code>is_emb</code></strong>=<em><code>True</code></em>, <strong><code>hidden_size</code></strong>=<em><code>50</code></em>)</p>
 </blockquote>
 <p>A pandas series manager</p>
 
@@ -190,7 +395,7 @@ summary: "Analytical approach using Neural Network on tabulate data"
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h2 id="RichDF" class="doc_header"><code>class</code> <code>RichDF</code><a href="https://github.com/raynardj/torchember/tree/master/torchember/whyhat.py#L91" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>RichDF</code>(<strong><code>df</code></strong>)</p>
+<h2 id="RichDF" class="doc_header"><code>class</code> <code>RichDF</code><a href="https://github.com/raynardj/torchember/tree/master/torchember/whyhat.py#L105" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>RichDF</code>(<strong><code>df</code></strong>, <strong><code>fname</code></strong>=<em><code>None</code></em>)</p>
 </blockquote>
 <p>A pandas dataframe manager</p>
 
@@ -207,7 +412,7 @@ summary: "Analytical approach using Neural Network on tabulate data"
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">rdf</span> <span class="o">=</span> <span class="n">RichDF</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">rdf</span> <span class="o">=</span> <span class="n">RichDF</span><span class="p">(</span><span class="n">df</span><span class="p">,</span><span class="n">fname</span> <span class="o">=</span> <span class="s2">&quot;testing_case_nyc&quot;</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -224,206 +429,6 @@ summary: "Analytical approach using Neural Network on tabulate data"
 </pre></div>
 
     </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-<div class="output_area">
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre><span class="ansi-bold">==============================</span>
-<span class="ansi-cyan-intense-fg">id</span>
-<span class="ansi-red-intense-fg">number? True</span>
-Empty DataFrame
-Columns: [index, id]
-Index: []
-<span class="ansi-red-intense-fg">Is this a [C]ontineous, [D]iscrete or a column we do[N]&#39;t need? default N</span>
-
-<span class="ansi-blue-intense-fg">id will not be involved in learning</span>
-<span class="ansi-bold">==============================</span>
-<span class="ansi-cyan-intense-fg">name</span>
-<span class="ansi-red-intense-fg">number? False</span>
-                          index  name
-0                Hillside Hotel    18
-1           Home away from home    17
-2  New york Multi-unit building    16
-3            Brooklyn Apartment    12
-4                  Private Room    11
-<span class="ansi-red-intense-fg">Is this a [C]ontineous, [D]iscrete or a column we do[N]&#39;t need? default N</span>
-d
-<span class="ansi-blue-intense-fg">name set to discrite data</span>
-<span class="ansi-bold">==============================</span>
-<span class="ansi-cyan-intense-fg">host_id</span>
-<span class="ansi-red-intense-fg">number? True</span>
-       index  host_id
-0  219517861      327
-1  107434423      232
-2   30283594      121
-3  137358866      103
-4   12243051       96
-<span class="ansi-red-intense-fg">Is this a [C]ontineous, [D]iscrete or a column we do[N]&#39;t need? default N</span>
-d
-<span class="ansi-blue-intense-fg">host_id set to discrite data</span>
-<span class="ansi-bold">==============================</span>
-<span class="ansi-cyan-intense-fg">host_name</span>
-<span class="ansi-red-intense-fg">number? False</span>
-          index  host_name
-0       Michael        417
-1         David        403
-2  Sonder (NYC)        327
-3          John        294
-4          Alex        279
-<span class="ansi-red-intense-fg">Is this a [C]ontineous, [D]iscrete or a column we do[N]&#39;t need? default N</span>
-d
-<span class="ansi-blue-intense-fg">host_name set to discrite data</span>
-<span class="ansi-bold">==============================</span>
-<span class="ansi-cyan-intense-fg">neighbourhood_group</span>
-<span class="ansi-red-intense-fg">number? False</span>
-           index  neighbourhood_group
-0      Manhattan                21661
-1       Brooklyn                20104
-2         Queens                 5666
-3          Bronx                 1091
-4  Staten Island                  373
-<span class="ansi-red-intense-fg">Is this a [C]ontineous, [D]iscrete or a column we do[N]&#39;t need? default N</span>
-d
-<span class="ansi-blue-intense-fg">neighbourhood_group set to discrite data</span>
-<span class="ansi-bold">==============================</span>
-<span class="ansi-cyan-intense-fg">neighbourhood</span>
-<span class="ansi-red-intense-fg">number? False</span>
-                index  neighbourhood
-0        Williamsburg           3920
-1  Bedford-Stuyvesant           3714
-2              Harlem           2658
-3            Bushwick           2465
-4     Upper West Side           1971
-<span class="ansi-red-intense-fg">Is this a [C]ontineous, [D]iscrete or a column we do[N]&#39;t need? default N</span>
-d
-<span class="ansi-blue-intense-fg">neighbourhood set to discrite data</span>
-<span class="ansi-bold">==============================</span>
-<span class="ansi-cyan-intense-fg">latitude</span>
-<span class="ansi-red-intense-fg">number? True</span>
-      index  latitude
-0  40.71813        18
-1  40.68634        13
-2  40.69414        13
-3  40.68444        13
-4  40.71171        12
-<span class="ansi-red-intense-fg">Is this a [C]ontineous, [D]iscrete or a column we do[N]&#39;t need? default N</span>
-c
-<span class="ansi-blue-intense-fg">latitude set to contineous data</span>
-<span class="ansi-bold">==============================</span>
-<span class="ansi-cyan-intense-fg">longitude</span>
-<span class="ansi-red-intense-fg">number? True</span>
-      index  longitude
-0 -73.95677         18
-1 -73.95427         18
-2 -73.95405         17
-3 -73.95136         16
-4 -73.94791         16
-<span class="ansi-red-intense-fg">Is this a [C]ontineous, [D]iscrete or a column we do[N]&#39;t need? default N</span>
-c
-<span class="ansi-blue-intense-fg">longitude set to contineous data</span>
-<span class="ansi-bold">==============================</span>
-<span class="ansi-cyan-intense-fg">room_type</span>
-<span class="ansi-red-intense-fg">number? False</span>
-             index  room_type
-0  Entire home/apt      25409
-1     Private room      22326
-2      Shared room       1160
-<span class="ansi-red-intense-fg">Is this a [C]ontineous, [D]iscrete or a column we do[N]&#39;t need? default N</span>
-d
-<span class="ansi-blue-intense-fg">room_type set to discrite data</span>
-<span class="ansi-bold">==============================</span>
-<span class="ansi-cyan-intense-fg">price</span>
-<span class="ansi-red-intense-fg">number? True</span>
-   index  price
-0    100   2051
-1    150   2047
-2     50   1534
-3     60   1458
-4    200   1401
-<span class="ansi-red-intense-fg">Is this a [C]ontineous, [D]iscrete or a column we do[N]&#39;t need? default N</span>
-c
-<span class="ansi-blue-intense-fg">price set to contineous data</span>
-<span class="ansi-bold">==============================</span>
-<span class="ansi-cyan-intense-fg">minimum_nights</span>
-<span class="ansi-red-intense-fg">number? True</span>
-   index  minimum_nights
-0      1           12720
-1      2           11696
-2      3            7999
-3     30            3760
-4      4            3303
-<span class="ansi-red-intense-fg">Is this a [C]ontineous, [D]iscrete or a column we do[N]&#39;t need? default N</span>
-c
-<span class="ansi-blue-intense-fg">minimum_nights set to contineous data</span>
-<span class="ansi-bold">==============================</span>
-<span class="ansi-cyan-intense-fg">number_of_reviews</span>
-<span class="ansi-red-intense-fg">number? True</span>
-   index  number_of_reviews
-0      0              10052
-1      1               5244
-2      2               3465
-3      3               2520
-4      4               1994
-<span class="ansi-red-intense-fg">Is this a [C]ontineous, [D]iscrete or a column we do[N]&#39;t need? default N</span>
-c
-<span class="ansi-blue-intense-fg">number_of_reviews set to contineous data</span>
-<span class="ansi-bold">==============================</span>
-<span class="ansi-cyan-intense-fg">last_review</span>
-<span class="ansi-red-intense-fg">number? False</span>
-        index  last_review
-0  2019-06-23         1413
-1  2019-07-01         1359
-2  2019-06-30         1341
-3  2019-06-24          875
-4  2019-07-07          718
-<span class="ansi-red-intense-fg">Is this a [C]ontineous, [D]iscrete or a column we do[N]&#39;t need? default N</span>
-
-<span class="ansi-blue-intense-fg">last_review will not be involved in learning</span>
-<span class="ansi-bold">==============================</span>
-<span class="ansi-cyan-intense-fg">reviews_per_month</span>
-<span class="ansi-red-intense-fg">number? True</span>
-   index  reviews_per_month
-0   0.02                919
-1   0.05                893
-2   1.00                893
-3   0.03                804
-4   0.16                667
-<span class="ansi-red-intense-fg">Is this a [C]ontineous, [D]iscrete or a column we do[N]&#39;t need? default N</span>
-c
-<span class="ansi-blue-intense-fg">reviews_per_month set to contineous data</span>
-<span class="ansi-bold">==============================</span>
-<span class="ansi-cyan-intense-fg">calculated_host_listings_count</span>
-<span class="ansi-red-intense-fg">number? True</span>
-   index  calculated_host_listings_count
-0      1                           32303
-1      2                            6658
-2      3                            2853
-3      4                            1440
-4      5                             845
-<span class="ansi-red-intense-fg">Is this a [C]ontineous, [D]iscrete or a column we do[N]&#39;t need? default N</span>
-c
-<span class="ansi-blue-intense-fg">calculated_host_listings_count set to contineous data</span>
-<span class="ansi-bold">==============================</span>
-<span class="ansi-cyan-intense-fg">availability_365</span>
-<span class="ansi-red-intense-fg">number? True</span>
-   index  availability_365
-0      0             17533
-1    365              1295
-2    364               491
-3      1               408
-4     89               361
-<span class="ansi-red-intense-fg">Is this a [C]ontineous, [D]iscrete or a column we do[N]&#39;t need? default N</span>
-c
-<span class="ansi-blue-intense-fg">availability_365 set to contineous data</span>
-</pre>
-</div>
-</div>
-
 </div>
 </div>
 
