@@ -91,7 +91,7 @@ function deploy_module(structure) {
             content = content + deploy_module(child)
         }
     }
-    var data = { title: structure.short, 
+    var data = { title: structure.short, long_name:structure.name,
         id: "log"+id, 
         content: content,
         flavor: "default" ,}
@@ -111,6 +111,8 @@ function paint_split(data) {
     $(".module_filter").each(function () {
         $(this).html(module_ct)
     })
+    arm_btn_filter()
+    click_filter_first()
 }
 
 function arm_log_file_click(log_file_dom) {
@@ -120,4 +122,96 @@ function arm_log_file_click(log_file_dom) {
         open_log(dt.hist_name, dt.file_name)
         paint_split(window.log_file_now)
     })
+}
+
+function arm_btn_filter(){
+    $(".btn_filter").each(function(){
+        $(this).click(function(){
+            
+            var dt = $(this).data()
+            $(".close_"+String(dt.cate)).each(function(){
+                $(this).click()
+            })
+            $(".log_filters").append(bs3_render("log_filter_cancel_btn.html",dt))
+            arm_filter_close_btn()
+            log_pass_through_filter()
+        })
+    })
+}
+
+function click_filter_first(){
+    $(".btn_filter_module:first").click()
+    $(".btn_filter_ttype:first").click()
+    $(".btn_filter_tname:first").click()
+}
+
+function arm_filter_close_btn(){
+    $(".filter_close_btn").each(function(){
+        $(this).click(function(){
+            var close_id = $(this).data("close_id")
+            $("."+String(close_id)).each(function(){$(this).remove()})
+        })
+    })
+}
+
+function read_log_filters()
+{
+    window.log_filters = {}
+    $(".cancel_filter_btn").each(function(){
+        var dt = $(this).data()
+        window.log_filters[dt.cate]=dt.k
+    })
+    return window.log_filters
+}
+
+function log_pass_through_filter()
+{
+    var log = window.log_file_now
+    var result_list = []
+
+    var filters = read_log_filters()
+    var fkeys = Object.keys(filters)
+    for(i in log)
+    {
+        var row = log[i]
+        row.filter_match_ = true
+        for(var j=0;j<fkeys.length; j++)
+        {
+            k = fkeys[j]
+            if(row[k]!=filters[k]) {row.filter_match_ = false;break}
+        }
+        if(row.filter_match_==true){
+            delete row.filter_match_
+            result_list.push(row)
+        }
+    }
+    
+    window.log_filtered_now = result_list
+    return result_list
+}
+function refactor_log_charts(){
+    // log_refactored
+    var lrf  = {}
+    var lrf_count = {}
+    for(i in window.log_filtered_now)
+    {
+        var row = window.log_filtered_now[i]
+        for(k in row)
+        {
+            if(lrf.hasOwnProperty(k)==false)
+            {lrf[k] = []}
+            lrf[k].push(row[k])
+        }
+    }
+    for(k in lrf)
+    {
+        lrf_count[k] = lrf[k].length
+    }
+    // todo: build charts upon here
+    window.log_refactored = lrf
+    window.log_refactored_count = lrf_count
+}
+function paint_log_charts(){
+    refactor_log_charts()
+    
 }
