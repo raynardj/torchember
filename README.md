@@ -24,7 +24,7 @@
 
 ## Fast Tutorial
 
-* **30 seconds** [tutorial](../nb_test/test_cnn.ipynb)
+* **30 seconds** [tutorial](https://github.com/raynardj/torchember/blob/master/nb_test/test_cnn.ipynb)
 
 * Full [documentations](https://raynardj.github.io/torchember/)
 
