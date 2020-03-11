@@ -25,6 +25,31 @@ summary: "Tracking and visualize after the burning pytorch"
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="This-framework-tracks-the-pytorch-model:">This framework tracks the pytorch model:<a class="anchor-link" href="#This-framework-tracks-the-pytorch-model:">&#182;</a></h2><ul>
+<li>On <code>nn.Module</code> level</li>
+<li>Down to the metrics/ features of all tensors, includes<ul>
+<li>inputs/outputs of each module</li>
+<li>weight/grad tensors</li>
+</ul>
+</li>
+<li>By <strong>minimal</strong> extra coding</li>
+</ul>
+<p><img src="/torchember/001.png" alt="WebUI"></p>
+<h2 id="Other-lovely-features">Other lovely features<a class="anchor-link" href="#Other-lovely-features">&#182;</a></h2><ul>
+<li>Customizable metrics, with easy decorator syntax</li>
+<li>Split the tracking log in the way you like, just <code>mark(k=v,k1=v2...)</code></li>
+<li>You can easily switch on/off the tracking:<ul>
+<li>Even cost of computation is tiny, torchember don't have to calculate metric for every iteration</li>
+<li>Hence, you can track eg. only the last steps, only each 200 steps .etc</li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Installation">Installation<a class="anchor-link" href="#Installation">&#182;</a></h2><p><code>pip install torchember</code></p>
 
 </div>
@@ -38,7 +63,12 @@ summary: "Tracking and visualize after the burning pytorch"
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Full <a href="https://raynardj.github.io/torchember/">documentations</a></p>
+<ul>
+<li><p><strong>30 seconds</strong> <a href="../nb_test/test_cnn.ipynb">tutorial</a></p>
+</li>
+<li><p>Full <a href="https://raynardj.github.io/torchember/">documentations</a></p>
+</li>
+</ul>
 
 </div>
 </div>
