@@ -10,4 +10,5 @@ $(document).ready(function () {
     assign_history_menu()
     $("#first_hist_option").click()
 
+    arm_paint()
 })

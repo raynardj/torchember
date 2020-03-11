@@ -39,27 +39,29 @@
 <div>
     <!-- Nav tabs -->
     <ul class="nav nav-tabs">
+        <li role="presentation" class="tab-btn active"><a role="tab" data-toggle="tab" href="#charts_search"><i
+            class="fa fa-bar-chart"></i> Charts</a>
+    </li>
         <li role="presentation" class="tab-btn"><a role="tab" data-toggle="tab" href="#structure"><i
                     class="fa fa-cubes"></i> Structure</a>
         </li>
         <li role="presentation" class="tab-btn"><a role="tab" data-toggle="tab" href="#raw_data"><i
-                    class="fa fa-database"></i> Raw Data</a>
+                    class="fa fa-database"></i> Latest JSON</a>
         </li>
-        <li role="presentation" class="tab-btn active"><a role="tab" data-toggle="tab" href="#charts_search"><i
-                    class="fa fa-bar-chart"></i> Charts</a>
-        </li>
+        
     </ul>
     <!-- Tab panes -->
     <div class="tab-content">
+        <div role="tabpanel" class="tab-pane active" id="charts_search">
+            {%include "visions/charts.html" %}
+        </div>
         <div role="tabpanel" class="tab-pane" id="structure">
             {%include "visions/module_structure.html" %}
         </div>
         <div role="tabpanel" class="tab-pane" id="raw_data">
             {%include "visions/raw_json_latest.html" %}
         </div>
-        <div role="tabpanel" class="tab-pane active" id="charts_search">
-            {%include "visions/charts.html" %}
-        </div>
+        
     </div>
 </div>
 {%endblock%}
