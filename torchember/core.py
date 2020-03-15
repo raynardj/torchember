@@ -43,8 +43,8 @@ def get_stats(tensor):
             result*=i
         return result
     return {"shape":list(tensor.shape),
-            "mean":tensor.mean().item(),
-            "std":tensor.std().item(),
+            "mean":tensor.float().mean().item(),
+            "std":tensor.float().std().item(),
             "max":tensor.max().item(),
             "min":tensor.min().item(),
             "cnt_zero": ((tensor>-1e-10) & (tensor < 1e-10)).sum().item(),

@@ -20,8 +20,17 @@ index = {"color": "01_helper.ipynb",
          "get_stats": "10_torch_ember_core.ipynb",
          "torchEmber": "10_torch_ember_core.ipynb",
          "md5hash": "20_why_hat.ipynb",
+         "ModelInput": "20_why_hat.ipynb",
+         "InputEmb": "20_why_hat.ipynb",
+         "InputOneHot": "20_why_hat.ipynb",
+         "InputConti": "20_why_hat.ipynb",
+         "YEncoder": "20_why_hat.ipynb",
+         "YOneHot": "20_why_hat.ipynb",
+         "YConti": "20_why_hat.ipynb",
          "RichColumn": "20_why_hat.ipynb",
-         "RichDF": "20_why_hat.ipynb"}
+         "RichDF": "20_why_hat.ipynb",
+         "TabularModel": "20_why_hat.ipynb",
+         "TabularNN": "20_why_hat.ipynb"}
 
 modules = ["helper.py",
            "utils.py",

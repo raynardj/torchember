@@ -7,7 +7,7 @@
 * On ```nn.Module``` level
 * Down to the metrics/ features of all tensors, includes
     * inputs/outputs of each module
-    * weight/grad tensors
+    * weight tensors
 * By **minimal** extra coding
 
 ![WebUI](nbs/001.png)
