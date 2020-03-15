@@ -37,18 +37,13 @@ def get_stats(tensor):
     mean, std, max, min of the tensor
     this will return a dictionary
     """
-    def list_prod(l):
-        result=1
-        for i in l:
-            result*=i
-        return result
     return {"shape":list(tensor.shape),
             "mean":tensor.float().mean().item(),
             "std":tensor.float().std().item(),
-            "max":tensor.max().item(),
-            "min":tensor.min().item(),
+            "max":tensor.float().max().item(),
+            "min":tensor.float().min().item(),
             "cnt_zero": ((tensor>-1e-10) & (tensor < 1e-10)).sum().item(),
-            "zero_pct": float(((tensor>-1e-10) & (tensor < 1e-10)).sum().item())/list_prod(tensor.shape)}
+            "zero_pct": float(((tensor>-1e-10) & (tensor < 1e-10)).sum().item())/np.prod(tensor.shape)}
 
 
 
@@ -173,7 +168,7 @@ class torchEmber(object):
         """
         dict_= f_name(tensor)
         dict_.update(extra_data)
-        self.t(dict_)
+        self.t(dict_) # logging a line of dict
         return dict_
 
     def record_input(self,mt):
@@ -181,19 +176,25 @@ class torchEmber(object):
         Record the input tensors of the moduleTrack
         """
         for k,tensor in mt.input_dt.items():
-            extra_data= {"module":mt.name,"ts":self.t.ts,"ttype":"input","tname":k}
-            if self.record_extra: self.add_extra_info(extra_data)
-            self.record_in_core(tensor, extra_data)
+            try:
+                extra_data= {"module":mt.name,"ts":self.t.ts,"ttype":"input","tname":k}
+                if self.record_extra: self.add_extra_info(extra_data)
+                self.record_in_core(tensor, extra_data)
+            except:
+                pass
 
     def record_output(self,mt):
         """
         Record the output tensors of the moduleTrack
         """
         for i in range(len(mt.output_dt)):
-            tensor = mt.output_dt[i]
-            extra_data = {"module":mt.name,"ts":self.t.ts,"ttype":"output","tname":f"output_{i}"}
-            if self.record_extra:self.add_extra_info(extra_data)
-            self.record_out_core(tensor,extra_data)
+            try:
+                tensor = mt.output_dt[i]
+                extra_data = {"module":mt.name,"ts":self.t.ts,"ttype":"output","tname":f"output_{i}"}
+                if self.record_extra:self.add_extra_info(extra_data)
+                self.record_out_core(tensor,extra_data)
+            except:
+                pass
 
     def record_weight(self,mt):
         """
@@ -202,15 +203,18 @@ class torchEmber(object):
         if mt.base_module:
             i = 0
             for p in mt.module.parameters():
-                extra_data={"module":mt.name,"ts":self.t.ts,
-                                            "ttype":"weight","tname":f"weight_{i}"}
-                if self.record_extra: self.add_extra_info(extra_data)
-                self.record_weight_core(p.data, extra_data)
-                if p.requires_grad and (p.grad!= None):
+                try:
                     extra_data={"module":mt.name,"ts":self.t.ts,
-                                            "ttype":"weight_grad","tname":f"grad_{i}"}
+                                            "ttype":"weight","tname":f"weight_{i}"}
                     if self.record_extra: self.add_extra_info(extra_data)
-                    self.record_weight_core(p.grad, extra_data)
+                    self.record_weight_core(p.data, extra_data)
+                    if p.requires_grad and (p.grad!= None):
+                        extra_data={"module":mt.name,"ts":self.t.ts,
+                                            "ttype":"weight_grad","tname":f"grad_{i}"}
+                        if self.record_extra: self.add_extra_info(extra_data)
+                        self.record_weight_core(p.grad, extra_data)
+                except:
+                    pass
                 i+=1
 
     def add_extra(self, **kwargs):
