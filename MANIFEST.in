@@ -1,0 +1,4 @@
+recursive-include torchember/app/templates *
+recursive-include torchember/app/static *
+recursive-include torchember/app/translations *
+recursive-include torchember/app/babel *
