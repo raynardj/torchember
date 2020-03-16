@@ -43,12 +43,14 @@ def get_ember_df(ember_list):
     """
     list out the latest 5 tracking record metadata
     """
+    if ember_list ==None: return None
     df = pd.DataFrame(list(unpack_meta(i) for i in ember_list))
     df = df.sort_values(by = "start",ascending = False)
     return df.reset_index().drop("index",axis=1)
 
 def get_ember_record():
     ember_df = get_ember_df(get_ember_list())
+    if ember_df==None:  return {}
     ember_df["latest"] = list(range(len(ember_df)))
     return ember_df.to_dict(orient="record")
 
