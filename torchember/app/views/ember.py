@@ -1,12 +1,14 @@
 from flask_appbuilder import BaseView,expose
-from flask import request,jsonify
+from flask import request,jsonify,Response
 from torchember.utils import emberReader
 import json
 import sys
+from pathlib import Path
 from io import StringIO
 import traceback
 import markdown
 from types import MethodType
+import os
 
 class color:
    PURPLE = '\033[95m'
@@ -90,4 +92,29 @@ class emberReadView(BaseView):
         name = data["name"]
         er = emberReader(name)
         return er
-        
+
+    @expose("/log_files/<dir_name>/")
+    def log_files(self,dir_name):
+        er = emberReader(dir_name)
+        return Response(json.dumps(er.t.log_files))
+
+    @expose("/log_files_api/",methods=["GET","POST"])
+    @api_wrap
+    def log_files_api(self):
+        dir_name = json.loads(request.data)["dir_name"]
+        er = emberReader(dir_name)
+        return er.t.log_files
+
+    @expose("/log_file/<dir_name>/<filename>/",methods=["GET","POST"])
+    def log_file(self,dir_name, filename):
+        er = emberReader(dir_name)
+        return Response(er.read_log(filename))
+
+    @expose("/download_log_file/<dir_name>/<filename>/",methods=["GET","POST"])
+    def download_log_file(self,dir_name, filename):
+        er = emberReader(dir_name)
+        return Response(
+            er.read_log(filename),
+            mimetype="text/json",
+            headers={"Content-disposition":
+                 f"attachment; filename={dir_name}_{filename}.json"})

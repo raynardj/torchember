@@ -94,7 +94,7 @@ function build_by_module(latest) {
             }
         }
         if (by_module[record.module] == null) { by_module[record.module] = { module: record.module, data: [], idx: i } }
-        
+
         by_module[record.module].data.push(record)
     }
     return by_module
@@ -126,7 +126,7 @@ vis_map = {
 
 function paint_standard(latest, cols, vis) {
     // over write cols in this function
-    cols = ["ttype", "tname", "shape","cnt_zero", "mean", "std", "min", "max"]
+    cols = ["ttype", "tname", "shape", "cnt_zero", "mean", "std", "min", "max"]
     var by_module = build_by_module(latest);
     for (mname in by_module) {
         paint_standard_module(by_module[mname], cols)
@@ -141,17 +141,16 @@ function assign_history_menu() {
         var structure_obj = read_structure_data(hist_name)
 
         $("#model_structure").html(deploy_structure(structure_obj))
+        update_log_files(hist_name)
         // assign the refresh-btn
         $("#table-stats-btn").click(function () { update_latest(hist_name) })
         $("#reconstruct-gaussian-btn").click(function () { update_reconstruct_norm(hist_name) })
-        $("#table-stats-raw-btn").click(function(){update_latest_raw(hist_name)})
-        // $("#real-time-btn").click(function()
-        // {
-        //     var intv = setInterval(function () {
-        //         console.log("Refresh")
-        //         $("#table-stats-btn").click()
-        //     }, 2000)
-        // })
+        $("#table-stats-raw-btn").click(function () { update_latest_raw(hist_name) })
+        $(".btn_update_log_files").each(function () {
+            $(this).click(function () {
+                update_log_files(hist_name)
+            })
+        })
     })
 }
 
@@ -181,6 +180,10 @@ function read_latest_data(hist_name) {
     return aj.responseJSON.data
 }
 
+function bs3_render(template, data) {
+    return env.render('static/templates/' + String(template), data)
+}
+
 function bs3_clp_panel(data) {
     /*
     data (a JS object)
@@ -189,7 +192,7 @@ function bs3_clp_panel(data) {
         id
         flavor(optional)
     */
-    return env.render('static/templates/clp_panel.html', data)
+    return bs3_render('clp_panel.html', data)
 }
 
 function bs3_standard_module(module, cols) {
@@ -198,7 +201,7 @@ function bs3_standard_module(module, cols) {
 }
 
 function bs3_norm_module(module) {
-    return env.render('static/templates/norm_module.html',module)
+    return env.render('static/templates/norm_module.html', module)
 }
 
 function id_proof(module_name) {
@@ -241,7 +244,9 @@ function update_latest(hist_name) {
 function update_latest_raw(hist_name) {
     var latest_data = read_latest_data(hist_name);
     var pre = document.createElement("pre")
-    $(pre).append(JSON.stringify(latest_data,null, 2))
+    $(pre).append(JSON.stringify(latest_data, null, 2))
     $("#raw_data_block").html(pre)
 }
+
+
 

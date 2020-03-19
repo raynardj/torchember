@@ -1,0 +1,32 @@
+{%macro charts()%}
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">
+            Search Charts
+        </h3>
+    </div>
+    <div class="panel-body">
+        <ul class="list-group">
+
+            <li class="list-group-item">
+            <h4>Filters</h4>
+            <div class="panel panel-default">
+                <div class="panel-body log_filters">
+                    
+                </div>
+            </div>
+            <button class="btn btn-info start_paint_log">Paint</button>
+            
+            </li>
+            <li class="list-group-item">
+                <div id='charts_kw'>
+                    <div class="groupby_kv"></div>
+                </div>
+            </li>
+            <div id="log_line_charts">
+
+            </div>
+        </ul>
+    </div>
+</div>
+{%endmacro%}

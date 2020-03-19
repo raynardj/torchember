@@ -1,70 +1,67 @@
 {%extends "appbuilder/base.html"%}
 
 {%block content%}
-<h2>Torch Ember</h2>
-
+<h2>
+    <strong><span class="text-danger"> >>>[ </span></strong><span class="font-weight-light">Torch</span><span class="text-warning"><strong>EM</span></strong><span class="font-weight-light text-danger">ber<strong>]</strong> </span>
+</h2>
+<br>
 {%if ember_list%}
 <div>
     <div class="col-sm-4">
         <div class="dropdown">
             <button class="btn btn-default dropdown-toggle" type="button" id="historyMenu" data-toggle="dropdown"
                 aria-haspopup="true" aria-expanded="true">
-                Models
+                <i class="fa fa-university"></i> Models
                 <span class="caret"></span>
             </button>
             <ul class="dropdown-menu" aria-labelledby="historyMenu">
-                <li class="btn" onClick="window.location.reload();">Refresh for more</li>
+                <li class="btn" onClick="window.location.reload();"><i class="fa fa-refresh"></i> Refresh for more</li>
                 {% for emb in ember_list%}
-                <li class="history_select" data-name="{{emb.name}}"><a>{{emb.name[:-16]}} <span
-                            class="badge">{{emb.start}}</span></a></li>
+                <li class="history_select" data-name="{{emb.name}}" {%if emb.latest==0%}id="first_hist_option"{%endif%}><a><i class="fa fa-android"></i> {{emb.name[:-16]}}
+                        <span class="badge"> {{emb.start}}</span></a></li>
                 {% endfor %}
             </ul>
         </div>
-
-        {%else%}
-        Please run torch ember in you pytorch experiment first
-        {%endif%}
 
     </div>
     <div class="col-sm-8">
         <h4>Selected Model: <strong><span id='selected'>Nothing Yet</span></strong></h4>
     </div>
 </div>
-
+{%else%}
+<h3>No log data yet</h3>
+<strong>Please run torch ember in you pytorch experiment first</strong>
+        
+{%endif%}
 
 <hr>
 
 <div>
     <!-- Nav tabs -->
     <ul class="nav nav-tabs">
-        <li role="presentation" class="tab-btn active"><a role="tab" data-toggle="tab" href="#structure">Structure</a>
+        <li role="presentation" class="tab-btn active"><a role="tab" data-toggle="tab" href="#charts_search"><i
+            class="fa fa-bar-chart"></i> Charts</a>
+    </li>
+        <li role="presentation" class="tab-btn"><a role="tab" data-toggle="tab" href="#structure"><i
+                    class="fa fa-cubes"></i> Structure</a>
         </li>
-        <li role="presentation" class="tab-btn"><a role="tab" data-toggle="tab" href="#raw_data">Raw Data</a>
+        <li role="presentation" class="tab-btn"><a role="tab" data-toggle="tab" href="#raw_data"><i
+                    class="fa fa-database"></i> Latest JSON</a>
         </li>
+        
     </ul>
     <!-- Tab panes -->
     <div class="tab-content">
-        <div role="tabpanel" class="tab-pane active" id="structure">
-            <div class="row">
-                <div><h3>Model Structure</h3></div>
-                <div>
-                    <!-- <div class="btn btn-default" id="real-time-btn">Real Time</div> -->
-                    <div class="btn btn-default" id="table-stats-btn">Table Stats</div>
-                    <div class="btn btn-default" id="reconstruct-gaussian-btn">Reconstruct Gaussian</div>
-                </div>
-            </div>
-            <hr>
-            <div id="model_structure">
-                Please select model first
-            </div>
+        <div role="tabpanel" class="tab-pane active" id="charts_search">
+            {%include "visions/charts.html" %}
+        </div>
+        <div role="tabpanel" class="tab-pane" id="structure">
+            {%include "visions/module_structure.html" %}
         </div>
         <div role="tabpanel" class="tab-pane" id="raw_data">
-            <h3>Raw Data</h3>
-            <div class="btn btn-default" id="table-stats-raw-btn">Table Stats</div>
-            <hr>
-            
-            <div id="raw_data_block">Please select model first</div>
+            {%include "visions/raw_json_latest.html" %}
         </div>
+        
     </div>
 </div>
 {%endblock%}
@@ -73,6 +70,8 @@
 {{super()}}
 <script src="/static/js/Chart.min.js"></script>
 <script src="/static/js/nunjucks.js"></script>
+<script src="/static/js/echarts.js"></script>
 <script src="/static/js/utils.js"></script>
+<script src="/static/js/log.js"></script>
 <script src="/static/js/index.js"></script>
 {%endblock%}

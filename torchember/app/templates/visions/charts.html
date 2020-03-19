@@ -1,0 +1,19 @@
+<div class="row">
+    <div class="col-sm-4">
+        <h3>
+            <i class="fa fa-book"></i> Log Files <button class="btn-xs btn-success btn_update_log_files"><i class="fa fa-refresh"></i></button>
+        </h3>
+            <div class="log_files_list">
+                Not log files yet 
+            </div>
+        <h3><i class="fa fa-cubes"></i> Modules</h3>
+        <div class="module_filter">
+
+        </div>
+    </div>
+    <div class="col-sm-8">
+        <h3><i class="fa fa-bar-chart"></i> Charts</h3>
+        {%import "visions/charts_search.html" as charts%}
+        {{charts.charts()}}
+    </div>
+</div>

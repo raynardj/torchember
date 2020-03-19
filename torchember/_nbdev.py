@@ -2,26 +2,40 @@
 
 __all__ = ["index", "modules", "custom_doc_links", "git_url"]
 
-index = {"color": "helper.ipynb",
-         "tint": "helper.ipynb",
-         "tracker": "torch_ember_core.ipynb",
-         "emberTracker": "torch_ember_core.ipynb",
-         "moduleTrack": "torch_ember_core.ipynb",
-         "get_stats": "torch_ember_core.ipynb",
-         "torchEmber": "torch_ember_core.ipynb",
-         "check_existance": "utils.ipynb",
-         "HOME": "utils.ipynb",
-         "EMBER": "utils.ipynb",
-         "DATA": "utils.ipynb",
-         "LOG": "utils.ipynb",
-         "get_ember_list": "utils.ipynb",
-         "unpack_meta": "utils.ipynb",
-         "get_ember_df": "utils.ipynb",
-         "emberReader": "utils.ipynb"}
+index = {"color": "01_helper.ipynb",
+         "tint": "01_helper.ipynb",
+         "tracker": "01_helper.ipynb",
+         "emberTracker": "01_helper.ipynb",
+         "check_existance": "01_utils.ipynb",
+         "HOME": "01_utils.ipynb",
+         "EMBER": "01_utils.ipynb",
+         "DATA": "01_utils.ipynb",
+         "LOG": "01_utils.ipynb",
+         "get_ember_list": "01_utils.ipynb",
+         "unpack_meta": "01_utils.ipynb",
+         "get_ember_df": "01_utils.ipynb",
+         "get_ember_record": "01_utils.ipynb",
+         "emberReader": "01_utils.ipynb",
+         "moduleTrack": "10_torch_ember_core.ipynb",
+         "get_stats": "10_torch_ember_core.ipynb",
+         "torchEmber": "10_torch_ember_core.ipynb",
+         "md5hash": "20_why_hat.ipynb",
+         "ModelInput": "20_why_hat.ipynb",
+         "InputEmb": "20_why_hat.ipynb",
+         "InputOneHot": "20_why_hat.ipynb",
+         "InputConti": "20_why_hat.ipynb",
+         "YEncoder": "20_why_hat.ipynb",
+         "YOneHot": "20_why_hat.ipynb",
+         "YConti": "20_why_hat.ipynb",
+         "RichColumn": "20_why_hat.ipynb",
+         "RichDF": "20_why_hat.ipynb",
+         "TabularModel": "20_why_hat.ipynb",
+         "TabularNN": "20_why_hat.ipynb"}
 
 modules = ["helper.py",
+           "utils.py",
            "core.py",
-           "utils.py"]
+           "whyhat.py"]
 
 doc_url = "https://raynardj.github.io/torchember/"
 
