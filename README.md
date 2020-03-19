@@ -7,7 +7,7 @@
 * On ```nn.Module``` level
 * Down to the metrics/ features of all tensors, includes
     * inputs/outputs of each module
-    * weight tensors
+    * weight/grad tensors
 * By **minimal** extra coding
 
 ![WebUI](nbs/001.png)
@@ -35,6 +35,18 @@ Place you torch ember tracker on your model
 ```python
 from torchember.core import torchEmber
 te = torchEmber(model)
+```
+
+The above can track input and output of every module,The following can track status of every module
+
+```python
+for i in range(1000):
+    ...
+    loss.backward()
+    optimizer.step()
+    
+    te.log_model()
+
 ```
 
 Train your model as usual
