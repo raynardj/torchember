@@ -8,6 +8,7 @@ from datetime import datetime
 from .helper import color,emberTracker
 from functools import partial
 import os
+import numpy as np
 
 class moduleTrack(object):
     def __init__(self,module, name=None, root_module = False):
@@ -21,6 +22,11 @@ class moduleTrack(object):
         #self.name = f'{name}_tracker' if name else f'{module.__class__.__name__}_tracker'
         self.id = id(module)
         self.children = []
+
+#     @property
+#     def weights_owned(self):
+#         return  self.module.parameters()
+
 
     def __repr__(self):
         rt = f"<{self.name} @ {hex(self.id)}>"
@@ -69,7 +75,7 @@ class torchEmber(object):
 
         self.arm()
 
-        self.legit_ttypes = ["in","out","weight"]
+        self.legit_ttypes = ["in","out","weight","grad"]
         for ttype in self.legit_ttypes: self.set_metric(ttype)(get_stats)
 
         if self.verbose:
@@ -82,6 +88,15 @@ class torchEmber(object):
     def mark(self,**kwargs):
         self.t.mark(**kwargs)
 
+#     @property
+#     def level_weights(self):
+#         dic={}
+#         i=0
+#         for m in self.model.modules():
+#             dic.update({f'level_{i}_{m.__class__.__name__}':m.module_tracker.weights_owned})
+#             i+=1
+#         return dic
+
     def parse_module(self,model, name, root_module = False):
         name = f"{name}({model.__class__.__name__})"
         mt = moduleTrack(model, name, root_module)
@@ -93,27 +108,6 @@ class torchEmber(object):
             children_mt.parent = mt
             mt.children.append(children_mt)
         return mt
-
-    def mod_tree(self):
-        """
-        Return the tree of module
-        """
-        return self.mod_tree_parse(self.model.module_tracker)
-
-    def mod_tree_parse(self,mt):
-        rt = {"name":mt.name, "short":mt.name.split(".")[-1]}
-        if len(mt.children)>0:
-            rt.update({"children":list(self.mod_tree_parse(i) for i in mt.children)})
-        return rt
-
-
-    @property
-    def ts_str(self):
-        return datetime.now().strftime("%Y%m%d_%H%M%S")
-
-    @property
-    def ts(self):
-        return datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 
     def arm(self):
         """
@@ -141,6 +135,28 @@ class torchEmber(object):
         self.disarm()
         self.arm()
 
+
+    def mod_tree(self):
+        """
+        Return the tree of module
+        """
+        return self.mod_tree_parse(self.model.module_tracker)
+
+    def mod_tree_parse(self,mt):
+        rt = {"name":mt.name, "short":mt.name.split(".")[-1]}
+        if len(mt.children)>0:
+            rt.update({"children":list(self.mod_tree_parse(i) for i in mt.children)})
+        return rt
+
+
+    @property
+    def ts_str(self):
+        return datetime.now().strftime("%Y%m%d_%H%M%S")
+
+    @property
+    def ts(self):
+        return datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+
     def reg_check(self,m):
         """
         register check
@@ -156,6 +172,7 @@ class torchEmber(object):
             setattr(self,f"record_{ttype}_core",self.record_core(f))
             return f
         return deco
+
 
     def add_record(f):
         def _inner(self, f_name): return partial(f, self, f_name)
@@ -196,26 +213,50 @@ class torchEmber(object):
             except:
                 pass
 
-    def record_weight(self,mt):
+    def record_weight_inner(self,mt):
         """
         Record the weights of the moduleTrack
         """
-        if mt.base_module:
-            i = 0
-            for p in mt.module.parameters():
-                try:
-                    extra_data={"module":mt.name,"ts":self.t.ts,
-                                            "ttype":"weight","tname":f"weight_{i}"}
-                    if self.record_extra: self.add_extra_info(extra_data)
-                    self.record_weight_core(p.data, extra_data)
-                    if p.requires_grad and (p.grad!= None):
-                        extra_data={"module":mt.name,"ts":self.t.ts,
-                                            "ttype":"weight_grad","tname":f"grad_{i}"}
-                        if self.record_extra: self.add_extra_info(extra_data)
-                        self.record_weight_core(p.grad, extra_data)
-                except:
-                    pass
-                i+=1
+        i = 0
+        for p in mt.module.parameters():
+            extra_data={"module":mt.name,"ts":self.t.ts,
+                        "ttype":"weight","tname":f"weight_{i}"}
+            if self.record_extra: self.add_extra_info(extra_data)
+            self.record_weight_core(p.data, extra_data)
+            i+=1
+
+    def record_weight(self):
+        for m in self.model.modules():
+            if len(list(m.modules()))==1: self.record_weight_inner(m.module_tracker)
+
+    def record_grad_inner(self,mt):
+        """
+        Record the weights of the moduleTrack
+        """
+        i = 0
+        for p in mt.module.parameters():
+            extra_data={"module":mt.name,"ts":self.t.ts,
+                        "ttype":"grad","tname":f"grad_{i}"}
+            if self.record_extra: self.add_extra_info(extra_data)
+            self.record_grad_core(p.data, extra_data)
+            i+=1
+
+    def record_grad(self):
+        """
+        Record the grads of the weights of the modeuleTrack
+        """
+        for m in self.model.modules():
+            if len(list(m.modules()))==1: self.record_grad_inner(m.module_tracker)
+
+    def log_model(self):
+        """
+        Write down measurements about the model, weights and grads
+        It's equal to:
+        self.record_weight()
+        self.record_grad()
+        """
+        self.record_weight()
+        self.record_grad()
 
     def add_extra(self, **kwargs):
         """
@@ -258,7 +299,7 @@ class torchEmber(object):
 
             # ------execution of the function------
             outputs = f(*args,**kwargs)
-            self.record_weight(mt)
+            #self.record_weight(mt)
             # ------execution of the function------
 
             self.mt_log.append(f"exit {mt.name}")
