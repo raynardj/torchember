@@ -29,7 +29,7 @@ summary: "Tracking and visualize after the burning pytorch"
 <li>On <code>nn.Module</code> level</li>
 <li>Down to the metrics/ features of all tensors, includes<ul>
 <li>inputs/outputs of each module</li>
-<li>weight tensors</li>
+<li>weight/grad tensors</li>
 </ul>
 </li>
 <li>By <strong>minimal</strong> extra coding</li>
@@ -90,6 +90,26 @@ summary: "Tracking and visualize after the burning pytorch"
 <div class="text_cell_render border-box-sizing rendered_html">
 <div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">torchember.core</span> <span class="kn">import</span> <span class="n">torchEmber</span>
 <span class="n">te</span> <span class="o">=</span> <span class="n">torchEmber</span><span class="p">(</span><span class="n">model</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The above can track input and output of every module,The following can track status of every module</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1000</span><span class="p">):</span>
+    <span class="o">...</span>
+    <span class="n">loss</span><span class="o">.</span><span class="n">backward</span><span class="p">()</span>
+    <span class="n">optimizer</span><span class="o">.</span><span class="n">step</span><span class="p">()</span>
+
+    <span class="n">te</span><span class="o">.</span><span class="n">log_model</span><span class="p">()</span>
 </pre></div>
 
 </div>

@@ -49,8 +49,10 @@ def get_ember_df(ember_list):
     return df.reset_index().drop("index",axis=1)
 
 def get_ember_record():
-    ember_df = get_ember_df(get_ember_list())
-    if ember_df==None:  return {}
+    ember_list = get_ember_list()
+    if ember_list==None:  return {}
+    ember_df = get_ember_df(ember_list)
+
     ember_df["latest"] = list(range(len(ember_df)))
     return ember_df.to_dict(orient="record")
 
