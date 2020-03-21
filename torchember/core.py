@@ -25,9 +25,6 @@ class moduleTrack(object):
         self.id = id(module)
         self.children = []
 
-#     @property
-#     def weights_owned(self):
-#         return  self.module.parameters()
 
 
     def __repr__(self):
@@ -56,7 +53,7 @@ def get_stats(tensor):
 
 
 class torchEmber(object):
-    def __init__(self, model, verbose = True):
+    def __init__(self, model, verbose = False):
         color.green|"start analyzing model"
         self.modules = dict()
         self.verbose = verbose
@@ -205,40 +202,31 @@ class torchEmber(object):
             except:
                 pass
 
-    def record_weight_inner(self,mt):
+
+    def record_model_inner(self,mt,dname='weight'):
         """
-        Record the weights of the moduleTrack
+        record the weight and grad of the moduleTrack
+        specify weight or grad in dname
         """
         i = 0
         for p in mt.module.parameters():
             extra_data={"module":mt.name,"ts":self.t.ts,
-                        "ttype":"weight","tname":f"weight_{i}"}
+                        "ttype":dname,"tname":f"{dname}_{i}"}
             if self.record_extra: self.add_extra_info(extra_data)
-            self.record_weight_core(p.data, extra_data)
+            if dname=='grad':self.record_grad_core(p.grad, extra_data)
+            else : self.record_weight_core(p.data, extra_data)
             i+=1
 
     def record_weight(self):
         for m in self.model.modules():
-            if len(list(m.modules()))==1: self.record_weight_inner(m.module_tracker)
-
-    def record_grad_inner(self,mt):
-        """
-        Record the weights of the moduleTrack
-        """
-        i = 0
-        for p in mt.module.parameters():
-            extra_data={"module":mt.name,"ts":self.t.ts,
-                        "ttype":"grad","tname":f"grad_{i}"}
-            if self.record_extra: self.add_extra_info(extra_data)
-            self.record_grad_core(p.data, extra_data)
-            i+=1
+            if len(list(m.modules()))==1: self.record_model_inner(m.module_tracker)
 
     def record_grad(self):
         """
         Record the grads of the weights of the modeuleTrack
         """
         for m in self.model.modules():
-            if len(list(m.modules()))==1: self.record_grad_inner(m.module_tracker)
+            if len(list(m.modules()))==1: self.record_model_inner(m.module_tracker,dname='grad')
 
     def log_model(self):
         """
@@ -292,7 +280,6 @@ class torchEmber(object):
 
             # ------execution of the function------
             outputs = f(*args,**kwargs)
-            #self.record_weight(mt)
             # ------execution of the function------
 
             self.mt_log.append(f"exit {mt.name}")

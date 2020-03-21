@@ -304,6 +304,10 @@ function paint_log_charts(){
     var lrf = window.log_refactored
     var lrf_ct = window.log_refactored_count
     $("#log_line_charts").html("")
+    var module = lrf.module[0]
+    var ttype = lrf.ttype[0]
+    var tname = lrf.tname[0]
+    var tensor_info = {module:module, ttype:ttype,tname:tname}
     for(dim in lrf)
     {
         if(lrf_ct[dim]<2)
@@ -318,18 +322,19 @@ function paint_log_charts(){
         }
 
         var dt = lrf[dim]
-        paint_log_chart(dt,dim,"log_line_charts")
+        
+        paint_log_chart(dt,dim,"log_line_charts",tensor_info)
     }
 }
 
-function paint_log_chart(dt,dim,parent_id)
+function paint_log_chart(dt,dim,parent_id,tensor_info)
 {
     var frame_id = "chart_frame_"+String(dim)
     var frame = bs3_render("chart_frame.html", {dim:dim,frame_id:frame_id,width:600,height:400})
     $("#"+String(parent_id)).append(frame)
     var conf = {
         frameId:frame_id,
-        titleText:String(dim),
+        titleText:String(dim)+","+String(tensor_info.module)+","+String(tensor_info.ttype)+","+String(tensor_info.tname),
         seriesName:"Value",
         data:dt,
         xData: range(dt.length)

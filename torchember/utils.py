@@ -57,7 +57,7 @@ def get_ember_record():
     return ember_df.to_dict(orient="record")
 
 # Cell
-from .core import emberTracker
+from .helper import emberTracker
 
 class emberReader(object):
     def __init__(self, name,verbose = False):

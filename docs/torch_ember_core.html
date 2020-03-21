@@ -50,6 +50,13 @@ We can load AlexNet from <code>torchvision</code></p>
 </div>
 
 </div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Our example model</p>
+
+</div>
+</div>
+</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
@@ -83,9 +90,38 @@ We can load AlexNet from <code>torchvision</code></p>
 </div>
 
 </div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">samp</span><span class="o">.</span><span class="n">mean</span><span class="p">(),</span> <span class="n">samp</span><span class="o">.</span><span class="n">std</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>(tensor(-1.0009), tensor(0.5769))</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Torch-Ember-Core">Torch Ember Core<a class="anchor-link" href="#Torch-Ember-Core">&#182;</a></h2>
+<h2 id="Torch-Ember">Torch Ember<a class="anchor-link" href="#Torch-Ember">&#182;</a></h2>
 </div>
 </div>
 </div>
@@ -97,9 +133,9 @@ We can load AlexNet from <code>torchvision</code></p>
 <li>What variables come in/out of the module</li>
 <li>The happening sequence, containing relationships between sub-modules</li>
 <li>The statistics we want for further analysis, eg.<ul>
-<li>Min, Max, Mean, Std, of input / outpout tensors</li>
-<li>Min, Max, Mean, Std, of model weights at this iteration</li>
-<li>Min, Max, Mean, Std, of model weights grad at this iteration</li>
+<li>Min, Max, Mean, Std, zero coverage of input / outpout tensors</li>
+<li>Min, Max, Mean, Std, zero coverage of model weights at this iteration</li>
+<li>Min, Max, Mean, Std, zero coverage of model weight gradients at this iteration</li>
 </ul>
 </li>
 </ul>
@@ -139,7 +175,7 @@ We can load AlexNet from <code>torchvision</code></p>
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="get_stats" class="doc_header"><code>get_stats</code><a href="__main__.py#L37" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>get_stats</code>(<strong><code>tensor</code></strong>)</p>
+<h4 id="get_stats" class="doc_header"><code>get_stats</code><a href="__main__.py#L34" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>get_stats</code>(<strong><code>tensor</code></strong>)</p>
 </blockquote>
 <p>The default statistic method, it will capture
 shape of the tensor
@@ -163,7 +199,7 @@ this will return a dictionary</p>
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h2 id="torchEmber" class="doc_header"><code>class</code> <code>torchEmber</code><a href="" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>torchEmber</code>(<strong><code>model</code></strong>, <strong><code>verbose</code></strong>=<em><code>True</code></em>)</p>
+<h2 id="torchEmber" class="doc_header"><code>class</code> <code>torchEmber</code><a href="" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>torchEmber</code>(<strong><code>model</code></strong>, <strong><code>verbose</code></strong>=<em><code>False</code></em>)</p>
 </blockquote>
 
 </div>
@@ -192,7 +228,7 @@ this will return a dictionary</p>
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">te</span> <span class="o">=</span> <span class="n">torchEmber</span><span class="p">(</span><span class="n">model</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">te</span> <span class="o">=</span> <span class="n">torchEmber</span><span class="p">(</span><span class="n">model</span><span class="p">,</span><span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -485,10 +521,11 @@ this will return a dictionary</p>
     <span class="n">te</span><span class="o">.</span><span class="n">mark</span><span class="p">(</span><span class="n">epoch</span><span class="o">=</span><span class="n">epoch</span><span class="p">)</span> 
     <span class="k">for</span> <span class="n">batch</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
         <span class="n">te</span><span class="o">.</span><span class="n">add_extra</span><span class="p">(</span><span class="n">n_batch</span><span class="o">=</span><span class="n">batch</span><span class="p">)</span>
+        <span class="c1"># forward</span>
         <span class="n">model</span><span class="p">(</span><span class="n">samp</span><span class="p">)</span>
+        <span class="c1"># track model&#39;s weight</span>
+        <span class="n">te</span><span class="o">.</span><span class="n">record_weight</span><span class="p">()</span>
         
-        <span class="c1"># track model&#39;s weight and gradients</span>
-        <span class="n">te</span><span class="o">.</span><span class="n">log_model</span><span class="p">()</span>
         
 <span class="c1"># change log file location to init-00_phase-valid_epoch-{epoch}.log</span>
 <span class="n">te</span><span class="o">.</span><span class="n">mark</span><span class="p">(</span><span class="n">phase</span><span class="o">=</span><span class="s2">&quot;valid&quot;</span><span class="p">)</span> 
@@ -515,6 +552,33 @@ this will return a dictionary</p>
 </pre></div>
 
     </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>ls -l ~/.torchember/log/AlexNet_20200320_225811_latest
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>-rw-r--r--  1 salvor  staff  14896 Mar 20 22:58 /Users/salvor/.torchember/log/AlexNet_20200320_225811_latest
+</pre>
+</div>
+</div>
+
 </div>
 </div>
 
@@ -1162,6 +1226,7 @@ this will return a dictionary</p>
       <td>-0.052486</td>
       <td>0.0</td>
       <td>0.0</td>
+      <td>0.000000</td>
       <td>model(AlexNet).features(Sequential).0(Conv2d)</td>
       <td>2020-03-21 14:54:21</td>
       <td>grad</td>
@@ -1178,6 +1243,7 @@ this will return a dictionary</p>
       <td>-0.051510</td>
       <td>0.0</td>
       <td>0.0</td>
+      <td>0.000000</td>
       <td>model(AlexNet).features(Sequential).0(Conv2d)</td>
       <td>2020-03-21 14:54:21</td>
       <td>grad</td>
