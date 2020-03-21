@@ -4,8 +4,10 @@ __all__ = ['moduleTrack', 'get_stats', 'torchEmber']
 
 # Cell
 from types import MethodType
+from torch import is_tensor
 from datetime import datetime
 from .helper import color,emberTracker
+from .utils import io_cleaner
 from functools import partial
 import os
 import numpy as np
@@ -33,7 +35,7 @@ class moduleTrack(object):
         if hasattr(self,"input_dt"):
             rt+=f'\n\t[Inputs]{",".join(list(k+" "+str(list(v.shape)) for k,v in self.input_dt.items()))}'
         if hasattr(self,"output_dt"):
-            rt+=f'\n\t[Outputs]{",".join(list(str(list(v.shape)) for v in self.output_dt))}'
+            rt+=f'\n\t[Outputs]{",".join(list(k+" "+str(list(v.shape)) for k,v in self.output_dt.items()))}'
         return rt
 
 def get_stats(tensor):
@@ -87,15 +89,6 @@ class torchEmber(object):
 
     def mark(self,**kwargs):
         self.t.mark(**kwargs)
-
-#     @property
-#     def level_weights(self):
-#         dic={}
-#         i=0
-#         for m in self.model.modules():
-#             dic.update({f'level_{i}_{m.__class__.__name__}':m.module_tracker.weights_owned})
-#             i+=1
-#         return dic
 
     def parse_module(self,model, name, root_module = False):
         name = f"{name}({model.__class__.__name__})"
@@ -204,10 +197,9 @@ class torchEmber(object):
         """
         Record the output tensors of the moduleTrack
         """
-        for i in range(len(mt.output_dt)):
+        for k,tensor in mt.output_dt.items():
             try:
-                tensor = mt.output_dt[i]
-                extra_data = {"module":mt.name,"ts":self.t.ts,"ttype":"output","tname":f"output_{i}"}
+                extra_data = {"module":mt.name,"ts":self.t.ts,"ttype":"output","tname":k}
                 if self.record_extra:self.add_extra_info(extra_data)
                 self.record_out_core(tensor,extra_data)
             except:
@@ -279,7 +271,6 @@ class torchEmber(object):
             self.record_extra=False
             self.extra_info = None
 
-
     def module_register(self,name,m):
         if self.reg_check(m) == False: return m.forward
         f = m.forward
@@ -289,8 +280,10 @@ class torchEmber(object):
         if self.verbose:
             color.cyan | f"[BUILD FORWARD][{name}]{self.ts}"
         def new_forward(*args,**kwargs):
-            mt.input_dt = dict(zip(mt.vars[:len(args)],args))
-            mt.input_dt.update(kwargs)
+
+            input_dt = dict(zip(mt.vars[:len(args)],args))
+            input_dt.update(kwargs)
+            mt.input_dt = io_cleaner(**input_dt)
 
             self.record_input(mt)
             self.current_mt = mt
@@ -303,11 +296,16 @@ class torchEmber(object):
             # ------execution of the function------
 
             self.mt_log.append(f"exit {mt.name}")
-
-            if type(outputs) in [list,tuple]:
-                mt.output_dt = [outputs]
+            if is_tensor(outputs):
+                output_dt = {"output":outputs}
+            elif type(outputs) in [list,tuple,set]:
+                output_dt = dict(enumerate(outputs))
+            elif type(outputs) == dict:
+                output_dt = outputs
             else:
-                mt.output_dt = [outputs,]
+                output_dt = dict()
+            mt.output_dt = io_cleaner(**output_dt)
+
             self.record_output(mt)
 
             if mt.root_module:
