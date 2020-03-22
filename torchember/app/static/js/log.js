@@ -10,9 +10,7 @@ function load_log_files(hist_name) {
 }
 function update_log_files(hist_name) {
     var log_files_dt = load_log_files(hist_name)
-    //console.log(log_files_dt)
     if (log_files_dt.success == false) {
-        console.log(log_files_dt.data)
     }
     else {
         $(".log_files_list").each(function () {
