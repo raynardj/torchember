@@ -178,29 +178,19 @@ class torchEmber(object):
         self.t(dict_) # logging a line of dict
         return dict_
 
-    def record_input(self,mt):
+    def record_io(self, mt, pname='input'):
         """
-        Record the input tensors of the moduleTrack
+        record input/output tensor of the moduleTrack
         """
-        for k,tensor in mt.input_dt.items():
+        ttype=pname+'_dt'
+        aname=pname.replace('put','')
+        for k,tensor in getattr(mt,ttype).items():
             try:
-                extra_data= {"module":mt.name,"ts":self.t.ts,"ttype":"input","tname":k}
-                if self.record_extra: self.add_extra_info(extra_data)
-                self.record_in_core(tensor, extra_data)
-            except:
-                pass
-
-    def record_output(self,mt):
-        """
-        Record the output tensors of the moduleTrack
-        """
-        for k,tensor in mt.output_dt.items():
-            try:
-                extra_data = {"module":mt.name,"ts":self.t.ts,"ttype":"output","tname":k}
+                extra_data = {"module":mt.name,"ts":self.t.ts,"ttype":ttype,"tname":k}
                 if self.record_extra:self.add_extra_info(extra_data)
-                self.record_out_core(tensor,extra_data)
-            except:
-                pass
+                getattr(self,f'record_{aname}_core')(tensor,extra_data)
+            except: pass
+
 
 
     def record_model_inner(self,mt,dname='weight'):
@@ -273,7 +263,7 @@ class torchEmber(object):
             input_dt.update(kwargs)
             mt.input_dt = io_cleaner(**input_dt)
 
-            self.record_input(mt)
+            self.record_io(mt,pname='input')
             self.current_mt = mt
             if mt.root_module: self.mt_log=[]
             self.mt_log.append(f"enter {mt.name}")
@@ -286,14 +276,14 @@ class torchEmber(object):
             if is_tensor(outputs):
                 output_dt = {"output":outputs}
             elif type(outputs) in [list,tuple,set]:
-                output_dt = dict(enumerate(outputs))
+                output_dt = dict((f"out_{k}",v) for k,v in enumerate(outputs))
             elif type(outputs) == dict:
                 output_dt = outputs
             else:
                 output_dt = dict()
             mt.output_dt = io_cleaner(**output_dt)
 
-            self.record_output(mt)
+            self.record_io(mt,pname='output')
 
             if mt.root_module:
                 self.t.refresh() # start a new "latest" file

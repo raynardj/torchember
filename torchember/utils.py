@@ -92,8 +92,7 @@ def clean_kv(k,v):
             for vk,vv in v.items():
                 rt.update(clean_kv(f"{k}.{vk}",vv))
             return rt
-
-        if type(v) in [list,tuple,set]:
+        elif type(v) in [list,tuple,set]:
             for i in range(len(v)):
                 vv = v[i]
                 rt.update(clean_kv(f"{k}.tsr{i}",vv))
