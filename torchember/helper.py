@@ -5,6 +5,7 @@ __all__ = ['color', 'tint', 'tracker', 'emberTracker']
 # Cell
 
 from types import MethodType
+
 class color:
    PURPLE = '\033[95m'
    CYAN = '\033[96m'
@@ -41,6 +42,8 @@ import json
 import pandas as pd
 from datetime import datetime
 import torch
+import numpy as np
+from torch.utils.tensorboard import SummaryWriter
 
 class tracker(object):
     def __init__(self, libname, fname):
@@ -52,11 +55,10 @@ class tracker(object):
         self.data = self.dir/"data"
         self.data.mkdir(exist_ok = True)
         self.log = self.dir/"log"
+
         self.log.mkdir(exist_ok = True)
         self.log_path = self.log/self.fname
         self.log_path.mkdir(exist_ok=True)
-        self.marked = {}
-        self.mark(init="00")
 
     def __repr__(self):
         return f"<{self.libname}:{self.fname}>"
@@ -78,11 +80,6 @@ class tracker(object):
         with open(self.log_file,"a") as f :f.write(line+"\n")
         return self.log_file
 
-    def mark(self,**kwargs):
-        self.marked.update(kwargs)
-        file_name = "_".join(f"{k}-{v}" for k,v in self.marked.items())
-        self.log_file = self.log_path/f"{file_name}.log"
-
     def __call__(self,dict_):
         """
         add a dictionary to log
@@ -102,10 +99,40 @@ class emberTracker(tracker):
         super().__init__("torchember",fname)
         self.latest = self.log/f"{fname}_latest"
         self.latest_lines = ""
+        self.writer = SummaryWriter(str(self.log/"runs"),max_queue = 1)
+        self.marked = {}
+        self.mark(init="00")
+
+    def mark(self,**kwargs):
+        self.marked.update(kwargs)
+        file_name = "_".join(f"{k}-{v}" for k,v in self.marked.items())
+        self.log_file = self.log_path/f"{file_name}.log"
+        self.writer = SummaryWriter(str(self.log/"runs"/file_name),max_queue = 1)
 
     @property
     def log_files(self):
         return os.listdir(self.log_path)
+
+    def tb_scalar(self,dict_):
+        module = dict_["module"]
+        ttype = dict_["ttype"]
+        tname = dict_["tname"]
+        for col in ["module","ttype","tname"]:
+            del dict_[col]
+        for k in list(dict_):
+            if type(dict_[k]) not in [float,np.float]:
+                del dict_[k]
+        tag = f"{module}_{ttype}_{tname}"
+        self.writer.add_scalars(tag, dict_)
+        self.writer.flush()
+
+    def __call__(self,dict_):
+        """
+        add a dictionary to log
+        """
+#         self.logging(json.dumps(dict_))
+        self.tb_scalar(dict_)
+        return self
 
     def logging(self,line):
         with open(self.log_file,"a") as f : f.write(","+line)

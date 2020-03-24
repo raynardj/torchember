@@ -88,14 +88,6 @@ class torchEmber(object):
     def mark(self,**kwargs):
         self.t.mark(**kwargs)
 
-#     @property
-#     def level_weights(self):
-#         dic={}
-#         i=0
-#         for m in self.model.modules():
-#             dic.update({f'level_{i}_{m.__class__.__name__}':m.module_tracker.weights_owned})
-#             i+=1
-#         return dic
 
     def parse_module(self,model, name, root_module = False):
         name = f"{name}({model.__class__.__name__})"
