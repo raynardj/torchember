@@ -32,12 +32,14 @@ index = {"color": "01_helper.ipynb",
          "RichColumn": "20_why_hat.ipynb",
          "RichDF": "20_why_hat.ipynb",
          "TabularModel": "20_why_hat.ipynb",
-         "TabularNN": "20_why_hat.ipynb"}
+         "TabularNN": "20_why_hat.ipynb",
+         "EmberCallback": "50_extension_fastai.ipynb"}
 
 modules = ["helper.py",
            "utils.py",
            "core.py",
-           "whyhat.py"]
+           "whyhat.py",
+           "fastai.py"]
 
 doc_url = "https://raynardj.github.io/torchember/"
 

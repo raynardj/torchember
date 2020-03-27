@@ -4,6 +4,7 @@
     "Helper Function": "/helper",
     "Utilities": "/utils",
     "00 Torch Ember Core": "/torch_ember_core",
-    "10 Why Hat": "/why_hat"
+    "10 Why Hat": "/why_hat",
+    "TorchEmber fast.ai callback": "/extension_fastai"
   }
 }
