@@ -33,13 +33,17 @@ index = {"color": "01_helper.ipynb",
          "RichDF": "20_why_hat.ipynb",
          "TabularModel": "20_why_hat.ipynb",
          "TabularNN": "20_why_hat.ipynb",
-         "EmberCallback": "50_extension_fastai.ipynb"}
+         "EmberCallback": "50_extension_fastai.ipynb",
+         "scatter_cols": "60_interact.ipynb",
+         "html": "60_interact.ipynb",
+         "choose_data": "60_interact.ipynb"}
 
 modules = ["helper.py",
            "utils.py",
            "core.py",
            "whyhat.py",
-           "fastai.py"]
+           "fastai.py",
+           "visual.py"]
 
 doc_url = "https://raynardj.github.io/torchember/"
 

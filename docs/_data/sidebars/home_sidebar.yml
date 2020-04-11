@@ -24,6 +24,9 @@ entries:
     - output: web,pdf
       title: TorchEmber fast.ai callback
       url: /extension_fastai
+    - output: web,pdf
+      title: Title
+      url: /interact
     output: web
     title: torchember
   output: web
