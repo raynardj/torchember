@@ -10,6 +10,12 @@ import json
 from IPython.display import display,HTML
 import plotly.graph_objects as go
 
+try:
+    import google.colab
+    IN_COLAB = True
+except:
+    IN_COLAB = False
+
 # Cell
 def scatter_cols(module_df,cols = ["min","max","mean","max"]):
     """
@@ -30,7 +36,10 @@ def scatter_cols(module_df,cols = ["min","max","mean","max"]):
                      yaxis_title = "Value",
                       xaxis_title = "Time",
                      )
-    fig.show()
+    if IN_COLAB:
+        fig.show(renderer="colab")
+    else:
+        fig.show()
 
 
 # Cell
@@ -91,6 +100,7 @@ class VisualByTensor(Visualize):
         self.choose_plot = choose_plot
 
 # Cell
+import numpy as np
 def moving_track(x):
     return np.mean(abs(x))
 

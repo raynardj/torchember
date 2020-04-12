@@ -38,7 +38,7 @@ summary: "Jupyter compatible analysis frontend"
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="scatter_cols" class="doc_header"><code>scatter_cols</code><a href="https://github.com/raynardj/torchember/tree/master/torchember/visual.py#L14" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>scatter_cols</code>(<strong><code>module_df</code></strong>, <strong><code>cols</code></strong>=<em><code>['min', 'max', 'mean', 'max']</code></em>)</p>
+<h4 id="scatter_cols" class="doc_header"><code>scatter_cols</code><a href="https://github.com/raynardj/torchember/tree/master/torchember/visual.py#L20" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>scatter_cols</code>(<strong><code>module_df</code></strong>, <strong><code>cols</code></strong>=<em><code>['min', 'max', 'mean', 'max']</code></em>)</p>
 </blockquote>
 <p>scatter plot the columns d</p>
 
@@ -198,21 +198,6 @@ if (outputEl) {{
 </div>
 </div>
 
-<div class="output_wrapper">
-<div class="output">
-
-<div class="output_area">
-
-
-<div class="output_html rendered_html output_subarea ">
-<h2>Choose from task names</h2>
-</div>
-
-</div>
-
-</div>
-</div>
-
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -241,7 +226,7 @@ if (outputEl) {{
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="html" class="doc_header"><code>html</code><a href="https://github.com/raynardj/torchember/tree/master/torchember/visual.py#L37" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>html</code>(<strong><code>x</code></strong>)</p>
+<h4 id="html" class="doc_header"><code>html</code><a href="https://github.com/raynardj/torchember/tree/master/torchember/visual.py#L46" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>html</code>(<strong><code>x</code></strong>)</p>
 </blockquote>
 
 </div>
@@ -261,7 +246,7 @@ if (outputEl) {{
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h2 id="Visualize" class="doc_header"><code>class</code> <code>Visualize</code><a href="https://github.com/raynardj/torchember/tree/master/torchember/visual.py#L40" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>Visualize</code>()</p>
+<h2 id="Visualize" class="doc_header"><code>class</code> <code>Visualize</code><a href="https://github.com/raynardj/torchember/tree/master/torchember/visual.py#L49" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>Visualize</code>()</p>
 </blockquote>
 
 </div>
@@ -281,7 +266,7 @@ if (outputEl) {{
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h2 id="VisualByTensor" class="doc_header"><code>class</code> <code>VisualByTensor</code><a href="https://github.com/raynardj/torchember/tree/master/torchember/visual.py#L58" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>VisualByTensor</code>() :: <a href="/torchember/interact#Visualize"><code>Visualize</code></a></p>
+<h2 id="VisualByTensor" class="doc_header"><code>class</code> <code>VisualByTensor</code><a href="https://github.com/raynardj/torchember/tree/master/torchember/visual.py#L67" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>VisualByTensor</code>() :: <a href="/torchember/interact#Visualize"><code>Visualize</code></a></p>
 </blockquote>
 
 </div>
@@ -370,72 +355,72 @@ if (outputEl) {{
   </thead>
   <tbody>
     <tr>
-      <th>169164</th>
-      <td>[16, 64, 3, 3]</td>
-      <td>0.819615</td>
-      <td>0.843879</td>
-      <td>6.169227</td>
-      <td>-0.024417</td>
+      <th>7639</th>
+      <td>[16, 1, 28, 28]</td>
+      <td>-0.758428</td>
+      <td>0.597844</td>
+      <td>1.000000</td>
+      <td>-1.000000</td>
       <td>0</td>
-      <td>0.000000</td>
+      <td>0.0</td>
       <td>model(tinyVGG).features(Sequential)</td>
-      <td>2020-04-11 15:23:16</td>
-      <td>output_dt</td>
-      <td>output</td>
-    </tr>
-    <tr>
-      <th>32768</th>
-      <td>[16]</td>
-      <td>1.000030</td>
-      <td>0.007097</td>
-      <td>1.020213</td>
-      <td>0.988215</td>
-      <td>0</td>
-      <td>0.000000</td>
-      <td>model(tinyVGG).features(Sequential).0(vggBlock...</td>
-      <td>2020-04-11 15:20:48</td>
-      <td>weight</td>
-      <td>weight_0</td>
-    </tr>
-    <tr>
-      <th>46445</th>
-      <td>[32]</td>
-      <td>0.000741</td>
-      <td>0.011984</td>
-      <td>0.024205</td>
-      <td>-0.019127</td>
-      <td>0</td>
-      <td>0.000000</td>
-      <td>model(tinyVGG).features(Sequential).1(vggBlock...</td>
-      <td>2020-04-11 15:21:02</td>
-      <td>weight</td>
-      <td>weight_1</td>
-    </tr>
-    <tr>
-      <th>199958</th>
-      <td>[16, 32, 14, 14]</td>
-      <td>-0.206816</td>
-      <td>0.708087</td>
-      <td>4.319022</td>
-      <td>-3.673861</td>
-      <td>0</td>
-      <td>0.000000</td>
-      <td>model(tinyVGG).features(Sequential).1(vggBlock...</td>
-      <td>2020-04-11 15:23:50</td>
+      <td>2020-04-11 15:20:20</td>
       <td>input_dt</td>
       <td>input</td>
     </tr>
     <tr>
-      <th>193157</th>
-      <td>[16, 256]</td>
-      <td>0.401141</td>
-      <td>0.616993</td>
-      <td>3.168123</td>
-      <td>0.000000</td>
-      <td>2354</td>
-      <td>0.574707</td>
-      <td>model(tinyVGG).fcb(Sequential).2(ReLU)</td>
-      <td>2020-04-11 15:23:42</td>
+      <th>184167</th>
+      <td>[16, 64, 7, 7]</td>
+      <td>0.374718</td>
+      <td>0.593957</td>
+      <td>5.783078</td>
+      <td>-0.043680</td>
+      <td>0</td>
+      <td>0.0</td>
+      <td>model(tinyVGG).features(Sequential).2(vggBlock...</td>
+      <td>2020-04-11 15:23:33</td>
+      <td>output_dt</td>
+      <td>output</td>
+    </tr>
+    <tr>
+      <th>65874</th>
+      <td>[32]</td>
+      <td>1.000487</td>
+      <td>0.011491</td>
+      <td>1.032396</td>
+      <td>0.976428</td>
+      <td>0</td>
+      <td>0.0</td>
+      <td>model(tinyVGG).features(Sequential).1(vggBlock...</td>
+      <td>2020-04-11 15:21:24</td>
+      <td>weight</td>
+      <td>weight_0</td>
+    </tr>
+    <tr>
+      <th>138498</th>
+      <td>[16]</td>
+      <td>1.001460</td>
+      <td>0.016390</td>
+      <td>1.033255</td>
+      <td>0.973209</td>
+      <td>0</td>
+      <td>0.0</td>
+      <td>model(tinyVGG).features(Sequential).0(vggBlock...</td>
+      <td>2020-04-11 15:22:43</td>
+      <td>weight</td>
+      <td>weight_0</td>
+    </tr>
+    <tr>
+      <th>64223</th>
+      <td>[16, 32, 7, 7]</td>
+      <td>0.734469</td>
+      <td>0.877743</td>
+      <td>5.988428</td>
+      <td>-0.032504</td>
+      <td>0</td>
+      <td>0.0</td>
+      <td>model(tinyVGG).features(Sequential).1(vggBlock)</td>
+      <td>2020-04-11 15:21:22</td>
       <td>output_dt</td>
       <td>output</td>
     </tr>
@@ -502,74 +487,74 @@ if (outputEl) {{
   </thead>
   <tbody>
     <tr>
-      <th>66566</th>
-      <td>[16, 1, 3, 3]</td>
-      <td>6.638774e-03</td>
-      <td>2.471338e-02</td>
-      <td>1.447885e-01</td>
-      <td>-3.399264e-02</td>
-      <td>0</td>
-      <td>0.0</td>
-      <td>model(tinyVGG).features(Sequential).0(vggBlock...</td>
-      <td>2020-04-11 15:21:25</td>
-      <td>grad</td>
-      <td>grad_0</td>
-    </tr>
-    <tr>
-      <th>82513</th>
+      <th>184755</th>
       <td>[16]</td>
-      <td>-1.238978e-08</td>
-      <td>5.706841e-08</td>
-      <td>6.137452e-08</td>
-      <td>-1.450940e-07</td>
+      <td>1.506323e-08</td>
+      <td>6.332657e-08</td>
+      <td>1.731129e-07</td>
+      <td>-6.881578e-08</td>
       <td>0</td>
       <td>0.0</td>
       <td>model(tinyVGG).features(Sequential).0(vggBlock...</td>
-      <td>2020-04-11 15:21:42</td>
+      <td>2020-04-11 15:23:34</td>
       <td>grad</td>
       <td>grad_1</td>
     </tr>
     <tr>
-      <th>188775</th>
-      <td>[16]</td>
-      <td>-1.384394e-09</td>
-      <td>5.088204e-08</td>
-      <td>8.774759e-08</td>
-      <td>-1.541121e-07</td>
+      <th>135174</th>
+      <td>[16, 1, 3, 3]</td>
+      <td>1.588984e-03</td>
+      <td>1.243795e-02</td>
+      <td>5.053198e-02</td>
+      <td>-4.269192e-02</td>
       <td>0</td>
       <td>0.0</td>
       <td>model(tinyVGG).features(Sequential).0(vggBlock...</td>
-      <td>2020-04-11 15:23:38</td>
+      <td>2020-04-11 15:22:40</td>
+      <td>grad</td>
+      <td>grad_0</td>
+    </tr>
+    <tr>
+      <th>172427</th>
+      <td>[16]</td>
+      <td>-2.078094e-08</td>
+      <td>9.802497e-08</td>
+      <td>1.270103e-07</td>
+      <td>-2.401737e-07</td>
+      <td>0</td>
+      <td>0.0</td>
+      <td>model(tinyVGG).features(Sequential).0(vggBlock...</td>
+      <td>2020-04-11 15:23:20</td>
       <td>grad</td>
       <td>grad_1</td>
     </tr>
     <tr>
-      <th>7338</th>
-      <td>[16, 1, 3, 3]</td>
-      <td>-6.965970e-03</td>
-      <td>5.473364e-02</td>
-      <td>2.185708e-01</td>
-      <td>-1.482361e-01</td>
+      <th>190517</th>
+      <td>[16]</td>
+      <td>-1.672341e-08</td>
+      <td>6.363594e-08</td>
+      <td>9.251380e-08</td>
+      <td>-1.898906e-07</td>
       <td>0</td>
       <td>0.0</td>
       <td>model(tinyVGG).features(Sequential).0(vggBlock...</td>
-      <td>2020-04-11 15:20:19</td>
+      <td>2020-04-11 15:23:40</td>
       <td>grad</td>
-      <td>grad_0</td>
+      <td>grad_1</td>
     </tr>
     <tr>
-      <th>52630</th>
-      <td>[16, 1, 3, 3]</td>
-      <td>4.181406e-03</td>
-      <td>2.578446e-02</td>
-      <td>8.739539e-02</td>
-      <td>-1.050050e-01</td>
+      <th>78225</th>
+      <td>[16]</td>
+      <td>2.106129e-08</td>
+      <td>7.647554e-08</td>
+      <td>2.350316e-07</td>
+      <td>-8.473319e-08</td>
       <td>0</td>
       <td>0.0</td>
       <td>model(tinyVGG).features(Sequential).0(vggBlock...</td>
-      <td>2020-04-11 15:21:09</td>
+      <td>2020-04-11 15:21:38</td>
       <td>grad</td>
-      <td>grad_0</td>
+      <td>grad_1</td>
     </tr>
   </tbody>
 </table>
@@ -600,7 +585,7 @@ if (outputEl) {{
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="moving_track" class="doc_header"><code>moving_track</code><a href="https://github.com/raynardj/torchember/tree/master/torchember/visual.py#L94" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>moving_track</code>(<strong><code>x</code></strong>)</p>
+<h4 id="moving_track" class="doc_header"><code>moving_track</code><a href="https://github.com/raynardj/torchember/tree/master/torchember/visual.py#L104" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>moving_track</code>(<strong><code>x</code></strong>)</p>
 </blockquote>
 
 </div>
@@ -620,7 +605,7 @@ if (outputEl) {{
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="clean_module_name" class="doc_header"><code>clean_module_name</code><a href="https://github.com/raynardj/torchember/tree/master/torchember/visual.py#L97" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>clean_module_name</code>(<strong><code>x</code></strong>)</p>
+<h4 id="clean_module_name" class="doc_header"><code>clean_module_name</code><a href="https://github.com/raynardj/torchember/tree/master/torchember/visual.py#L107" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>clean_module_name</code>(<strong><code>x</code></strong>)</p>
 </blockquote>
 
 </div>
@@ -640,7 +625,7 @@ if (outputEl) {{
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h2 id="VisualMovement" class="doc_header"><code>class</code> <code>VisualMovement</code><a href="https://github.com/raynardj/torchember/tree/master/torchember/visual.py#L104" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>VisualMovement</code>() :: <a href="/torchember/interact#Visualize"><code>Visualize</code></a></p>
+<h2 id="VisualMovement" class="doc_header"><code>class</code> <code>VisualMovement</code><a href="https://github.com/raynardj/torchember/tree/master/torchember/visual.py#L114" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>VisualMovement</code>() :: <a href="/torchember/interact#Visualize"><code>Visualize</code></a></p>
 </blockquote>
 
 </div>
