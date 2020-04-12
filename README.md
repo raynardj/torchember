@@ -28,7 +28,9 @@
 * Full [documentations](https://raynardj.github.io/torchember/)
 
 ### WebUI intro Video
-[![WebUI intro video here](001.png)](https://www.youtube.com/watch?v=2NbXDqcZKPY)
+* [video here](https://www.youtube.com/watch?v=2NbXDqcZKPY)
+
+![WebUI intro pic](nbs/001.png)
 
 ### Step1, Track your model
 
