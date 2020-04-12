@@ -25,7 +25,7 @@ entries:
       title: TorchEmber fast.ai callback
       url: /extension_fastai
     - output: web,pdf
-      title: Title
+      title: Interact API for data analysis
       url: /interact
     output: web
     title: torchember

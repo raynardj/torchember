@@ -36,7 +36,11 @@ index = {"color": "01_helper.ipynb",
          "EmberCallback": "50_extension_fastai.ipynb",
          "scatter_cols": "60_interact.ipynb",
          "html": "60_interact.ipynb",
-         "choose_data": "60_interact.ipynb"}
+         "Visualize": "60_interact.ipynb",
+         "VisualByTensor": "60_interact.ipynb",
+         "moving_track": "60_interact.ipynb",
+         "clean_module_name": "60_interact.ipynb",
+         "VisualMovement": "60_interact.ipynb"}
 
 modules = ["helper.py",
            "utils.py",
