@@ -33,8 +33,8 @@ summary: "Tracking and visualize after the burning pytorch"
 </ul>
 </li>
 <li>By <strong>minimal</strong> extra coding</li>
+<li>Besides WebUI, Visualization compatible with <strong>notebook</strong> environment</li>
 </ul>
-<p><img src="/torchember/001.png" alt="WebUI"></p>
 <h2 id="Other-lovely-features">Other lovely features<a class="anchor-link" href="#Other-lovely-features">&#182;</a></h2><ul>
 <li>Customizable metrics, with easy decorator syntax</li>
 <li>Split the tracking log in the way you like, just <code>mark(k=v,k1=v2...)</code></li>
@@ -64,11 +64,12 @@ summary: "Tracking and visualize after the burning pytorch"
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <ul>
-<li><p><strong>30 seconds</strong> <a href="https://github.com/raynardj/torchember/blob/master/nb_test/test_cnn.ipynb">tutorial</a></p>
+<li><p>Instant colab tutorial here: <a href="https://colab.research.google.com/github/raynardj/torchember/blob/master/nb_test/torchember_instant_tutorial.ipynb" target="_parent"><img src="https://camo.githubusercontent.com/52feade06f2fecbf006889a904d221e6a730c194/68747470733a2f2f636f6c61622e72657365617263682e676f6f676c652e636f6d2f6173736574732f636f6c61622d62616467652e737667" alt="Open In Colab" data-canonical-src="https://colab.research.google.com/assets/colab-badge.svg"></a></p>
 </li>
 <li><p>Full <a href="https://raynardj.github.io/torchember/">documentations</a></p>
 </li>
 </ul>
+<h3 id="WebUI-intro-Video">WebUI intro Video<a class="anchor-link" href="#WebUI-intro-Video">&#182;</a></h3><p><a href="https://www.youtube.com/watch?v=2NbXDqcZKPY"><img src="001.png" alt="WebUI intro video here"></a></p>
 
 </div>
 </div>
@@ -124,7 +125,24 @@ summary: "Tracking and visualize after the burning pytorch"
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Step2,-Check-the-analysis-on-the-WebUI">Step2, Check the analysis on the WebUI<a class="anchor-link" href="#Step2,-Check-the-analysis-on-the-WebUI">&#182;</a></h3>
+<h3 id="Step2-Plan-A,-visualize-in-notebook">Step2 Plan A, visualize in notebook<a class="anchor-link" href="#Step2-Plan-A,-visualize-in-notebook">&#182;</a></h3><p>For colab, kaggle kernels, there isn't an option to run another service, you can visualize the result in notebook.</p>
+<p>Of course the following is feasible in usual jupyter notebook.</p>
+<div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">torchember.visual</span> <span class="kn">import</span> <span class="n">VisualByTensor</span>
+
+<span class="n">vis</span> <span class="o">=</span> <span class="n">VisualByTensor</span><span class="p">()</span>
+</pre></div>
+<ul>
+<li>This extra line of code is for colab<div class="highlight"><pre><span></span><span class="n">vis</span><span class="o">.</span><span class="n">scatter_plot</span><span class="p">(</span><span class="n">vis</span><span class="o">.</span><span class="n">ember_sub_df</span><span class="p">)</span>
+</pre></div>
+</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Step2-Plan-B,-Check-the-analysis-on-the-WebUI">Step2 Plan B, Check the analysis on the WebUI<a class="anchor-link" href="#Step2-Plan-B,-Check-the-analysis-on-the-WebUI">&#182;</a></h3>
 </div>
 </div>
 </div>
