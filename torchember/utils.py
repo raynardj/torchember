@@ -14,7 +14,7 @@ import numpy as np
 HOME = Path(os.environ["HOME"])
 EMBER = HOME/".torchember"
 DATA = EMBER/"data"
-LOG = EMBER/"LOG"
+LOG = EMBER/"log"
 def check_existance():
     if DATA.exists()==False:
         return False
