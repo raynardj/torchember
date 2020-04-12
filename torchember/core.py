@@ -79,8 +79,7 @@ class torchEmber(object):
 
         if self.verbose:
             color.green|f"[INFO][{self.ts_str}]Creating meta data"
-        self.t[f"base_{fname}"]={"start":self.t.ts,
-                                 "user":os.environ["USER"]}
+        self.t[f"base_{fname}"]={"start":self.t.ts, }
         self.t[f"vis_{fname}"] = {"vis_type":"standard"}
         self.t[f"structure_{fname}"] = self.mod_tree()
 
