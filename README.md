@@ -2,6 +2,7 @@
 > Tracking and visualize after the burning pytorch
 
 
+![logo](nbs/logo1.png)
 ## This framework tracks the pytorch model:
 
 * On ```nn.Module``` level
@@ -25,7 +26,7 @@
 
 * Instant colab tutorial here: <a href="https://colab.research.google.com/github/raynardj/torchember/blob/master/nb_test/torchember_instant_tutorial.ipynb" target="_parent"><img src="https://camo.githubusercontent.com/52feade06f2fecbf006889a904d221e6a730c194/68747470733a2f2f636f6c61622e72657365617263682e676f6f676c652e636f6d2f6173736574732f636f6c61622d62616467652e737667" alt="Example In Colab" data-canonical-src="https://colab.research.google.com/assets/colab-badge.svg"></a>
 
-![](nbs/002.png)
+![Jupyter notebooks widget pic](nbs/002.png)
 
 * Full [documentations](https://raynardj.github.io/torchember/)
 
